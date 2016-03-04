@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Mook</title>
+	<meta charset="utf-8">
+	<link href="css/default.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<meta name="viewport" content="width=960">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon-precomposed" href="/favicon.png">
+</head>
+
+<body>
+
+	<header class="header center clr">
+
+		<a href="/" class="header__logo pull-left"><b>GUBKIN</b> <span>онлайн-курсы</span></a>
+
+		<a class="header__btn-reg btn pull-right" href="registration.html">Регистрация</a>
+
+		<nav class="pull-right">
+
+			<ul class="header__menu">
+				<li><a href=".html">Курсы</a></li>
+				<li><a href=".html">О проекте</a></li>
+				<li><a href=".html">Контакты</a></li>
+				<li class="header__menu-login"><a href="login.html"><i class="ico ico--login"></i>Войти</a></li>
+			</ul>
+
+		</nav>
+
+	</header>

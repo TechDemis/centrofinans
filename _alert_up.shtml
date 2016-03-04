@@ -1,0 +1,12 @@
+	<div class="alert_up alert_up--hide">
+
+		<div class="alert_up__window alert_up__window--login">
+			<div class="alert_up__form">
+				<form>
+					
+				</form>
+			</div>
+			<a class="alert_up__close ico ico--close"></a>
+		</div>
+
+	</div>

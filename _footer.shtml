@@ -1,0 +1,32 @@
+	<footer class="footer center clr">
+
+		<p class="copyright pull-left">© 2016, Все права защищены</p>
+
+		<nav class="pull-left">
+
+			<ul class="footer__menu">
+				<li><a href="/">Главная</a></li>
+				<li><a href=".html">О проекте</a></li>
+				<li><a href=".html">Контакты</a></li>
+			</ul>
+
+		</nav>
+
+		<ul class="footer-social pull-right">
+			<li><a class="footer-social__btn footer-social__btn--facebook" href="http://facebook.com" target="_blank" rel="nofollow"></a></li>
+			<li><a class="footer-social__btn footer-social__btn--vk" href="http://vk.com" target="_blank" rel="nofollow"></a></li>
+			<li><a class="footer-social__btn footer-social__btn--twitter" href="http://twitter.com" target="_blank" rel="nofollow"></a></li>
+			<li><a class="footer-social__btn footer-social__btn--vimeo" href="http://vimeo.com" target="_blank" rel="nofollow"></a></li>
+			<li><a class="footer-social__btn footer-social__btn--instagram" href="http://instagram.com" target="_blank" rel="nofollow"></a></li>
+		</ul>
+
+	</footer>
+
+<!--#include file="_alert_up.shtml"-->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+	<script src="js/js.js"></script>
+
+</body>
+</html>

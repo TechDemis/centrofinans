@@ -1,0 +1,323 @@
+body {
+//	background: url(1.png) center 0;
+}
+
+/* header
+-----------------------------------------------------------------------------*/
+.header {
+	padding: 18px 8px 16px;
+}
+.header__logo:before {
+	width: 55px;
+	height: 55px;
+	float: left;
+	margin-right: 8px;
+	content: "";
+	background: url(../images/sprite.svg) -28px -18px;
+}
+.header__logo b{
+	letter-spacing: 1px;
+	font:25px/30px 'HelveticaNeueBold';
+	position: relative;
+	top: 8px;
+	text-transform: uppercase;
+}
+.header__logo span{
+	display: block;
+	opacity: .6;
+	position: relative;
+	top: 4px;
+	left: 1px;
+	font: 12px/14px 'HelveticaNeue';
+	letter-spacing: 0.5px;
+}
+.header__btn-reg {
+	background: #66cbec;
+	margin: 5px 1px 0 10px;
+}
+.header__menu li {
+	float: left;
+	padding: 16px 12px;
+}
+.header__menu .header__menu-login {
+	padding-left: 50px;
+}
+.header__menu-login:before {
+	width: 2px;
+	height: 24px;
+	opacity: 0.5;
+	background: #979797;
+	position: absolute;
+	top: 18px;
+	left: 7px;
+	content: '';
+}
+.header__menu-login .ico {
+	left: 21px;
+	top: 17px;
+}
+.header__menu a {
+	font: 14px/24px 'HelveticaNeue';
+}
+
+/* home_after-header
+-----------------------------------------------------------------------------*/
+.home_after-header {
+	height: 590px;
+	color: #fff;
+	text-align: center;
+}
+.home_after-header h1{
+	padding-top: 180px;
+	font:36px/62px 'HelveticaNeueBold';
+}
+.home_after-header p{
+	font: 28px/35px 'HelveticaNeue';
+}
+.home_after-header .btn{
+	width: 160px;
+	height: 50px;
+	margin-top: 40px;
+	line-height: 50px;
+	border-radius: 100px;
+}
+
+/* wooks
+-----------------------------------------------------------------------------*/
+.wooks {
+	padding: 70px 10px 76px;
+}
+.wooks__title{
+	text-align: center;
+	font: 28px/44px 'HelveticaNeue';
+}
+.wooks__desc{
+	opacity: .8;
+	text-align: center;
+	font:20px/24px 'HelveticaNeueLight';
+}
+.wooks__item{
+	float: left;
+	width: 300px;
+	margin-top: 55px;
+	margin-left: 20px;
+}
+.wooks__item--first{
+	margin-left: 0;
+	clear: both;
+}
+.wooks__item--last{
+	margin-left: 0;
+	float: right;
+}
+.wooks__img{
+	display: block;
+	width: 300px;
+	height: 200px;
+	border-radius: 6px;
+	background-color: rgba(59, 61, 77, 0.5);
+}
+.wooks__p{
+	padding: 22px 0;
+	text-align: center;
+	min-height: 120px;
+	font:15px/22px 'HelveticaNeueMedium';
+}
+.wooks__read{
+	width: 160px;
+	height: 50px;
+	display: block;
+	margin: auto;
+}
+
+/* info-step-block
+-----------------------------------------------------------------------------*/
+.info-step-block {
+	border-top: 1px solid #e2e2e4;
+	padding: 68px 0 78px;
+}
+.info-step-block li:before {
+	width: 130px;
+	height: 130px;
+	display: block;
+	margin: 8px auto 16px;
+	content: '';
+	background: url(../images/sprite.svg) -25px -126px
+}
+.info-step-block li:nth-child(2):before {
+	background-position: -214px -126px
+}
+.info-step-block li:nth-child(3):before {
+	background-position: -403px -126px
+}
+.info-step-block li {
+	width: 33.3333%;
+	text-align: center;
+	float: left;
+	font: 15px/23px 'HelveticaNeue';
+}
+
+/* home_block-reg
+-----------------------------------------------------------------------------*/
+.home_block-reg {
+	padding-top: 160px;
+	height: 500px;
+	text-align: center;
+	color: #fff
+}
+.home_block-reg h2{
+	font:36px/42px 'HelveticaNeueMedium';
+}
+.home_block-reg p{
+	font: 15px/20px 'HelveticaNeue';
+	padding: 14px 0;
+}
+.home_block-reg .btn{
+	width: 160px;
+	display: block;
+	border-radius: 22px;
+	margin: 22px auto;
+}
+
+/* page-form
+-----------------------------------------------------------------------------*/
+.page-form {
+	width: 300px;
+	margin: auto;
+	padding: 36px 0;
+}
+.page-form h1{
+	color: #fff;
+	text-align: center;
+	font: 24px/28px 'HelveticaNeue';
+	padding: 24px 0 24px;
+}
+.page-form p{
+	color: #fff;
+	font: 12px/18px 'HelveticaNeue';
+	text-align: center;
+}
+.page-form p a{
+	color: #3694eb;
+	text-decoration: underline;
+}
+.page-form .btn{
+	display: block;
+	font: 700 16px/50px 'Roboto', sans-serif;
+	height: 50px;
+	margin-bottom: 30px;
+}
+.page-form .input,
+.input-box {
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+	margin-bottom: 20px;
+	border-radius: 4px;
+}
+.input-box .input{
+	height: 51px;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	box-shadow: none;
+	margin-bottom: 0;
+	border-radius: 0;
+}
+.input-box .input:first-child{
+	border-radius: 4px 4px 0 0;
+}
+.input-box .input:last-child{
+	border-bottom: 0;
+	height: 50px;
+	border-radius: 0 0 4px 4px;
+}
+
+/* footer
+-----------------------------------------------------------------------------*/
+.footer {
+	padding: 34px 0;
+}
+.copyright {
+	font: 14px/34px 'HelveticaNeue';
+	padding-left: 12px;
+}
+.footer__menu li {
+	float: left;
+	opacity: .6;
+	padding-left: 38px;
+}
+.footer__menu li:before {
+	position: absolute;
+	width: 3px;
+	height: 3px;
+	top: 16px;
+	left: 18px;
+	border-radius: 50%;
+	content: '';
+	background: #3b3d4d;
+}
+.footer__menu a {
+	font: 14px/34px 'HelveticaNeue';
+}
+.footer-social{
+	padding:1px;
+}
+.footer-social li {
+	float: left;
+	padding-right: 5px;
+}
+.footer-social__btn {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background: url(../images/sprite.svg);
+}
+.footer-social__btn--facebook {
+	background-position: -28px -339px
+}
+.footer-social__btn--twitter {
+	background-position: -101px -339px
+}
+.footer-social__btn--instagram {
+	background-position: -174px -339px
+}
+.footer-social__btn--vimeo {
+	background-position: -138px -339px
+}
+.footer-social__btn--vk {
+	background-position: -64px -339px
+}
+
+
+
+
+/* alert
+-----------------------------------------------------------------------------*/
+.alert_up {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 11;
+	height: 100%;
+}
+.alert_up--bg {
+	background: rgba(17,14,14,.8);
+}
+.alert_up--hide {
+	height: 0;
+	overflow: hidden;
+}
+.alert_up__window {
+	position:absolute;
+	width: 500px;
+	padding: 20px;
+	top: -9999px;
+	background: #fff;
+	border: 1px solid #deded9;
+}
+
+.alert_up__input-box {
+	background: #fff;
+	position: relative;
+}
+.alert_up__label {
+	font: 18px/24px 'Lato Semibold';
+}
