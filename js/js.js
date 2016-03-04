@@ -35,6 +35,33 @@ http://htmlpluscss.ru
 
 	$window.trigger('resize').trigger('scroll');
 
+	// svg circle
+	$('.circle__result').each(function(){
+		var p = $(this);
+		var c = p.closest('.circle').find('.circle__stroke');
+		var max = parseInt(p.attr('data-end'));
+		var pi2r = parseInt(c.attr('r')) * 2 * Math.PI;
+		var ok = parseInt(p.attr('data-ok'));
+		var count = 0;
+		var idTimer = setInterval(function(){
+			if(count == max) {
+				clearInterval(idTimer);
+			}
+			p.text(count++);
+			c.attr('stroke-dasharray', pi2r / 100 * count + ' ' + pi2r);
+			if(count > ok) {
+				c.attr('stroke',p.attr('data-color'));
+			}
+		},2000/max);
+	});
+
+	// account
+	$('.account-settings-show').on('click',function(){
+		$('.account-settings').slideDown();
+	});
+	$('.account-settings-hide').on('click',function(){
+		$('.account-settings').slideUp();
+	});
 
 	$.fn.alertUp = function(){
 

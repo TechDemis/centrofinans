@@ -158,8 +158,29 @@ textarea.input {
 .ico--login{
 	background-position: -130px -72px;
 }
-.ico--exid{
+.ico--exit {
 	background-position: -130px -34px;
+}
+.ico--close {
+	left: auto;
+	top: 22px;
+	right: 20px;
+	background-position: -130px -34px;
+}
+.ico--mail {
+	height: 12px;
+	width: 18px;
+	background-position: -726px -398px
+}
+.ico--lock {
+	height: 20px;
+	width: 18px;
+	background-position: -726px -420px
+}
+.ico--edit-data {
+	width: 30px;
+	height: 32px;
+	background-position: -805px -400px
 }
 
 /* table

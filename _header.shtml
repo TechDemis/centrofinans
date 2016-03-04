@@ -16,7 +16,11 @@
 
 		<a href="/" class="header__logo pull-left"><b>GUBKIN</b> <span>онлайн-курсы</span></a>
 
+<!--#if expr="$DOCUMENT_URI = '/account.html'" -->
+		<a class="header__exit ico ico--exit pull-right"></a>
+<!--#else-->
 		<a class="header__btn-reg btn pull-right" href="registration.html">Регистрация</a>
+<!--#endif-->
 
 		<nav class="pull-right">
 
@@ -24,7 +28,11 @@
 				<li><a href=".html">Курсы</a></li>
 				<li><a href=".html">О проекте</a></li>
 				<li><a href=".html">Контакты</a></li>
+<!--#if expr="$DOCUMENT_URI = '/account.html'" -->
+				<li class="header__menu-name-user"><a href="account.html">Ткаченко В.</a></li>
+<!--#else-->
 				<li class="header__menu-login"><a href="login.html"><i class="ico ico--login"></i>Войти</a></li>
+<!--#endif-->
 			</ul>
 
 		</nav>
