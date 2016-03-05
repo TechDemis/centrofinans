@@ -1,33 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic);
-@font-face {
-	font-family: 'HelveticaNeueLight';
-		src: url('../fonts/helveticaneuecyr-light-webfont-webfont.woff') format('woff'),
-			 url('../fonts/helveticaneuecyr-light-webfont-webfont.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'HelveticaNeue';
-	src: url('../fonts/helveticaneuecyr-roman-webfont-webfont.woff') format('woff'),
-		 url('../fonts/helveticaneuecyr-roman-webfont-webfont.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'HelveticaNeueMedium';
-		src: url('../fonts/helveticaneuecyr-medium-webfont-webfont.woff') format('woff'),
-			 url('../fonts/helveticaneuecyr-medium-webfont-webfont.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'HelveticaNeueBold';
-	src: url('../fonts/helveticaneuecyr-bold-webfont-webfont.woff') format('woff'),
-		 url('../fonts/helveticaneuecyr-bold-webfont-webfont.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=latin,cyrillic);
 * {
 	margin: 0;
 	padding: 0;
@@ -37,7 +8,7 @@
 }
 body {
 	color: #3b3d4d;
-	font: 14px/18px 'Helvetica Light', 'HelveticaNeueLight', 'Helvetica';
+	font: 14px/18px 'Roboto', sans-serif;
 	position: relative;
 	min-width: 960px;
 	background: #fff;
@@ -82,12 +53,12 @@ header, main, nav, section, article, aside, footer {
 
 .input {
 	vertical-align: middle;
-	padding: 0 28px;
+	padding: 16px 28px;
 	display: block;
 	border: 0;
 	width: 100%;
 	height: 50px;
-	font: 15px/50px 'Roboto', sans-serif;
+	font: 15px/18px 'Roboto', sans-serif;
 	position: relative;
 	-webkit-appearance: none;
 	color: #3b3d4d;
@@ -121,7 +92,7 @@ textarea.input {
 /* btn
 -----------------------------------------------------------------------------*/
 .btn {
-	font:14px/44px 'HelveticaNeueMedium';
+	font:500 14px/44px 'Roboto', sans-serif;
 	border-radius: 4px;
 	display:inline-block;
 	cursor: pointer;
@@ -135,11 +106,17 @@ textarea.input {
 .btn--blue {
 	background-color: #369bf8;
 }
+.btn--blue.btn--bb2 {
+	border-bottom: 2px solid #2280d5;
+}
 .btn--green {
 	background-color: #63c533;
 }
-.btn--bb2 {
-	border-bottom: 2px solid #2280d5;
+.btn--orange {
+	background-color: #f0ad4e;
+}
+.btn--orange.btn--bb2 {
+	border-bottom: 2px solid #cc903a;
 }
 
 /* ico
@@ -165,7 +142,7 @@ textarea.input {
 	left: auto;
 	top: 22px;
 	right: 20px;
-	background-position: -130px -34px;
+	background-position: -215px -497px;
 }
 .ico--mail {
 	height: 12px;
@@ -181,6 +158,21 @@ textarea.input {
 	width: 30px;
 	height: 32px;
 	background-position: -805px -400px
+}
+.ico--video {
+	background-position: -371px -47px;
+	height: 22px;
+	width: 34px;
+}
+.ico--test {
+	background-position: -325px -43px;
+	height: 30px;
+	width: 30px;
+}
+.ico--open {
+	background-position: -422px -45px;
+	height: 26px;
+	width: 30px;
 }
 
 /* table
@@ -237,8 +229,7 @@ select {
 	display: inline-block;
 	position: relative;
 	background: #fff;
-	color: #000;
-	font: 14px 'Helvetica';
+	font: 14px/18px 'Roboto', sans-serif;
 }
 .select__value{
 	cursor: pointer;
@@ -340,9 +331,7 @@ h1, h2, h3, h4, b {
 hr {
 	border: 0;
 	height: 1px;
-	background: #666;
-	margin:10px 0 18px;
-	opacity: .25
+	background: #e2e2e4
 }
 .hide {
 	display:none
@@ -408,8 +397,34 @@ hr {
 	display: -webkit-flex;
 	display: flex;
 }
+.flexbox--wrap {
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	-o-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.flexbox--center {
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+.flexbox--justify {
+	-webkit-box-pack:justify;
+	-moz-box-pack:justify;
+	-ms-flex-pack:justify;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+}
 .flexbox__ma {
 	margin: auto;
+}
+
+ol {
+	counter-reset: headings 0;
+}
+ol li:before {
+	counter-increment: headings 1;
+	content: counter(headings, decimal)'. ';
 }
 
 /* tabs
@@ -418,27 +433,18 @@ hr {
 	position: relative;
 }
 .tabs__nav {
-	float: left;
 	overflow: hidden;
 }
 .tabs__dt {
 	float: left;
 	cursor: pointer;
-	color: #fff;
-	font: 14px/24px 'Helvetica';
-	padding: 3px 45px;
-	background: #2e7169;
-	border-width: 4px 5px;
-	border-style: solid;
-	border-color: #2e7169;
-}
-.tabs--blue .tabs__dt{
-	background: rgb(33,87,209);
-	border-color: rgb(33,87,209);
+	font: 500 15px/22px 'Roboto', sans-serif;
+	height: 56px;
+	margin:0 28px 0 12px;
 }
 .tabs .tabs__dt--active {
-	color: #000;
-	background: #fff;
+	color: #369bf8;
+	border-bottom: 4px solid #369bf8;
 }
 .tabs__dd{
 	clear: left;
@@ -446,14 +452,19 @@ hr {
 	left: 0;
 	width: 0;
 	height: 0;
+	opacity: 0;
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
 }
+.tabs__dd--bg-gray {
+	background: #f2f2f6;
+}
 .tabs__dd--active{
-	z-index: 1;
+	opacity: 1;
 	width: auto;
 	height: auto;
+	z-index: inherit;
 	overflow: inherit;
 	position: relative;
 }

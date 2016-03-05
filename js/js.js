@@ -40,6 +40,9 @@ http://htmlpluscss.ru
 		var p = $(this);
 		var c = p.closest('.circle').find('.circle__stroke');
 		var max = parseInt(p.attr('data-end'));
+		if(max == 0) {
+			return;
+		}
 		var pi2r = parseInt(c.attr('r')) * 2 * Math.PI;
 		var ok = parseInt(p.attr('data-ok'));
 		var count = 0;
@@ -61,6 +64,11 @@ http://htmlpluscss.ru
 	});
 	$('.account-settings-hide').on('click',function(){
 		$('.account-settings').slideUp();
+	});
+
+// img-cover
+	$('.img-cover').each(function(){
+		$(this).css('background-image','url('+$(this).children('img').attr('src')+')');
 	});
 
 	$.fn.alertUp = function(){
@@ -165,16 +173,11 @@ http://htmlpluscss.ru
 			var dt = t.children('.tabs__dt');
 			var dd = t.children('.tabs__dd');
 			t.append(dd);
-			dt.wrapAll('<div class="tabs__nav notsel"></div>');
+			dt.wrapAll('<div class="tabs__nav center notsel"></div>');
 			dt.on('click',function(){
 				var t = $(this);
 				t.addClass('tabs__dt--active').siblings('.tabs__dt--active').removeClass('tabs__dt--active');
 				dd.removeClass('tabs__dd--active').eq(dt.index(t)).addClass('tabs__dd--active');
-				if(t.hasClass('tabs__dt--color'))
-					$('.tabs-color-change').css({
-						'color' : t.css('color'),
-						'background-color' : t.css('background-color')
-					});
 			});
 			dt.filter('.tabs__dt--active').length > 0 ? dt.filter('.tabs__dt--active').triggerHandler('click') : dt.first().triggerHandler('click');
 		}
