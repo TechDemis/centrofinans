@@ -1,10 +1,31 @@
 	<div class="alert_up alert_up--hide">
 
-		<div class="alert_up__window alert_up__window--login">
+		<div class="alert_up__window alert_up__window--recovery-send-mail">
 			<div class="alert_up__form">
-				<form>
-					
+				<p>Контрольная строка, а также ваши регистрационные данные были высланы <br>по E-Mail. Пожалуйста, дождитесь письма, так как контрольная строка <br> изменяется при каждом запросе.</p>
+			</div>
+			<a class="alert_up__close ico ico--close"></a>
+		</div>
+
+		<div class="alert_up__window alert_up__window--result-examination">
+			<div class="alert_up__form">
+				<form class="btn-alert_up" data-alert-up="finish-examination">
+					<h3>Завершить экзамен?</h3>
+					<p>Если вы нажмёте «завершить», вариант пересдачи будет недоступен. <br> Сертификат будет сформирован в течении 2 дней с итоговым <br> процентом баллов: <b class="alert_up__window--result-examination-procent"><span>75</span>%</b></p>
+					<hr>
+					<div class="align-center">
+						<a class="alert_up__close btn btn--blue btn--bb2">Я, передумал</a>
+						<label class="btn btn--orange btn--bb2">Завершить<input type="submit" class="hide"></label>
+					</div>
 				</form>
+			</div>
+			<a class="alert_up__close ico ico--close"></a>
+		</div>
+
+		<div class="alert_up__window alert_up__window--finish-examination">
+			<div class="alert_up__form">
+				<h3>Спасибо!</h3>
+				<p>Вы успешно завершили экзамен. Сертификат будет сформирован <br>в течении 2 дней на странице данного курса</p>
 			</div>
 			<a class="alert_up__close ico ico--close"></a>
 		</div>

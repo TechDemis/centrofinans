@@ -106,14 +106,23 @@ textarea.input {
 .btn--blue {
 	background-color: #369bf8;
 }
+.btn--blue:hover {
+	background-color: #2a82d3;
+}
 .btn--blue.btn--bb2 {
 	border-bottom: 2px solid #2280d5;
 }
 .btn--green {
 	background-color: #63c533;
 }
+.btn--green:hover {
+	background-color: #57b22b;;
+}
 .btn--orange {
 	background-color: #f0ad4e;
+}
+.btn--orange:hover {
+	background-color: #cb8f42;
 }
 .btn--orange.btn--bb2 {
 	border-bottom: 2px solid #cc903a;
@@ -143,6 +152,11 @@ textarea.input {
 	top: 22px;
 	right: 20px;
 	background-position: -215px -497px;
+}
+.alert_up .ico--close {
+	top: -22px;
+	right: -22px;
+	background-position: -158px -497px;
 }
 .ico--mail {
 	height: 12px;
@@ -292,8 +306,8 @@ select {
 
 .checkbox {
 	cursor: pointer;
-	color: #b3b3b3;
-	font: 14px/17px "Helvetica";
+	font-size: 15px;
+	line-height: 32px;
 	padding-left: 32px;
 	position: relative;
 	display: inline-block;
@@ -303,26 +317,19 @@ select {
 	z-index: -1;
 	position: absolute;
 }
-.checkbox:before{
-	position: absolute;
-	width: 18px;
-	height: 18px;
-	top: 4px;
-	left: 0;
-	background: #e3e3e3;
-	content: '';
-}
 .checkbox i {
-	width: 10px;
-	height: 10px;
+	width: 26px;
+	height: 26px;
 	position: absolute;
-	top: 8px;
-	left: 4px;
-	background: #3b615b;
-	opacity: 0
+	top: 4px;
+	left: -2px;
+	background: url(../images/sprite.svg) -640px -406px;
 }
 .checkbox input:checked ~ i {
-	opacity: 1
+	background-position:-640px -376px;
+}
+.checkbox:hover i {
+	background-position:-640px -436px;
 }
 
 h1, h2, h3, h4, b {
@@ -467,4 +474,46 @@ ol li:before {
 	z-index: inherit;
 	overflow: inherit;
 	position: relative;
+}
+
+/* alert
+-----------------------------------------------------------------------------*/
+.alert_up {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 11;
+	height: 100%;
+	background-color: rgba(59, 61, 77, 0.7);
+}
+.alert_up--hide {
+	height: 0;
+	overflow: hidden;
+}
+.alert_up__window {
+	width: 660px;
+	border-radius: 10px;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
+	position:absolute;
+	padding: 20px;
+	top: -9999px;
+	background: #fff;
+}
+.alert_up h3 {
+	text-align: center;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 28px;
+	padding: 20px 0;
+}
+.alert_up p{
+	text-align: center;
+	font-size: 15px;
+	line-height: 20px;
+	margin-bottom: 20px;
+	color: #999;
+}
+.alert_up hr {
+	margin: 20px;
 }

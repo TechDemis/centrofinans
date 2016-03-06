@@ -14,7 +14,7 @@
 
 	<header class="header center clr">
 
-		<a href="/" class="header__logo pull-left"><b>GUBKIN</b> <span>онлайн-курсы</span></a>
+		<a href="/" class="header__logo pull-left"><b>GUBKIN</b> <span>UNIVERSITY</span></a>
 
 <!--#if expr="$DOCUMENT_URI = '/account.html' || $DOCUMENT_URI = '/course.html'" -->
 		<a class="header__exit ico ico--exit pull-right"></a>
