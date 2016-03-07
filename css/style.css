@@ -926,6 +926,7 @@ body {
 
 /* alert
 -----------------------------------------------------------------------------*/
+.alert_up__window--recovery-end-send-mail .alert_up__form:before,
 .alert_up__window--recovery-send-mail .alert_up__form:before{
 	width: 64px;
 	height: 64px;
