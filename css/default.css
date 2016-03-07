@@ -128,6 +128,16 @@ textarea.input {
 	border-bottom: 2px solid #cc903a;
 }
 
+.btn--disabled {
+	opacity: .5;
+}
+.btn--disabled:hover {
+	cursor: default;
+}
+.btn--disabled.btn--blue:hover {
+	background-color: #369bf8;
+}
+
 /* ico
 -----------------------------------------------------------------------------*/
 .ico {
@@ -187,6 +197,45 @@ textarea.input {
 	height: 26px;
 	width: 30px;
 }
+.ico--play {
+	background-position: -369px -335px;
+	height: 40px;
+	width: 40px;
+}
+.ico--play.ico--active {
+	background-position: -319px -335px;
+}
+.ico--cap {
+	height: 40px;
+	width: 40px;
+	background-position: -369px -447px;
+}
+.ico--cap.ico--active {
+	background-position: -319px -447px;
+}
+.ico--additional {
+	height: 40px;
+	width: 40px;
+	background-position: -369px -391px;
+}
+.ico--additional.ico--active {
+	background-position: -319px -391px;
+}
+
+.ico--up:before,
+.ico--down:before {
+	position: absolute;
+	top: 5px;
+	left: 7px;
+	content: '';
+	border: 5px solid transparent;
+	border-bottom-color: #3b3d4d
+}
+.ico--down:before {
+	top: 8px;
+	border: 5px solid transparent;
+	border-top-color: #3b3d4d
+}
 
 /* table
 -----------------------------------------------------------------------------*/
@@ -229,78 +278,6 @@ td {
 }
 .align-middle {
 	vertical-align: middle;
-}
-
-select {
-	opacity: 0;
-	height: 34px;
-}
-.select select {
-	display: none;
-}
-.select {
-	display: inline-block;
-	position: relative;
-	background: #fff;
-	font: 14px/18px 'Roboto', sans-serif;
-}
-.select__value{
-	cursor: pointer;
-	position: relative;
-	display: block;
-	padding: 0 12px;
-	border: 1px solid rgba(0,0,0,.1);
-	height: 32px;
-	line-height: 32px;
-	position: relative;
-}
-.select__value--default {
-	color: #bebebe;
-}
-.select__text{
-	display:block;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-}
-.select__value:before{
-	position: absolute;
-	right:7px;
-	content: '';
-	top: 10px;
-	width: 15px;
-	height:12px;
-	background: url(../images/sprite.svg) -218px -58px;
-}
-.select__box{
-	position: absolute;
-	top: 0;
-	left: 0;
-	right:0;
-	padding:38px 0 4px;
-	display: none;
-	border: 1px solid rgba(0,0,0,.1);
-	background: #fff;
-}
-.select ul{
-	overflow: auto;
-	max-height: 264px;
-}
-.select__li{
-	padding: 0 12px;
-	cursor: pointer;
-	line-height: 22px;
-	color: #bebebe;
-}
-.select__li:hover{
-	color: #000;
-}
-.select--focus{
-	z-index: 5
-}
-.select--focus .select__value{
-	z-index: 1;
-	border-color: transparent;
 }
 
 .checkbox {
@@ -377,6 +354,15 @@ hr {
 .w100 {
 	width: 100px;
 }
+.w110 {
+	width: 110px;
+}
+.w190 {
+	width: 190px;
+}
+.w200 {
+	width: 200px;
+}
 
 .relative{
 	position: relative;
@@ -428,7 +414,7 @@ hr {
 ol {
 	counter-reset: headings 0;
 }
-ol li:before {
+ol > li:before {
 	counter-increment: headings 1;
 	content: counter(headings, decimal)'. ';
 }

@@ -62,14 +62,6 @@ var showAlertUp;
 		},2000/max);
 	});
 
-	// account
-	$('.account-settings-show').on('click',function(){
-		$('.account-settings').slideDown();
-	});
-	$('.account-settings-hide').on('click',function(){
-		$('.account-settings').slideUp();
-	});
-
 	// img-cover
 	$('.img-cover').each(function(){
 		$(this).css('background-image','url('+$(this).children('img').attr('src')+')');
@@ -80,6 +72,11 @@ var showAlertUp;
 		$(this).closest('.rules-examination__answer').addClass('rules-examination__answer--checked');
 	}).filter(':checked').trigger('change');
 
+	// event-play
+	$('.course-list__event-play').on('click',function(){
+		$(this).closest('li').find('.course-list__ico').children().addClass('ico--active');
+	});
+
 	// form submit
 	$('.rules-examination__form').on('submit',function(){
 		var notAnswer = $(this).find('.rules-examination__answer').not('.rules-examination__answer--checked');
@@ -87,6 +84,20 @@ var showAlertUp;
 			scrollTo(notAnswer.first().offset().top)
 			return false;
 		}
+	});
+
+	// dropdown
+	$('.dropdown__show').on('click',function(){
+		$(this).closest('.dropdown').addClass('dropdown--show').find('.dropdown__block').slideDown();
+	});
+	$('.dropdown__hide').on('click',function(){
+		$(this).closest('.dropdown').removeClass('dropdown--show').find('.dropdown__block').slideUp();
+	});
+	$('.dropdown__toggle').on('click',function(){
+		var d = $(this).closest('.dropdown');
+		var b = d.find('.dropdown__block');
+		d.hasClass('dropdown--show') ? b.slideUp() : b.slideDown();
+		d.toggleClass('dropdown--show');
 	});
 
 	$.fn.alertUp = function(){

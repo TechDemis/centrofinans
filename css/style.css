@@ -1,7 +1,6 @@
 body {
-//	background: url(1.png) center 0;
+//	background: url(1.png) 317px 296px;
 }
-
 /* header
 -----------------------------------------------------------------------------*/
 .header {
@@ -502,8 +501,14 @@ body {
 	float: right;
 	width: 300px;
 	margin: 45px 0;
+}
+.course__desc-right-box{
 	border: 1px solid #e2e2e4;
-	padding:28px 10px 28px 90px;
+	padding:28px 10px;
+	border-radius: 4px;
+}
+.course__desc-right dl{
+	padding-left: 90px;
 }
 .course__desc-right dt{
 	position: relative;
@@ -537,11 +542,12 @@ body {
 	float: left;
 	width: 600px;
 }
-.course__desc h3{
+.course__desc-left h3,
+.course__desc-right-desc h3{
 	font: 500 18px/24px 'Roboto', sans-serif;
 	margin: 10px 0 24px;
 }
-.course__desc h4{
+.course__desc-left h4{
 	font: 15px/20px 'Roboto', sans-serif;
 	margin: 36px 0 0;
 	padding-bottom: 18px;
@@ -561,12 +567,13 @@ body {
 	min-width: 85px;
 	text-align: center;
 }
-.course__desc p{
+.course__desc-left p,
+.course__desc-right-desc p{
 	font: 15px/23px 'Roboto', sans-serif;
 	margin: 20px 0;
 	text-align: justify;
 }
-.course__desc hr{
+.course__desc-left hr {
 	margin: 35px 0;
 }
 .course-list li{
@@ -653,6 +660,7 @@ body {
 	color: rgba(59,61,77,.6);
 	margin-left: 20px;
 	position: relative;
+	min-width: 36px;
 	font: 12px/18px 'Roboto', sans-serif;
 }
 .course__additional-size:before{
@@ -723,6 +731,169 @@ body {
 	line-height: 15px;
 }
 
+
+.course__desc-result h3{
+	text-align: center;
+	font: 500 18px/36px 'Roboto';
+}
+.course__desc-right .circle{
+	margin: 20px auto 30px;
+}
+
+.circle--big,
+.circle--big .circle__svg  {
+	width: 136px;
+	height: 136px;
+}
+.circle--big .circle__result {
+	font-size: 36px;
+	line-height: 136px;
+}
+.circle--big .circle__result:after {
+	font-size: 26px;
+}
+.circle--big:before {
+	border-width: 10px;
+}
+.course__desc-result .btn {
+	height: 46px;
+	line-height: 46px;
+	display: block;
+	padding: 0;
+	margin: 12px auto;
+}
+.course__desc-result__btn {
+	padding: 0 22px;
+}
+.course__desc-result__btn .btn {
+	margin-top: 0;
+}
+
+.course__desc-list-mark-blue {
+	font-size: 15px;
+	line-height: 22px;
+	padding: 50px 0 0 20px;
+}
+.course__desc-list-mark-blue li{
+	padding-bottom: 11px;
+}
+.course__desc-list-mark-blue li:before{
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	top: 9px;
+	left: -20px;
+	content: '';
+	border-radius: 50%;
+	background: #369bf8;
+}
+.course__desc-right-desc hr{
+	margin: 14px 0 25px;
+}
+
+.course__desc-left--play {
+	padding: 45px 0;
+	margin-left: 4px;
+}
+.course__video {
+	height: 338px;
+	overflow: hidden;
+	border-radius: 4px;
+	outline:1px solid red;
+	margin-bottom: 12px;
+}
+.course__desc-left--play h4{
+	font: 500 18px/36px 'Roboto';
+	color: #3b3d4d;
+	margin-top: 42px;
+	padding-bottom: 12px;
+}
+.course__desc-left--play .course__desc-time {
+	top: 30px;
+}
+.course__desc-left--play .course-list__suf::after {
+	display: none;
+}
+.course__desc-left--play .course-list__ico {
+	position: absolute;
+	top: 20px;
+	left: -1px;
+}
+.course__desc-left--play .course-list li {
+	padding-left: 56px;
+}
+.course__desc-left--play .course-list__title:hover {
+	text-decoration: underline !important;
+}
+.course .ico--up,
+.course .ico--down {
+	position: absolute;
+	top: 28px;
+	right: 14px;
+	left: auto;
+	display: none;
+}
+.course .dropdown--show .ico--down,
+.course .dropdown:not(.dropdown--show) .ico--up{
+	display: block;
+}
+.course__additional-dropdown {
+	padding-top: 5px;
+	position: relative;
+	top: 10px;
+	left: -56px;
+	width: 600px;
+}
+.course__additional-dropdown li{
+	padding: 0 56px 0 0!important;
+	border: 0;
+	left: 40px;
+}
+.course__additional-dropdown .course__additional-link {
+	margin: 14px 4px 0 0;
+	padding: 10px 15px 10px 38px;
+}
+.course__desc-left--play .circle {
+	position: absolute;
+	right: 0;
+	top: 8px;
+}
+
+.course__desc-left--play .circle.circle--small {
+	top: 24px;
+}
+.circle--small,
+.circle--small .circle__svg {
+	width: 30px;
+	height: 30px;
+}
+.circle--small::before {
+	border-width: 3px;
+}
+.circle--small .circle__result {
+	display: none;
+}
+.circle__detal {
+	color: rgba(59, 61, 77, 0.5);
+	font-size: 11px;
+	line-height: 16px;
+	margin-right: 4px;
+	position: absolute;
+	right: 100%;
+	top: 8px;
+	white-space: nowrap;
+}
+.circle__detal-to {
+	color: rgba(59,61,77,1);
+	position: relative;
+	top: -5px;
+	left: 3px;
+}
+.circle__detal-bottom {
+	position: relative;
+	top: 5px;
+	left: -3px;
+}
 
 /* examination
 -----------------------------------------------------------------------------*/
