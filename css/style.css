@@ -926,15 +926,6 @@ body {
 
 /* alert
 -----------------------------------------------------------------------------*/
-.alert_up__window--recovery-end-send-mail .alert_up__form:before,
-.alert_up__window--recovery-send-mail .alert_up__form:before{
-	width: 64px;
-	height: 64px;
-	display: block;
-	margin: 28px auto;
-	content: '';
-	background: url(../images/sprite.svg) -496px -594px;
-}
 .alert_up__window--finish-examination {
 	padding-bottom: 40px;
 }

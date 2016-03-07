@@ -519,3 +519,11 @@ ol li:before {
 .alert_up hr {
 	margin: 20px;
 }
+.alert_up__check:before{
+	width: 64px;
+	height: 64px;
+	display: block;
+	margin: 28px auto;
+	content: '';
+	background: url(../images/sprite.svg) -496px -594px;
+}

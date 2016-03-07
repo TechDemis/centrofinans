@@ -1,7 +1,7 @@
 	<div class="alert_up alert_up--hide">
 
 		<div class="alert_up__window alert_up__window--recovery-send-mail">
-			<div class="alert_up__form">
+			<div class="alert_up__form alert_up__check">
 				<p>Контрольная строка, а также ваши регистрационные данные были высланы <br>по E-Mail. Пожалуйста, дождитесь письма, так как контрольная строка <br> изменяется при каждом запросе.</p>
 			</div>
 			<a class="alert_up__close ico ico--close"></a>
