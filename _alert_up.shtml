@@ -9,7 +9,7 @@
 
 		<div class="alert_up__window alert_up__window--result-examination">
 			<div class="alert_up__form">
-				<form class="btn-alert_up" data-alert-up="finish-examination">
+				<form>
 					<h3>Завершить экзамен?</h3>
 					<p>Если вы нажмёте «завершить», вариант пересдачи будет недоступен. <br> Сертификат будет сформирован в течении 2 дней с итоговым <br> процентом баллов: <b class="alert_up__window--result-examination-procent"><span>75</span>%</b></p>
 					<hr>

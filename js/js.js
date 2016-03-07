@@ -8,13 +8,14 @@ http://htmlpluscss.ru
 
 */
 
+var showAlertUp;
+
 (function($){
 
 	var windowWidth,
 		windowHeight,
 		windowScrollTop,
 		resizeTimeoutId,
-		showAlertUp,
 		$window = $(window);
 
 	$window.on({
@@ -74,16 +75,15 @@ http://htmlpluscss.ru
 	// examination
 	$('.rules-examination__form input').on('change',function(){
 		$(this).closest('.rules-examination__answer').addClass('rules-examination__answer--checked');
-	});
+	}).filter(':checked').trigger('change');
+
+	// form submit
 	$('.rules-examination__form').on('submit',function(){
 		var notAnswer = $(this).find('.rules-examination__answer').not('.rules-examination__answer--checked');
 		if(notAnswer.length>0){
 			scrollTo(notAnswer.first().offset().top)
+			return false;
 		}
-		else {
-			showAlertUp('result-examination');
-		}
-		return false;
 	});
 
 	$.fn.alertUp = function(){
@@ -117,18 +117,9 @@ http://htmlpluscss.ru
 
 		return this.each(function(){
 			var t = $(this);
-			var windowUp = t.attr('data-alert-up');
-			if(t.is('form')){
-				t.on('submit',function(){
-					showAlertUp(windowUp);
-					return false;
-				});
-			}
-			else {
-				t.on('click',function(){
-					showAlertUp(windowUp);
-				});
-			}
+			t.on('click',function(){
+				showAlertUp(t.attr('data-alert-up'));
+			});
 		});
 
 	};
@@ -209,8 +200,8 @@ http://htmlpluscss.ru
 	$('.btn-alert_up').alertUp();
 
 // scrollTop
-function scrollTo(t){
-	$('body, html').animate({scrollTop : t}, 1000);
-}
+	function scrollTo(t){
+		$('body, html').animate({scrollTop : t}, 1000);
+	}
 
 })(jQuery);
