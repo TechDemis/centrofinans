@@ -22,17 +22,20 @@ var showAlertUp;
 		resize: function(){
 			clearTimeout(resizeTimeoutId);
 			resizeTimeoutId = setTimeout(function(){
-				windowWidth = $window.width();
-				windowHeight = $window.height();
-
-				$('.main').css('min-height', windowHeight - $('.header').outerHeight() - $('.footer').outerHeight());
-
+				pageResize();
 			}, 100);
 		},
 		scroll: function(){
 			windowScrollTop = $window.scrollTop();
 		}
 	});
+
+	function pageResize(){
+		windowWidth = $window.width();
+		windowHeight = $window.height();
+		$('.main').css('min-height', windowHeight - $('.header').outerHeight() - $('.footer').outerHeight());
+	}
+	pageResize();
 
 	$window.trigger('resize').trigger('scroll');
 
@@ -124,49 +127,6 @@ var showAlertUp;
 
 	};
 
-
-	$.fn.mySelect = function(){
-
-		var select = function(){
-
-			var select = $(this);
-			select.wrap('<div class="select notsel"></div>');
-			var select_box = select.parent();
-			var c = '<span class="select__value"><span class="select__text"></span></span><div class="select__box"><ul>';
-			select.children('option').each(function() {
-				if($(this).val()!='default')
-					c += '<li class="select__li" data-value="' + $(this).val() + '">' + $(this).text() + '</li>';
-			});
-			c += '</ul></div>';
-			select.before(c);
-
-			var box_ul = select.siblings('.select__box');
-			var visible = select.siblings('.select__value').children();
-
-			select_box.on('click', function() {
-				select_box.hasClass('select--focus') ? box_ul.hide() : box_ul.show();
-				select_box.toggleClass('select--focus');
-			});
-
-			box_ul.on('click','.select__li', function() {
-				select.val($(this).attr('data-value')).trigger('change');
-			});
-			select.on('change',function(){
-				var o = select.children(':selected');
-				visible.text(o.text());
-				o.attr('value') == 'default' ? visible.addClass('select__value--default') : visible.removeClass('select__value--default');
-			}).trigger('change');
-
-		}
-
-		$(document).on('click', function(event) {
-			$('.select--focus').not($(event.target).closest('.select')).removeClass('select--focus').find('.select__box').hide();
-		});
-
-		return this.each(select);
-
-	};
-
 	$.fn.tabs = function(){
 
 		var tab = function(){
@@ -186,9 +146,6 @@ var showAlertUp;
 		return this.each(tab);
 
 	};
-
-// select
-	$('select').mySelect();
 
 // checkbox
 	$('.checkbox').addClass('notsel').append('<i></i>');
