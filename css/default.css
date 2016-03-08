@@ -201,29 +201,50 @@ textarea.input {
 	height: 26px;
 	width: 30px;
 }
-.ico--play {
-	background-position: -369px -335px;
+.ico--play,
+.ico--play-white,
+.ico--cap,
+.ico--cap-white,
+.ico--green-checked,
+.ico--questions,
+.ico--additional {
 	height: 40px;
 	width: 40px;
+}
+.ico--green-checked {
+	background-position:-662px -606px;
+}
+.ico--play {
+	background-position: -369px -335px;
 }
 .ico--play.ico--active {
 	background-position: -319px -335px;
 }
+.ico--play-white {
+	background-position: -749px -606px;
+	background-color: #fff
+}
 .ico--cap {
-	height: 40px;
-	width: 40px;
 	background-position: -369px -447px;
 }
 .ico--cap.ico--active {
 	background-position: -319px -447px;
 }
-.ico--additional {
-	height: 40px;
-	width: 40px;
+.ico--cap-white {
+	background-position: -836px -606px;
+	background-color: #fff
+}
+.ico--questions {
 	background-position: -369px -391px;
 }
-.ico--additional.ico--active {
+.ico--questions.ico--active {
 	background-position: -319px -391px;
+}
+.ico--additional {
+	background-position: -369px -447px;
+}
+.ico--additional.ico--active {
+	background-position: -319px -447px;
 }
 
 .ico--up:before,
@@ -242,7 +263,7 @@ textarea.input {
 }
 
 .ico--flag {
-	background-position: -319px -391px;
+	background-position: -722px -33px;
 }
 
 /* table
@@ -312,7 +333,7 @@ td {
 .checkbox input:checked ~ i {
 	background-position:-640px -376px;
 }
-.checkbox:hover i {
+.checkbox:hover input:not([disabled="disabled"]) ~ i {
 	background-position:-640px -436px;
 }
 

@@ -77,6 +77,28 @@ var showAlertUp;
 		$(this).closest('li').find('.course-list__ico').children().addClass('ico--active');
 	});
 
+	// course steps
+	if($('.course__steps-list-item--active').length>0){
+		var first = $('.course__steps-list-item--active').first();
+		var l = first.width() / 2 + first.position().left;
+		$('.course__steps-line-active-first').css('border-right-width' , l);
+	}
+	if($('.course__steps-list-item--active').length>1){
+		var last = $('.course__steps-list-item--active').last();
+		var first = $('.course__steps-list-item--active').first();
+		var l = first.width() / 2 + first.position().left;
+		var w = last.width() / 2 + last.position().left;
+		$('.course__steps-line-active').css({
+			'left' : l,
+			'width' : w - l
+		});
+	}
+	if($('.course__steps-list-item--current').length>0){
+		var l = $('.course__steps-list-item--current').width() / 2 + $('.course__steps-list-item--current').position().left;
+		$('.course__steps-line-current').width(l);
+	}
+
+
 	// form submit
 	$('.rules-examination__form').on('submit',function(){
 		var notAnswer = $(this).find('.rules-examination__answer').not('.rules-examination__answer--checked');
