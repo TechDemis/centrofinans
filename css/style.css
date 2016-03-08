@@ -372,10 +372,9 @@ body {
 	float: left;
 	padding: 20px;
 	border-radius: 10px 0 0 10px;
-	-webkit-backdrop-filter: blur(8.2px);
-	backdrop-filter: blur(8.2px);
-	background-color: rgba(255, 255, 255, 0.8);
+	background: rgba(255, 255, 255, 0.9);
 	position: relative;
+	overflow: hidden;
 }
 .account-box__center {
 	border-radius: 0;
@@ -618,6 +617,7 @@ body {
 	top: -2px;
 	left: 14px;
 }
+.course__steps-btn-link,
 .course__course-btn-link {
 	position: absolute;
 	top: -70px;
@@ -626,6 +626,9 @@ body {
 	height: 50px;
 	padding: 0;
 	line-height: 50px;
+}
+.course__steps-btn-link {
+	top: -114px;
 }
 
 .course__additional {
@@ -902,6 +905,48 @@ body {
 	position: relative;
 	top: 5px;
 	left: -3px;
+}
+
+/* course__steps
+-----------------------------------------------------------------------------*/
+.course__steps {
+	padding: 41px 0;
+	background: #f2f2f6;
+}
+.course__steps-box {
+	width: 940px;
+	height: 140px;
+	border-radius: 10px;
+	background-color: #fff;
+	border: solid 1px #e2e2e4;
+	padding: 12px 20px;
+}
+.course__steps-line {
+	position: absolute;
+	height: 1px;
+	top: 65px;
+	left: 20px;
+	right: 20px;
+	background: #3b3d4d;
+}
+.course__steps-line:after {
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	top: -6px;
+	left: -3px;
+	border-radius: 50%;
+	content: '';
+	background: #63c533;
+}
+.course__steps-line:before {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	top: -7px;
+	right: 0;
+	content: '';
+	background: #3b3d4d;
 }
 
 /* examination

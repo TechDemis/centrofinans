@@ -66,7 +66,7 @@ header, main, nav, section, article, aside, footer {
 }
 .input--error {
 	color: #e3424c;;
-	background: rgba(227, 65, 75, 0.1);
+	background: #fceced;
 }
 .input:focus {
 	background: #fff8f2;
@@ -239,6 +239,10 @@ textarea.input {
 	top: 8px;
 	border: 5px solid transparent;
 	border-top-color: #3b3d4d
+}
+
+.ico--flag {
+	background-position: -319px -391px;
 }
 
 /* table

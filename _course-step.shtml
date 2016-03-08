@@ -1,0 +1,13 @@
+				<div class="course__steps">
+
+					<div class="course__steps-box center clr">
+
+						<span class="course__steps-line">
+							<i class="ico ico--flag"></i>
+						</span>
+
+						<a class="course__steps-btn-link btn btn--orange btn--bb2">Задать вопрос</a>
+
+					</div>
+
+				</div>
