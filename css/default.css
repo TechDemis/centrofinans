@@ -64,6 +64,10 @@ header, main, nav, section, article, aside, footer {
 	color: #3b3d4d;
 	background: #fff;
 }
+.input--error {
+	color: #e3424c;;
+	background: rgba(227, 65, 75, 0.1);
+}
 .input:focus {
 	background: #fff8f2;
 }

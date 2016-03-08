@@ -88,16 +88,33 @@ var showAlertUp;
 
 	// dropdown
 	$('.dropdown__show').on('click',function(){
-		$(this).closest('.dropdown').addClass('dropdown--show').find('.dropdown__block').slideDown();
+		toggleDropdown($(this),true);
 	});
 	$('.dropdown__hide').on('click',function(){
-		$(this).closest('.dropdown').removeClass('dropdown--show').find('.dropdown__block').slideUp();
+		toggleDropdown($(this),false);
 	});
 	$('.dropdown__toggle').on('click',function(){
-		var d = $(this).closest('.dropdown');
-		var b = d.find('.dropdown__block');
-		d.hasClass('dropdown--show') ? b.slideUp() : b.slideDown();
-		d.toggleClass('dropdown--show');
+		toggleDropdown($(this));
+	});
+
+	function toggleDropdown(t,s){
+		var d = t.closest('.dropdown');
+		var b = d.find('.dropdown__block').stop();
+		if(s === undefined){
+			var s = !d.hasClass('dropdown--show');
+		}
+		s ?
+			b.slideDown(function(){
+				d.addClass('dropdown--show');
+			}) :
+			b.slideUp(function(){
+				d.removeClass('dropdown--show');
+			});
+	}
+
+	// input--error
+	$('.input--error').on('focus',function(){
+		$(this).removeClass('input--error');
 	});
 
 	$.fn.alertUp = function(){

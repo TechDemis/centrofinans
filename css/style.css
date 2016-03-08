@@ -313,6 +313,11 @@ body {
 }
 .page-form__error{
 	margin-bottom: 20px;
+	font: 12px/18px 'Roboto', sans-serif;
+	text-align: center;
+}
+.page-form__error--red{
+	color: #e3424c;
 }
 
 /* circle svg
@@ -833,6 +838,10 @@ body {
 	left: auto;
 	display: none;
 }
+.dropdown__block {
+	display: none;
+}
+.dropdown--show .dropdown__block,
 .course .dropdown--show .ico--down,
 .course .dropdown:not(.dropdown--show) .ico--up{
 	display: block;

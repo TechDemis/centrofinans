@@ -2,7 +2,7 @@
 
 	<main class="main account clr">
 
-		<div class="center dropdown">
+		<div class="center dropdown dropdown--show">
 
 			<article class="account-box account-box--user clr">
 
@@ -17,28 +17,28 @@
 
 			</article>
 
-			<article class="account-box account-box--settings dropdown__block hide clr">
+			<article class="account-box account-box--settings dropdown__block clr">
 
 				<div class="account-box__left">
 					<h3>Изменить пароль</h3>
 					<form>
 						<div class="input-box">
-							<input placeholder="Старый пароль" class="input" type="password">
 							<input placeholder="Новый пароль" class="input" type="password">
 							<input placeholder="Повторите пароль" class="input" type="password">
 						</div>
-						<label class="btn btn--green">Сохранить<input type="submit" class="hide"></label>
+						<p class="page-form__error">Пароль должен состоять не менее <br>6 символов длинной.</p>
+						<label class="btn btn--green">Изменить пароль<input type="submit" class="hide"></label>
 					</form>
 				</div>
 				<div class="account-box__right">
 					<h3>Сменить почту</h3>
 					<form>
 						<div class="input-box">
-							<input placeholder="tkachenko@gmail.com" class="input" type="email">
-							<input placeholder="E-mail" class="input" type="email">
+							<input placeholder="E-mail" class="input input--error" type="email" value="tkachenko@gmail.com">
 							<input placeholder="Повторите E-mail" class="input" type="email">
 						</div>
-						<label class="btn btn--green">Сохранить<input type="submit" class="hide"></label>
+						<p class="page-form__error page-form__error--red">Введеные e-mail не совпадают, <br>введите данные верно!</p>
+						<label class="btn btn--green">Изменить e-mail<input type="submit" class="hide"></label>
 					</form>
 				</div>
 
