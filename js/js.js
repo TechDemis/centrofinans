@@ -74,7 +74,13 @@ var showAlertUp;
 
 	// event-play
 	$('.course-list__event-play').on('click',function(){
-		$(this).closest('li').find('.course-list__ico').addClass('ico--active');
+		var ico = $(this).closest('li').find('.course-list__ico').addClass('ico--active');
+		if(ico.is('[data-video]')){
+			var iframe = $('<iframe width="600" height="338" frameborder="0" allowfullscreen="1">');
+			iframe.attr('src','http://www.youtube.com/v/'+ico.attr('data-video')+'?version=3&amp;enablejsapi=1&amp;rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1');
+			$('#video').html(iframe);
+			scrollTo($('#video').offset().top);
+		}
 	});
 
 	// course steps
