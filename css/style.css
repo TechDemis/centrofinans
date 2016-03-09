@@ -123,6 +123,10 @@
 	right: 0;
 	bottom: 0;
 }
+.after-header-img p{
+	max-width: 680px;
+	padding: 0 20px;
+}
 
 .img-cover{
 	background-position: center;
