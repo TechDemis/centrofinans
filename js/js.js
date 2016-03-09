@@ -74,7 +74,7 @@ var showAlertUp;
 
 	// event-play
 	$('.course-list__event-play').on('click',function(){
-		$(this).closest('li').find('.course-list__ico').children().addClass('ico--active');
+		$(this).closest('li').find('.course-list__ico').addClass('ico--active');
 	});
 
 	// course steps

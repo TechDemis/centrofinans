@@ -148,4 +148,11 @@
 			<a class="alert_up__close ico ico--close"></a>
 		</div>
 
+		<div class="alert_up__window alert_up__window--support">
+			<div class="alert_up__form">
+				<p>Если у Вас возникли вопросы связынные с данным курсом - Вы можете <br>задать их на <a href="mailto:support@gubkin.ru">support@gubkin.ru</a></p>
+			</div>
+			<a class="alert_up__close ico ico--close"></a>
+		</div>
+
 	</div>

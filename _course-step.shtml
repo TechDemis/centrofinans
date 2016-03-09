@@ -32,7 +32,7 @@
 							</li>
 						</ul>
 
-						<a class="course__steps-btn-link btn btn--orange btn--bb2">Задать вопрос</a>
+						<a class="course__steps-btn-link btn btn--orange btn--bb2 btn-alert_up" data-alert-up="support">Задать вопрос</a>
 
 					</div>
 
