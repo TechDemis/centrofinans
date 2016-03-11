@@ -74,7 +74,7 @@ var showAlertUp;
 
 	// event-play
 	$('.course-list__event-play').on('click',function(){
-		var ico = $(this).closest('li').find('.course-list__ico').addClass('ico--active');
+		var ico = $(this).closest('li').find('.course-list__ico');
 		if(ico.is('[data-video]')){
 			var iframe = $('<iframe width="600" height="338" frameborder="0" allowfullscreen="1">');
 			iframe.attr('src','http://www.youtube.com/v/'+ico.attr('data-video')+'?version=3&amp;enablejsapi=1&amp;rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1');
@@ -84,20 +84,10 @@ var showAlertUp;
 	});
 
 	// course steps
-	if($('.course__steps-list-item--active').length>0){
-		var first = $('.course__steps-list-item--active').first();
+	if($('.course__steps-list-item').length>0){
+		var first = $('.course__steps-list-item').first();
 		var l = first.width() / 2 + first.position().left;
 		$('.course__steps-line-active-first').css('border-right-width' , l);
-	}
-	if($('.course__steps-list-item--active').length>1){
-		var last = $('.course__steps-list-item--active').last();
-		var first = $('.course__steps-list-item--active').first();
-		var l = first.width() / 2 + first.position().left;
-		var w = last.width() / 2 + last.position().left;
-		$('.course__steps-line-active').css({
-			'left' : l,
-			'width' : w - l
-		});
 	}
 	if($('.course__steps-list-item--current').length>0){
 		var l = $('.course__steps-list-item--current').width() / 2 + $('.course__steps-list-item--current').position().left;

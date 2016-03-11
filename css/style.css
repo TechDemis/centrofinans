@@ -977,14 +977,6 @@
 	height: 2px;
 	background: #63c533;
 }
-.course__steps-line-active {
-	position: absolute;
-	top: -11px;
-	left: 0;
-	width: 0;
-	height: 24px;
-	background: rgba(99, 197, 51, .2)
-}
 .course__steps-line-active-first {
 	position: absolute;
 	top: -11px;

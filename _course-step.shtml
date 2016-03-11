@@ -4,7 +4,6 @@
 
 						<span class="course__steps-line">
 							<span class="course__steps-line-current"></span>
-							<span class="course__steps-line-active"></span>
 							<span class="course__steps-line-active-first"></span>
 							<i class="ico ico--flag"></i>
 						</span>
