@@ -81,6 +81,9 @@
 .header__menu a:hover {
 	color: #2a82d3;
 }
+.header__menu a:hover .ico--login{
+	background-position: -170px -72px;
+}
 
 /* home_after-header
 -----------------------------------------------------------------------------*/

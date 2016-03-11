@@ -160,6 +160,9 @@ textarea.input {
 .ico--exit {
 	background-position: -130px -34px;
 }
+.ico--exit:hover {
+	background-position: -170px -34px;
+}
 .ico--close {
 	left: auto;
 	top: 22px;
@@ -264,6 +267,9 @@ textarea.input {
 
 .ico--flag {
 	background-position: -722px -33px;
+}
+.ico--flag-green {
+	background-position: -722px -73px;
 }
 
 /* table
