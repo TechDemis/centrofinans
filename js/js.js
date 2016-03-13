@@ -8,7 +8,8 @@ http://htmlpluscss.ru
 
 */
 
-var showAlertUp;
+var drawCircle,
+	showAlertUp;
 
 (function($){
 
@@ -40,8 +41,7 @@ var showAlertUp;
 	$window.trigger('resize').trigger('scroll');
 
 	// svg circle
-	$('.circle__result').each(function(){
-		var p = $(this);
+	drawCircle = function(p) {
 		var c = p.closest('.circle').find('.circle__stroke');
 		var max = parseInt(p.attr('data-end'));
 		if(max == 0) {
@@ -60,6 +60,10 @@ var showAlertUp;
 				c.attr('stroke',p.attr('data-color'));
 			}
 		},2000/max);
+	}
+
+	$('.circle__result').each(function(){
+		drawCircle($(this));
 	});
 
 	// img-cover
