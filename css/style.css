@@ -980,9 +980,6 @@
 .course__steps-line--finish .course__steps-line-current {
 	width: 100% !important;
 }
-.course__steps-line--finish .course__steps-line:before {
-	background: #63c533;
-}
 .course__steps-line-active-first {
 	position: absolute;
 	top: -11px;
@@ -1010,6 +1007,9 @@
 	right: 0;
 	content: '';
 	background: #3b3d4d;
+}
+.course__steps-line--finish:before {
+	background: #63c533;
 }
 .course__steps-line .ico{
 	top: -22px;
