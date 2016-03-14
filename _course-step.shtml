@@ -2,7 +2,7 @@
 
 					<div class="course__steps-box center clr">
 
-						<span class="course__steps-line">
+						<span class="course__steps-line course__steps-line--finish">
 							<span class="course__steps-line-current"></span>
 							<span class="course__steps-line-active-first"></span>
 							<i class="ico ico--flag"></i>
