@@ -131,6 +131,11 @@ textarea.input {
 .btn--orange.btn--bb2 {
 	border-bottom: 2px solid #cc903a;
 }
+.btn--white {
+	border: solid 1px #3b3d4d;
+	background: #fff;
+	color: #3b3d4d;
+}
 
 .btn--disabled {
 	opacity: .5;
