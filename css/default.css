@@ -133,8 +133,33 @@ textarea.input {
 }
 .btn--white {
 	border: solid 1px #3b3d4d;
-	background: #fff;
 	color: #3b3d4d;
+    transition: border-color 0s ease .5s;
+}
+.btn--white:hover {
+	border: solid 1px #369bf8;
+	color: #fff;
+    transition: color .5s ease;
+}
+.btn--white:after,
+.btn--white:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 0;
+	z-index: -1;
+	content: '';
+    transition: height .5s;
+	background: #369bf8;
+}
+.btn--white:before {
+	top: auto;
+	bottom: 0;
+}
+.btn--white:hover:after,
+.btn--white:hover:before {
+	height: 50%;
 }
 
 .btn--disabled {

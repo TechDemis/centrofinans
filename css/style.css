@@ -48,20 +48,22 @@
 	padding: 16px 12px;
 }
 .header__menu .header__menu-bl {
-	padding-left: 28px;
+	padding-left: 19px;
+	margin-left: 10px;
 }
 .header__menu .header__menu-br{
 	padding-right: 18px;
+	margin-right: 1px;
 }
 .header__menu-br:after,
 .header__menu-bl:before {
-	width: 2px;
+	width: 1px;
 	height: 24px;
 	opacity: 0.5;
 	background: #979797;
 	position: absolute;
 	top: 16px;
-	left: 7px;
+	left: 0;
 	content: '';
 }
 .header__menu-br:after {
