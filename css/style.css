@@ -34,7 +34,7 @@
 }
 .header__btn-reg {
 	background: #66cbec;
-	margin: 5px 1px 0 10px;
+	margin: 5px 1px 0 15px;
 }
 .header__btn-reg:hover {
 	background:  #5bbedf;;
@@ -45,12 +45,13 @@
 }
 .header__menu li {
 	float: left;
-	padding: 16px 14px;
+	margin: 16px 0 0 15px;
 }
 .header__menu .header__menu-bl {
-	margin-left: 1px;
+	padding-left: 15px;
 }
 .header__menu .header__menu-br{
+	padding-right: 15px;
 	margin-right: 1px;
 }
 .header__menu-br:after,
@@ -60,8 +61,8 @@
 	opacity: 0.5;
 	background: #979797;
 	position: absolute;
-	top: 16px;
-	left: -1px;
+	top: 0;
+	left: 0;
 	content: '';
 }
 .header__menu-br:after {
@@ -75,7 +76,7 @@
 }
 .header__menu-login .ico {
 	left: 11px;
-	top: 17px;
+	top: 1px;
 }
 .header__menu a {
 	font-size: 14px;
@@ -92,7 +93,7 @@
 	width: 80px;
 	height: 30px;
 	padding: 0;
-	margin: 12px 14px;
+	margin: 12px 0;
 	font: 300 12px/28px 'Roboto', sans-serif;
 }
 
