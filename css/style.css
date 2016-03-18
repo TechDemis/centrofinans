@@ -45,14 +45,12 @@
 }
 .header__menu li {
 	float: left;
-	padding: 16px 12px;
+	padding: 16px 14px;
 }
 .header__menu .header__menu-bl {
-	padding-left: 19px;
-	margin-left: 10px;
+	margin-left: 1px;
 }
 .header__menu .header__menu-br{
-	padding-right: 18px;
 	margin-right: 1px;
 }
 .header__menu-br:after,
@@ -63,20 +61,20 @@
 	background: #979797;
 	position: absolute;
 	top: 16px;
-	left: 0;
+	left: -1px;
 	content: '';
 }
 .header__menu-br:after {
 	left: 100%;
 }
 .header__menu .header__menu-login {
-	padding-left: 50px;
+	padding-left: 40px;
 }
 .header__menu .header__menu-name-user {
 	color: #369bf8;
 }
 .header__menu-login .ico {
-	left: 21px;
+	left: 11px;
 	top: 17px;
 }
 .header__menu a {
