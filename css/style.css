@@ -35,6 +35,8 @@
 .header__btn-reg {
 	background: #66cbec;
 	margin: 5px 1px 0 15px;
+	padding: 0;
+	width: 140px;
 }
 .header__btn-reg:hover {
 	background:  #5bbedf;;
