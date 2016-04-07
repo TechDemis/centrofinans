@@ -1,40 +1,78 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<title>Mook</title>
+	<title>Centrofinans</title>
 	<meta charset="utf-8">
 	<link href="css/default.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-	<meta name="viewport" content="width=960">
+	<meta name="viewport" content="width=980">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon-precomposed" href="/favicon.png">
 </head>
 
 <body>
 
-	<header class="header center clr">
-
-		<a href="/" class="header__logo pull-left"><b>GUBKIN</b> <span>UNIVERSITY</span></a>
-
-<!--#if expr="$DOCUMENT_URI = '/account.html' || $DOCUMENT_URI = '/course.html'" -->
-		<a class="header__exit ico ico--exit pull-right"></a>
-<!--#else-->
-		<a class="header__btn-reg btn pull-right" href="registration.html">Регистрация</a>
+<!--#if expr="$DOCUMENT_URI = '/index.html'" -->
+	<aside class="ahtung">
+		<div class="ahtung__box align-right">
+			<p><span class="opacity-8">Ваш город Санкт-Петербург?</span> <a class="btn btn--red ahtung__close">Да</a> <a class="ahtung__link">Хочу изменить</a></p>
+			<a class="ahtung__close ico ico--close-black"></a>
+		</div>
+	</aside>
+	<aside class="ahtung">
+		<div class="ahtung__box">
+			<p>В период праздников с 8 февраля по 13 февраля 2016 года рабочее время изменено. Офисы работают с 11:00 до 17:30</p>
+			<i class="ico ico--ahtung"></i>
+			<a class="ahtung__close ico ico--close-black"></a>
+		</div>
+	</aside>
 <!--#endif-->
 
-		<nav class="pull-right">
+	<header class="header img-cover">
 
-			<ul class="header__menu">
-				<li class="header__menu-bl"><a href="/">Приемная комиссия РГУ</a></li>
-				<li class="header__menu-bl"><a href=".html">О проекте</a></li>
-				<li><a href=".html">Контакты</a></li>
-<!--#if expr="$DOCUMENT_URI = '/account.html'" -->
-				<li class="header__menu-name-user header__menu-bl header__menu-br"><a href="account.html">Ткаченко В.</a></li>
-<!--#else-->
-				<li class="header__menu-login header__menu-bl"><a href="login.html"><i class="ico ico--login"></i>Войти</a></li>
-<!--#endif-->
-			</ul>
+		<div class="center clr">
 
-		</nav>
+			<a href="/" class="header__logo pull-left"></a>
+
+			<p class="pull-right header__contact"><a class="header__tel" href="tel:88007773737">8 800 777-37-37</a> Бесплатно во всей России</p>
+
+			<div class="pull-right">
+
+				<a class="header__help pull-right"><i class="ico ico--help"></i>Помощь</a>
+				<a class="header__address-office pull-right"><i class="ico ico--geo"></i>Адреса офисов</a>
+				<div class="header__city pull-left">
+					<select>
+						<option value="1">Москва</option>
+						<option value="2" selected="selected">Санкт-Петербург</option>
+					</select>
+				</div>
+
+			</div>
+
+			<div class="header__menu clear-both clr">
+
+				<nav class="header__menu-box">
+					<ul class="menu-top">
+						<li class="menu-top__plus"><a href=".html"><i class="ico ico--plus"></i>Заявка на заём</a></li>
+						<li class="menu-top__submenu"><a href=".html">О компании</a></li>
+						<li><a href=".html">Акции</a></li>
+						<li><a href=".html">Новости</a></li>
+						<li><a href=".html">Вопросы-ответы</a></li>
+						<li><a href=".html">Контакты</a></li>
+						<li class="menu-top__btn-lk"><a class="btn btn--gray" href=".html"><i class="ico ico--lock"></i>Личный кабинет</a></li>
+					</ul>
+					<ul class="menu-top-submenu">
+						<li><a href=".html">Документы</a></li>
+						<li><a href=".html">Вакансии</a></li>
+						<li><a href=".html">Арендодателям</a></li>
+						<li><a href=".html">Отзывы клиентов</a></li>
+					</ul>
+				</nav>
+
+			</div>
+
+<!--#include file="_calkulator.shtml"-->
+
+		</div>
 
 	</header>

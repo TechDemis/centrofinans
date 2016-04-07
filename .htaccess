@@ -3,7 +3,6 @@ Allow from all
 AddDefaultCharset utf-8
 AddHandler server-parsed .html
 
-
 <IfModule deflate_module>
 # Enable compression for the following file types.
 AddOutputFilterByType \
