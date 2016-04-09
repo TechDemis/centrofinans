@@ -13,12 +13,17 @@
 <body>
 
 <!--#if expr="$DOCUMENT_URI = '/index.html'" -->
+<!--#set var="page" value="home" -->
+<!--#endif-->
+
+<!--#if expr='$page=home' -->
 	<aside class="ahtung">
 		<div class="ahtung__box align-right">
 			<p><span class="opacity-8">Ваш город Санкт-Петербург?</span> <a class="btn btn--red ahtung__close">Да</a> <a class="ahtung__link">Хочу изменить</a></p>
 			<a class="ahtung__close ico ico--close-black"></a>
 		</div>
 	</aside>
+<!--#else-->
 	<aside class="ahtung">
 		<div class="ahtung__box">
 			<p>В период праздников с 8 февраля по 13 февраля 2016 года рабочее время изменено. Офисы работают с 11:00 до 17:30</p>
@@ -28,9 +33,13 @@
 	</aside>
 <!--#endif-->
 
-	<header class="header img-cover">
+<!--#if expr='$page=home' -->
+	<header class="header header--home img-cover">
+<!--#else-->
+	<header class="header">
+<!--#endif-->
 
-		<div class="center clr">
+		<div class="header__top center clr">
 
 			<a href="/" class="header__logo pull-left"></a>
 
@@ -38,8 +47,8 @@
 
 			<div class="pull-right">
 
-				<a class="header__help pull-right"><i class="ico ico--help"></i>Помощь</a>
-				<a class="header__address-office pull-right"><i class="ico ico--geo"></i>Адреса офисов</a>
+				<a class="header__help pull-right underline"><i class="ico <!--#if expr='$page=home' -->ico--help<!--#else-->ico--help-black<!--#endif-->"></i>Помощь</a>
+				<a class="header__address-office pull-right underline"><i class="ico <!--#if expr='$page=home' -->ico--geo<!--#else-->ico--geo-black<!--#endif-->"></i>Адреса офисов</a>
 				<div class="header__city pull-left">
 					<select>
 						<option value="1">Москва</option>
@@ -49,30 +58,32 @@
 
 			</div>
 
-			<div class="header__menu clear-both clr">
+		</div>
 
-				<nav class="header__menu-box">
-					<ul class="menu-top">
-						<li class="menu-top__plus"><a href=".html"><i class="ico ico--plus"></i>Заявка на заём</a></li>
-						<li class="menu-top__submenu"><a href=".html">О компании</a></li>
-						<li><a href=".html">Акции</a></li>
-						<li><a href=".html">Новости</a></li>
-						<li><a href=".html">Вопросы-ответы</a></li>
-						<li><a href=".html">Контакты</a></li>
-						<li class="menu-top__btn-lk"><a class="btn btn--gray" href=".html"><i class="ico ico--lock"></i>Личный кабинет</a></li>
-					</ul>
-					<ul class="menu-top-submenu">
-						<li><a href=".html">Документы</a></li>
-						<li><a href=".html">Вакансии</a></li>
-						<li><a href=".html">Арендодателям</a></li>
-						<li><a href=".html">Отзывы клиентов</a></li>
-					</ul>
-				</nav>
+		<div class="header__menu clear-both clr">
 
-			</div>
-
-<!--#include file="_calkulator.shtml"-->
+			<nav class="header__menu-box center">
+				<ul class="menu-top">
+					<li class="menu-top__plus"><a href=".html"><i class="ico ico--plus"></i>Заявка на заём</a></li>
+					<li class="menu-top__submenu"><a href=".html">О компании</a></li>
+					<li><a href=".html">Акции</a></li>
+					<li><a href=".html">Новости</a></li>
+					<li><a href=".html">Вопросы-ответы</a></li>
+					<li><a href=".html">Контакты</a></li>
+					<li class="menu-top__btn-lk"><a class="btn <!--#if expr='$page=home' -->btn--gray<!--#else-->btn--lk<!--#endif-->" href=".html"><i class="ico <!--#if expr='$page=home' -->ico--lock<!--#else-->ico--lock-black<!--#endif-->"></i>Личный кабинет</a></li>
+				</ul>
+				<ul class="menu-top-submenu">
+					<li><a href=".html">Документы</a></li>
+					<li><a href=".html">Вакансии</a></li>
+					<li><a href=".html">Арендодателям</a></li>
+					<li><a href=".html">Отзывы клиентов</a></li>
+				</ul>
+			</nav>
 
 		</div>
+
+<!--#if expr='$page=home' -->
+<!--#include file="_calkulator.shtml"-->
+<!--#endif-->
 
 	</header>

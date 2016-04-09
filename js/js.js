@@ -27,6 +27,14 @@ var showAlertUp;
 		},
 		scroll: function(){
 			windowScrollTop = $window.scrollTop();
+
+			// parallax
+			$('.img-cover--parallax').each(function(){
+				var p = $(this);
+				var top = 100 - 100 * (p.offset().top + p.outerHeight() - windowScrollTop) / ( windowHeight + p.outerHeight() );
+				p.css('background-position','50% '+ top + '%');
+			});
+
 		}
 	});
 
@@ -62,15 +70,18 @@ var showAlertUp;
 			select.before(c);
 
 			var box_ul = select.siblings('.select__box');
-			var visible = select.siblings('.select__value').children();
+			var box_value = select.siblings('.select__value');
+			var visible = box_value.children();
 
-			select_box.on('click', function() {
+			box_value.on('click', function() {
 				select_box.hasClass('select--focus') ? box_ul.hide() : scrollPaneSet(box_ul.show().children());
 				select_box.toggleClass('select--focus');
 			});
 
 			box_ul.on('click','.select__li', function() {
 				select.val($(this).attr('data-value')).trigger('change');
+				select_box.removeClass('select--focus');
+				box_ul.hide();
 			});
 			select.on('change',function(){
 				var o = select.children(':selected');
@@ -177,8 +188,16 @@ var showAlertUp;
 
 // scroll Pane
 	function scrollPaneSet(selector) {
-		var elm = selector.jScrollPane({
+		selector.jScrollPane({
 			verticalGutter : 0,
+		});
+		// блокируем скролл вне блока
+		selector.on('mousewheel DOMMouseScroll', function (e) {
+			if($(this).find('.jspVerticalBar').length == 0) return;
+			var e0 = e.originalEvent,
+			delta = e0.wheelDelta || -e0.detail;
+			this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+			e.preventDefault();
 		});
 	}
 
@@ -239,12 +258,12 @@ var showAlertUp;
 // menu
 	(function(menuBox){
 		var li = menuBox.find('.menu-top__submenu');
-		var subMenu = menuBox.find('.menu-top-submenu');
+		var Menu = menuBox.closest('.header__menu');
 		li.on('mouseenter',function(){
-			subMenu.addClass('menu-top-submenu--show');
+			Menu.addClass('header__menu--submenu-show');
 		});
 		menuBox.on('mouseleave',function(){
-			subMenu.removeClass('menu-top-submenu--show');
+			Menu.removeClass('header__menu--submenu-show');
 		});
 	}($('.header__menu-box')));
 

@@ -32,6 +32,7 @@ http://htmlpluscss.ru
 		returnSumm = $('#return-summ'),
 		returnDiff = $('#return-diff'),
 
+		circleBg = $('#circle-bg'),
 		circleSumm = $('#circle-summ'),
 		circleDiff = $('#circle-diff');
 
@@ -82,15 +83,20 @@ http://htmlpluscss.ru
 	}
 
 	function result(s,d){
-		drawCircle(circleSumm,s);
-		drawCircle(circleDiff,d);
+		drawCircle(s,d);
 		returnDiff.text(sepNumber(d));
 		returnSumm.text(sepNumber(s+d));
 	};
 
-	function drawCircle(c,v) {
-		var pi2r = parseInt(c.attr('r')) * 2 * Math.PI;
-		c.attr('stroke-dasharray', pi2r * v / summMax + ' ' + pi2r);
+	function drawCircle(s,d) {
+		var pi2r = parseInt(circleBg.attr('r')) * 2 * Math.PI;
+		var diff = pi2r * d / summMax;
+		var summ = pi2r * (s - d) / summMax;
+		circleDiff.attr('stroke-dasharray', diff + ' ' + pi2r);
+//		circleDiff.attr('stroke-dashoffset', pi2r / 4);
+		circleSumm.attr('stroke-dasharray', summ + ' ' + pi2r);
+		circleSumm.attr('stroke-dashoffset', -diff);
+		circleBg.attr('stroke-dashoffset', -(diff+summ));
 	}
 
 	function declension(num, expressions) {

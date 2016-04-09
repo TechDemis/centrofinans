@@ -69,15 +69,22 @@
 							<div class="calkulator__circle">
 								<div class="circle">
 									<div class="circle__svg">
-										<svg viewBox="0 0 172 172" height="172" width="172" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-											<circle id="circle-summ" cx="86" cy="86" r="80" fill="none" stroke-width="12" stroke-linecap="square" stroke-dasharray="0 0" stroke="#f50546" />
+										<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" height="172" width="172">
+											<circle id="circle-bg" cx="86" cy="86" r="80" fill="none" stroke-width="12" stroke-dasharray="0 0" stroke="#939aa5" stroke-dashoffset="0" />
 										</svg>
 									</div>
 								</div>
 								<div class="circle">
 									<div class="circle__svg">
-										<svg viewBox="0 0 172 172" height="172" width="172" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-											<circle id="circle-diff" cx="86" cy="86" r="80" fill="none" stroke-width="13" stroke-linecap="square" stroke-dasharray="0 0" stroke="#f3a8c0" />
+										<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" height="172" width="172">
+											<circle id="circle-summ" cx="86" cy="86" r="80" fill="none" stroke-width="12" stroke-dasharray="0 0" stroke="#f50546" stroke-dashoffset="0" />
+										</svg>
+									</div>
+								</div>
+								<div class="circle">
+									<div class="circle__svg">
+										<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" height="172" width="172">
+											<circle id="circle-diff" cx="86" cy="86" r="80" fill="none" stroke-width="12" stroke-dasharray="0 0" stroke="#f3a8c0" stroke-dashoffset="0" />
 										</svg>
 									</div>
 								</div>
