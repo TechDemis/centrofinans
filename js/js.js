@@ -172,9 +172,6 @@ var showAlertUp;
 			$(this).parent().addClass('btn--checked').siblings().removeClass('btn--checked');
 	}).trigger('change');
 
-// tabs
-	$('.tabs').tabs();
-
 // select
 	$('select').mySelect();
 
@@ -259,6 +256,7 @@ var showAlertUp;
 	(function(menuBox){
 		var li = menuBox.find('.menu-top__submenu');
 		var Menu = menuBox.closest('.header__menu');
+		if (Menu.hasClass('header__menu--submenu-fixed')) return;
 		li.on('mouseenter',function(){
 			Menu.addClass('header__menu--submenu-show');
 		});
@@ -267,6 +265,59 @@ var showAlertUp;
 		});
 	}($('.header__menu-box')));
 
+// about
+	(function(s){
+
+		if (s.length == 0) return;
+
+		var min = parseInt(s.attr('data-min')),
+			max = parseInt(s.attr('data-max')),
+			diff = max - min,
+			yearsTdWidth = s.width() / diff,
+			tablo = $('.about-intro b'),
+			arr = [],
+			sep = $('<span>'),
+			years = $('<ul>');
+
+		for(var i = min; i <= max; i++){
+			arr[i] = {
+				a : s.attr('data-a'+i),
+				b : s.attr('data-b'+i),
+				c : s.attr('data-c'+i)
+			}
+		}
+
+		s.slider({
+			min: min,
+			max: max,
+			value: max,
+			create: function(){
+				var seps = diff * 10;
+				var sepStep = s.width() / seps;
+				for(var i = 0; i <= seps; i++){
+					var el = $('<i>');
+					el.css('left', i * sepStep);
+					if (i%10 == 0 ){
+						var yearsLi = $('<li>');
+						yearsLi.text(min++).css('left',i * sepStep);
+						years.append(yearsLi);
+						el.addClass('sep12');
+					}else {
+						el.addClass('sep8');
+					}
+					sep.append(el);
+				}
+				s.siblings('.about-table-years').html(years);
+				s.children('.about-slider__sep').html(sep);
+			},
+			slide: function(event,ui) {
+				tablo.eq(0).text(arr[ui.value].a);
+				tablo.eq(1).text(arr[ui.value].b);
+				tablo.eq(2).text(arr[ui.value].c);
+			}
+		});
+
+	})($('#about-slider'));
 
 })(jQuery);
 

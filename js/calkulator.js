@@ -77,9 +77,9 @@ http://htmlpluscss.ru
 	}
 
 	function dateNullProcentTextToggle(v){
-		v >= dateStartNullProcent && v <= dateFinishNullProcent ?
-			dateNullProcentText.show().css('margin-left',-dateNullProcentText.outerWidth()/2):
-			dateNullProcentText.hide();
+		v > dateFinishNullProcent || v < dateStartNullProcent ?
+			dateNullProcentText.hide():
+			dateNullProcentText.show().css('margin-left',-dateNullProcentText.outerWidth()/2);
 	}
 
 	function result(s,d){
@@ -93,7 +93,6 @@ http://htmlpluscss.ru
 		var diff = pi2r * d / summMax;
 		var summ = pi2r * (s - d) / summMax;
 		circleDiff.attr('stroke-dasharray', diff + ' ' + pi2r);
-//		circleDiff.attr('stroke-dashoffset', pi2r / 4);
 		circleSumm.attr('stroke-dasharray', summ + ' ' + pi2r);
 		circleSumm.attr('stroke-dashoffset', -diff);
 		circleBg.attr('stroke-dashoffset', -(diff+summ));

@@ -16,6 +16,14 @@
 <!--#set var="page" value="home" -->
 <!--#endif-->
 
+<!--#if expr="$DOCUMENT_URI = '/about.html' ||
+			  $DOCUMENT_URI = '/docs.html'  ||
+			  $DOCUMENT_URI = '/jobs.html'  ||
+			  $DOCUMENT_URI = '/rent.html'  ||
+			  $DOCUMENT_URI = '/feedback.html'" -->
+<!--#set var="submenu" value="show" -->
+<!--#endif-->
+
 <!--#if expr='$page=home' -->
 	<aside class="ahtung">
 		<div class="ahtung__box align-right">
@@ -23,7 +31,8 @@
 			<a class="ahtung__close ico ico--close-black"></a>
 		</div>
 	</aside>
-<!--#else-->
+<!--#endif-->
+<!--#if expr="$DOCUMENT_URI = '/about.html'" -->
 	<aside class="ahtung">
 		<div class="ahtung__box">
 			<p>В период праздников с 8 февраля по 13 февраля 2016 года рабочее время изменено. Офисы работают с 11:00 до 17:30</p>
@@ -60,12 +69,12 @@
 
 		</div>
 
-		<div class="header__menu clear-both clr">
+		<div class="header__menu<!--#if expr='$submenu=show' --> header__menu--submenu-fixed<!--#endif--> clear-both clr">
 
-			<nav class="header__menu-box center">
+			<nav class="header__menu-box  center">
 				<ul class="menu-top">
-					<li class="menu-top__plus"><a href=".html"><i class="ico ico--plus"></i>Заявка на заём</a></li>
-					<li class="menu-top__submenu"><a href=".html">О компании</a></li>
+					<li class="menu-top__plus"><a href="calkulator.html#calkulator"><i class="ico ico--plus"></i>Заявка на заём</a></li>
+					<li class="menu-top__submenu"><a href="about.html">О компании</a></li>
 					<li><a href=".html">Акции</a></li>
 					<li><a href=".html">Новости</a></li>
 					<li><a href=".html">Вопросы-ответы</a></li>
@@ -73,10 +82,44 @@
 					<li class="menu-top__btn-lk"><a class="btn <!--#if expr='$page=home' -->btn--gray<!--#else-->btn--lk<!--#endif-->" href=".html"><i class="ico <!--#if expr='$page=home' -->ico--lock<!--#else-->ico--lock-black<!--#endif-->"></i>Личный кабинет</a></li>
 				</ul>
 				<ul class="menu-top-submenu">
-					<li><a href=".html">Документы</a></li>
-					<li><a href=".html">Вакансии</a></li>
-					<li><a href=".html">Арендодателям</a></li>
-					<li><a href=".html">Отзывы клиентов</a></li>
+<!--#if expr='$submenu=show' -->
+					<li>
+<!--#if expr="$DOCUMENT_URI = '/about.html'" -->
+						<span class="menu-top-submenu__current">О компании</span>
+<!--#else-->
+						<a href="about.html">О компании</a>
+<!--#endif-->
+						<i class="ico ico--arrow-right-gray"></i>
+					</li>
+<!--#endif-->
+					<li>
+<!--#if expr="$DOCUMENT_URI = '/docs.html'" -->
+						<span class="menu-top-submenu__current">Документы</span>
+<!--#else-->
+						<a href="docs.html">Документы</a>
+<!--#endif-->
+					</li>
+					<li>
+<!--#if expr="$DOCUMENT_URI = '/jobs.html'" -->
+						<span class="menu-top-submenu__current">Вакансии</span>
+<!--#else-->
+						<a href="jobs.html">Вакансии</a>
+<!--#endif-->
+					</li>
+					<li>
+<!--#if expr="$DOCUMENT_URI = '/rent.html'" -->
+						<span class="menu-top-submenu__current">Арендодателям</span>
+<!--#else-->
+						<a href="rent.html">Арендодателям</a>
+<!--#endif-->
+					</li>
+					<li>
+<!--#if expr="$DOCUMENT_URI = '/feedback.html'" -->
+						<span class="menu-top-submenu__current">Отзывы клиентов</span>
+<!--#else-->
+						<a href="feedback.html">Отзывы клиентов</a>
+<!--#endif-->
+					</li>
 				</ul>
 			</nav>
 

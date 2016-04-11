@@ -343,6 +343,9 @@ select {
 a:hover .ico--arrow-right-red {
 	background-position: -501px -404px
 }
+.ico--arrow-right-gray {
+	background-position: -454px -566px;
+}
 .ico--prev {
 	width: 30px;
 	height: 30px;
@@ -351,6 +354,12 @@ a:hover .ico--arrow-right-red {
 .ico--rus {
 	background-position: -164px -195px;
 }
+.ico--pdf {
+	width: 40px;
+	height: 40px;
+	background-position: -322px -598px;
+}
+
 
 /* table
 -----------------------------------------------------------------------------*/
@@ -479,6 +488,12 @@ hr {
 }
 .w220 {
 	width: 220px;
+}
+.w350 {
+	width: 350px;
+}
+.w550 {
+	width: 550px;
 }
 
 .relative{
