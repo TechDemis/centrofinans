@@ -31,10 +31,14 @@ http://htmlpluscss.ru
 
 		returnSumm = $('#return-summ'),
 		returnDiff = $('#return-diff'),
+		returnDiffVal  = 980,
 
 		circleBg = $('#circle-bg'),
 		circleSumm = $('#circle-summ'),
-		circleDiff = $('#circle-diff');
+		circleDiff = $('#circle-diff'),
+
+		circleBox = $('.calkulator__circle'),
+		circleTooltip = $('.calkulator__tooltip');
 
 	summ.slider({
 		range: 'min',
@@ -43,11 +47,12 @@ http://htmlpluscss.ru
 		step: summStep,
 		value: summValue,
 		create: function(){
-			result(summValue,1000);
+			result(summValue,returnDiffVal);
 		},
 		slide: function(event,ui) {
-			summSet.text(sepNumber(ui.value));
-			result(ui.value,1000);
+			summValue = ui.value;
+			returnDiffVal = ui.value / 10;
+			result(summValue,returnDiffVal);
 		}
 	});
 
@@ -84,6 +89,7 @@ http://htmlpluscss.ru
 
 	function result(s,d){
 		drawCircle(s,d);
+		summSet.text(sepNumber(s));
 		returnDiff.text(sepNumber(d));
 		returnSumm.text(sepNumber(s+d));
 	};
@@ -92,10 +98,27 @@ http://htmlpluscss.ru
 		var pi2r = parseInt(circleBg.attr('r')) * 2 * Math.PI;
 		var diff = pi2r * d / summMax;
 		var summ = pi2r * (s - d) / summMax;
-		circleDiff.attr('stroke-dasharray', diff + ' ' + pi2r);
-		circleSumm.attr('stroke-dasharray', summ + ' ' + pi2r);
-		circleSumm.attr('stroke-dashoffset', -diff);
-		circleBg.attr('stroke-dashoffset', -(diff+summ));
+
+		if(circleBox.hasClass('calcul-2')) {
+
+			circleDiff.attr('stroke-dasharray', diff + ' ' + pi2r);
+			circleDiff.attr('stroke-dashoffset', diff * 2);
+			circleSumm.attr('stroke-dasharray', summ + ' ' + pi2r);
+			circleSumm.attr('stroke-dashoffset', 0);
+			circleBg.attr('stroke-dasharray', (pi2r-diff-summ) + ' ' + pi2r);
+			circleBg.attr('stroke-dashoffset', -summ);
+
+		} else {
+
+			circleDiff.attr('stroke-dasharray', diff + ' ' + pi2r);
+			circleDiff.attr('stroke-dashoffset', 0);
+			circleSumm.attr('stroke-dasharray', summ + ' ' + pi2r);
+			circleSumm.attr('stroke-dashoffset', -diff);
+			circleBg.attr('stroke-dasharray', (pi2r-diff-summ) + ' ' + pi2r);
+			circleBg.attr('stroke-dashoffset', -(diff+summ));
+
+		}
+
 	}
 
 	function declension(num, expressions) {
@@ -130,7 +153,36 @@ http://htmlpluscss.ru
 		});
 	}).trigger('blur');
 
-	$('.mask-tel').mask("+7 (999) 999-99-99");
-	$('.mask-date').mask("99 / 99 / 9999",{placeholder:"дд / мм / гггг"});
+	circleSumm.add(circleDiff).on({
+		mouseenter: function(){
+			var tooltip = $('.calkulator__label').clone().removeAttr('class');
+			var index = $(this).is('#circle-summ') ? 0 : 1;
+			tooltip.find('[id]').removeAttr('id');
+			circleTooltip.html(tooltip.eq(index))
+			circleTooltip.removeClass('hide');
+		},
+		mousemove: function(event){
+			var offset = circleBox.offset();
+			circleTooltip.css({
+				'left' : event.pageX - offset.left,
+				'top'  : event.pageY - offset.top
+			});
+		},
+		mouseleave: function(){
+			circleTooltip.addClass('hide');
+		}
+	});
+
+	$('.calkulator__radio-btn').find('input').on('change',function(){
+		var val = $(this).val();
+		if(val=='calcul-1'){
+			circleBox.removeClass('calcul-2');
+		}
+		else {
+			circleBox.addClass('calcul-2');
+		}
+		result(summValue,returnDiffVal);
+	});
+
 
 })(jQuery);

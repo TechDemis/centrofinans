@@ -1,4 +1,4 @@
-		<aside class="promo-block img-cover">
+		<aside class="promo-block img-cover img-cover--parallax" data-img="/img/promo-block.jpg">
 
 			<p class="center">Простое решение финансовых трудностей в кротчайшие <br>сроки, без комиссий и справок <a href="/#calkulator" class="btn btn--red btn--radius">Получить наличные</a></p>
 

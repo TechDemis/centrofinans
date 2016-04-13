@@ -104,13 +104,15 @@ header, main, nav, section, article, aside, footer {
 	color: #2a3246;
 	border: solid 1px rgba(150,160,170,.8);
 	border-radius: 4px;
-	background-color: rgba(255,255,255,.2);
+	background: rgba(255,255,255,.2);
 }
 .input--error {
+	background: #ff0142;
+	border-color: #cd0034;
 }
 .input:focus {
-	background-color: rgba(150,160,170,.1);
-	border: solid 1px rgba(150,160,170,.8);
+	background: rgba(150,160,170,.1);
+	border-color: rgba(150,160,170,.8);
 }
 textarea.input {
 	resize:none;
@@ -154,6 +156,7 @@ textarea.input {
 	background-color: #cd0034;
 }
 .btn--yellow {
+	color: #2a3246;
 	background-color: #ffee2f;
 }
 .btn--yellow:hover {
@@ -323,6 +326,9 @@ select {
 .ico--geo {
 	background-position: -218px -237px
 }
+.ico--geo-gray {
+	background-position: -509px -238px
+}
 .ico--geo-black {
 	background-position: -218px -196px
 }
@@ -352,12 +358,24 @@ a:hover .ico--arrow-right-red {
 	background-position: -451px -372px;
 }
 .ico--rus {
+	right: 13px;
+	top: 11px;
+	left: auto;
 	background-position: -164px -195px;
 }
 .ico--pdf {
 	width: 40px;
 	height: 40px;
 	background-position: -322px -598px;
+}
+.ico--plusik {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	left: -30px;
+	top: -2px;
+	border: 1px solid rgba(41,49,70,.8);
+	background-position: -640px -199px
 }
 
 
@@ -426,6 +444,41 @@ td {
 }
 .checkbox input:checked ~ i {
 	background-position:-38px -197px;
+}
+.checkbox--radio {
+	line-height: 20px;
+	padding-left: 25px;
+	margin-bottom: 10px;
+}
+.checkbox--radio i {
+	width: 16px;
+	height: 16px;
+	opacity: .8;
+	top: 1px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.2);
+	border: solid 1px #96a0aa;
+}
+.checkbox--radio:hover i,
+.checkbox--radio input:checked ~ i {
+	background: #fff;
+	border-color: #2a3246;
+}
+.checkbox--radio input:checked ~ i:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 6px;
+	height: 6px;
+	content: '';
+	border-radius: 50%;
+	background: #2a3246;
+}
+.checkbox--error {
+	color: #ff0142;
 }
 
 h1, h2, h3, h4, b {
@@ -658,37 +711,28 @@ ol > li:before {
 	right: 0;
 	z-index: 11;
 	height: 100%;
-	background-color: rgba(59, 61, 77, 0.7);
+	background-color: rgba(50,50,51,.9);
 }
 .alert_up--hide {
 	height: 0;
 	overflow: hidden;
 }
 .alert_up__window {
-	width: 660px;
-	border-radius: 10px;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
+	width: 540px;
+	border-radius: 6px;
 	position:absolute;
-	padding: 20px;
 	top: -9999px;
 	background: #fff;
 }
 .alert_up h3 {
 	text-align: center;
-	font-size: 24px;
-	font-weight: 500;
-	line-height: 28px;
 	padding: 20px 0;
+	font: 24px/30px 'ProximaNova-Semibold';
 }
 .alert_up p{
-	text-align: center;
-	font-size: 15px;
-	line-height: 20px;
-	margin-bottom: 20px;
+	color: #96a0aa;
 }
-.alert_up p a {
-	color: #369bf8;
-}
+
 /*
  * CSS Styles that are needed by jScrollPane for it to operate correctly.
  *

@@ -46,7 +46,7 @@
 	<script src="js/jquery.mousewheel.min.js"></script>
 	<script src="js/js.js"></script>
 
-<!--#if expr="'$page=home' || $DOCUMENT_URI = '/calkulator.html'" -->
+<!--#if expr="$calkulator = 1" -->
 	<script src="js/calkulator.js"></script>
 <!--#endif-->
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<title>Centrofinans</title>
+	<title><!--#echo var="title" --></title>
 	<meta charset="utf-8">
 	<link href="css/default.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
@@ -12,19 +12,7 @@
 
 <body>
 
-<!--#if expr="$DOCUMENT_URI = '/index.html'" -->
-<!--#set var="page" value="home" -->
-<!--#endif-->
-
-<!--#if expr="$DOCUMENT_URI = '/about.html' ||
-			  $DOCUMENT_URI = '/docs.html'  ||
-			  $DOCUMENT_URI = '/jobs.html'  ||
-			  $DOCUMENT_URI = '/rent.html'  ||
-			  $DOCUMENT_URI = '/feedback.html'" -->
-<!--#set var="submenu" value="show" -->
-<!--#endif-->
-
-<!--#if expr='$page=home' -->
+<!--#if expr='$ahtung=1' -->
 	<aside class="ahtung">
 		<div class="ahtung__box align-right">
 			<p><span class="opacity-8">Ваш город Санкт-Петербург?</span> <a class="btn btn--red ahtung__close">Да</a> <a class="ahtung__link">Хочу изменить</a></p>
@@ -32,7 +20,8 @@
 		</div>
 	</aside>
 <!--#endif-->
-<!--#if expr="$DOCUMENT_URI = '/about.html'" -->
+
+<!--#if expr='$ahtung=2' -->
 	<aside class="ahtung">
 		<div class="ahtung__box">
 			<p>В период праздников с 8 февраля по 13 февраля 2016 года рабочее время изменено. Офисы работают с 11:00 до 17:30</p>
@@ -43,7 +32,7 @@
 <!--#endif-->
 
 <!--#if expr='$page=home' -->
-	<header class="header header--home img-cover">
+	<header class="header header--home img-cover" data-img="<!--#echo var='headerImg' -->">
 <!--#else-->
 	<header class="header">
 <!--#endif-->
@@ -69,10 +58,10 @@
 
 		</div>
 
-		<div class="header__menu<!--#if expr='$submenu=show' --> header__menu--submenu-fixed<!--#endif--> clear-both clr">
+		<div class="header__menu<!--#if expr='$submenu=show' --> header__menu--submenu-fixed<!--#endif--><!--#if expr='$submenubg=gray' --> header__menu--submenu-gray<!--#endif--> clear-both clr">
 
-			<nav class="header__menu-box  center">
-				<ul class="menu-top">
+			<nav class="header__menu-box">
+				<ul class="menu-top center">
 					<li class="menu-top__plus"><a href="calkulator.html#calkulator"><i class="ico ico--plus"></i>Заявка на заём</a></li>
 					<li class="menu-top__submenu"><a href="about.html">О компании</a></li>
 					<li><a href=".html">Акции</a></li>
@@ -84,7 +73,7 @@
 				<ul class="menu-top-submenu">
 <!--#if expr='$submenu=show' -->
 					<li>
-<!--#if expr="$DOCUMENT_URI = '/about.html'" -->
+<!--#if expr='$page=about' -->
 						<span class="menu-top-submenu__current">О компании</span>
 <!--#else-->
 						<a href="about.html">О компании</a>
@@ -93,28 +82,28 @@
 					</li>
 <!--#endif-->
 					<li>
-<!--#if expr="$DOCUMENT_URI = '/docs.html'" -->
+<!--#if expr='$page=docs' -->
 						<span class="menu-top-submenu__current">Документы</span>
 <!--#else-->
 						<a href="docs.html">Документы</a>
 <!--#endif-->
 					</li>
 					<li>
-<!--#if expr="$DOCUMENT_URI = '/jobs.html'" -->
+<!--#if expr='$page=jobs' -->
 						<span class="menu-top-submenu__current">Вакансии</span>
 <!--#else-->
 						<a href="jobs.html">Вакансии</a>
 <!--#endif-->
 					</li>
 					<li>
-<!--#if expr="$DOCUMENT_URI = '/rent.html'" -->
+<!--#if expr='$page=rent' -->
 						<span class="menu-top-submenu__current">Арендодателям</span>
 <!--#else-->
 						<a href="rent.html">Арендодателям</a>
 <!--#endif-->
 					</li>
 					<li>
-<!--#if expr="$DOCUMENT_URI = '/feedback.html'" -->
+<!--#if expr='$page=feedback' -->
 						<span class="menu-top-submenu__current">Отзывы клиентов</span>
 <!--#else-->
 						<a href="feedback.html">Отзывы клиентов</a>

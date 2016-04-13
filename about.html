@@ -1,0 +1,128 @@
+<!--#set var="page" value="about" -->
+<!--#set var="title" value="О компании" -->
+<!--#set var="submenu" value="show" -->
+<!--#set var="ahtung" value = "2" -->
+
+<!--#include file="_header.shtml"-->
+
+	<main class="main clr">
+
+		<article class="about">
+
+			<div class="img-big img-big--about img-cover" data-img="/img/img-big--about.png">
+
+				<h1>Наша компания</h1>
+
+				<div class="center">
+
+					<ul class="about-intro table table--fixed align-center">
+						<li class="table__td"><b>610</b> Офисов по всей <br>России</li>
+						<li class="table__td"><b>12 450</b> Профессиональных <br>сотрудников</li>
+						<li class="table__td"><b>256 731</b> Заемщиков нас <br>рекомендуют</li>
+					</ul>
+
+					<div id="about-slider" class="about-slider"
+							data-min="2003"
+							data-max="2016"
+							data-a2003="100" data-b2003="1 000" data-c2003="10 000"
+							data-a2004="134" data-b2004="2 086" data-c2004="27 538"
+							data-a2005="156" data-b2005="3 320" data-c2005="33 645"
+							data-a2006="310" data-b2006="4 690" data-c2006="48 743"
+							data-a2007="420" data-b2007="5 789" data-c2007="57 632"
+							data-a2008="456" data-b2008="6 965" data-c2008="66 987"
+							data-a2009="489" data-b2009="7 420" data-c2009="74 865"
+							data-a2010="502" data-b2010="8 864" data-c2010="89 886"
+							data-a2011="532" data-b2011="9 736" data-c2011="97 974"
+							data-a2012="578" data-b2012="10 034" data-c2012="117 088"
+							data-a2013="580" data-b2013="11 080" data-c2013="136 635"
+							data-a2014="599" data-b2014="11 432" data-c2014="161 673"
+							data-a2015="602" data-b2015="12 043" data-c2015="206 880"
+							data-a2016="610" data-b2016="12 450" data-c2016="256 731"
+					><div class="about-slider__sep"></div></div>
+					<div class="about-table-years"></div>
+
+				</div>
+
+			</div>
+
+			<div class="about-text center">
+				<h2>Работаем для Вас!</h2>
+				<p class="about-text__p">Федеральная сеть быстрых займов «Центрофинанс»  работает на рынке микрозаймов Российской Федерации уже в 57 регионах страны. Наша сеть постоянно разрастается, и возможно, уже завтра ваш город присоединится к 600 успешно работающим офисам обслуживания. Федеральная сеть быстрых займов «Центрофинанс»  работает на рынке микрозаймов Российской Федерации уже в 57 регионах страны.Наша сеть постоянно разрастается, и возможно, уже завтра ваш город присоединится к 600 успешно работающим офисам обслуживания!</p>
+			</div>
+
+			<div class="about-map img-cover">
+
+				<div id="map" style="height:460px"></div>
+
+				<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+				<script>
+
+					function initMap() {
+						var myMap = new ymaps.Map('map', {
+							center: [55.74, 37.58],
+							zoom: 6,
+							controls: []
+						});
+
+
+						var zoomControl = new ymaps.control.ZoomControl({
+							options: {
+								visible: true,
+								position : {
+									top   : 10,
+									right : 10,
+									left  : 'auto'
+								}
+							}
+						});
+						myMap.controls.add(zoomControl);
+
+
+						var searchControl = new ymaps.control.SearchControl({
+							options: {
+								noPopup : true,
+								noSuggestPanel : true,
+								provider: 'yandex#search'
+							}
+						});
+
+						myMap.controls.add(searchControl);
+
+						searchControl.search('Центрофинанс');
+
+						myMap.behaviors.disable('scrollZoom');
+					}
+
+					ymaps.ready(initMap);
+
+				</script>
+
+			</div>
+
+			<div class="about-text about-text--face center">
+				<h2>Наша команда</h2>
+				<p class="about-text__p">В нашей компании работают только профессионалы с большим опытом <br>в сфере финансовых услуг. Доверяйте лучшим!</p>
+				<ul class="about-face flexbox flexbox--wrap flexbox--justify">
+					<li><img src="img/about-1.png" alt=""><b>Иванов Иван</b>Генеральный директор</li>
+					<li><img src="img/about-2.png" alt=""><b>Гладких Николай</b>Управляющий деректор</li>
+					<li><img src="img/about-3.png" alt=""><b>Инкерман Олег</b>Финансовый директор</li>
+					<li><img src="img/about-4.png" alt=""><b>Гвардеев Антон</b>Риск-менеджер</li>
+					<li><img src="img/about-5.png" alt=""><b>Иванов Иван</b>Финансовый аналитик</li>
+					<li><img src="img/about-6.png" alt=""><b>Гладких Николай</b>СЕО</li>
+					<li><img src="img/about-7.png" alt=""><b>Инкерман Олег</b>Исполнительный директор</li>
+					<li><img src="img/about-8.png" alt=""><b>Евдокимов Денис</b>Менеджер проектов</li>
+				</ul>
+			</div>
+
+			<div class="about-promo-block img-cover img-cover--parallax" data-img="/img/about-promo-block.png">
+
+				<h3>Наша миссия</h3>
+				<p>Мы помогаем людям в экстренных финансовых ситуациях, <br>и не просто мгновенно переводим деньги, но и улучшаем <br>кредитную историю каждого заёмщика. <a href="calkulator.html#calkulator" class="btn btn--red btn--block btn--radius">Получить наличные</a></p>
+
+			</div>
+
+		</article>
+
+	</main>
+
+<!--#include file="_footer.shtml"-->

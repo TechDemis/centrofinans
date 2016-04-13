@@ -16,7 +16,8 @@ var showAlertUp;
 		windowHeight,
 		windowScrollTop,
 		resizeTimeoutId,
-		$window = $(window);
+		$window = $(window),
+		menuHeader = $('.header__menu');
 
 	$window.on({
 		resize: function(){
@@ -28,11 +29,19 @@ var showAlertUp;
 		scroll: function(){
 			windowScrollTop = $window.scrollTop();
 
+			// menu fixed
+			if (menuHeader.offset().top + menuHeader.height() < windowScrollTop){
+				menuHeader.addClass('header__menu--fixed');
+			}
+			if (windowScrollTop < menuHeader.offset().top){
+				menuHeader.removeClass('header__menu--fixed');
+			}
+
 			// parallax
 			$('.img-cover--parallax').each(function(){
 				var p = $(this);
 				var top = 100 - 100 * (p.offset().top + p.outerHeight() - windowScrollTop) / ( windowHeight + p.outerHeight() );
-				p.css('background-position','50% '+ top + '%');
+				p.css('background-position','center '+ top + '%');
 			});
 
 		}
@@ -49,9 +58,8 @@ var showAlertUp;
 
 	// img-cover
 	$('.img-cover').each(function(){
-		var src = $(this).children('img').attr('src');
-		if(src!==undefined)
-			$(this).css('background-image','url('+src+')');
+		var src = $(this).attr('data-img');
+		$(this).css('background-image','url('+src+')');
 	});
 
 	$.fn.mySelect = function(){
@@ -183,6 +191,33 @@ var showAlertUp;
 		$('body, html').animate({scrollTop : t}, 1000);
 	}
 
+// mask
+	function maskSet(selector){
+		selector.each(function(){
+			var t = $(this);
+			var maskFormat;
+			var placeholder = t.attr('data-placeholder');
+			if(t.hasClass('mask-tel'))
+				maskFormat = "+7 (999) 999-99-99";
+			else if (t.hasClass('mask-date')) {
+				switch(placeholder){
+					case "гггг" :
+						maskFormat = "9999";
+						break;
+					case "мм.гггг" :
+						maskFormat = "99.9999";
+						break;
+					default :
+						maskFormat = "99.99.9999";
+				}
+			}
+			t.mask(maskFormat,{
+				placeholder:placeholder
+			});
+		});
+	}
+	maskSet($('.mask-tel, .mask-date'));
+
 // scroll Pane
 	function scrollPaneSet(selector) {
 		selector.jScrollPane({
@@ -253,17 +288,16 @@ var showAlertUp;
 	}($('.feedback')));
 
 // menu
-	(function(menuBox){
-		var li = menuBox.find('.menu-top__submenu');
-		var Menu = menuBox.closest('.header__menu');
-		if (Menu.hasClass('header__menu--submenu-fixed')) return;
-		li.on('mouseenter',function(){
-			Menu.addClass('header__menu--submenu-show');
-		});
+	(function(){
+		var menuBox = menuHeader.children();
+		var li = menuHeader.find('.menu-top__submenu');
 		menuBox.on('mouseleave',function(){
-			Menu.removeClass('header__menu--submenu-show');
+			menuHeader.removeClass('header__menu--submenu-show');
 		});
-	}($('.header__menu-box')));
+		li.on('mouseenter',function(){
+			menuHeader.addClass('header__menu--submenu-show');
+		});
+	}());
 
 // about
 	(function(s){
@@ -318,6 +352,47 @@ var showAlertUp;
 		});
 
 	})($('#about-slider'));
+
+// alert
+	$('.alert-jobs__btn--next').on('click',function(){
+		var valid = true;
+		$(this).closest('.alert-jobs__step').find('.alert-jobs__requred').each(function(){
+			if($(this).hasClass('input') && $(this).val()==''){
+				$(this).addClass('input--error').one('focus',function(){
+					$(this).removeClass('input--error');
+				});
+				valid = false;
+			}
+			else if($(this).hasClass('input-type-radio') && $('.input-type-radio').filter('[name="'+$(this).attr('name')+'"]').filter(':checked').length==0){
+				var radio = $('.input-type-radio').filter('[name="'+$(this).attr('name')+'"]');
+				var radioBox = radio.closest('.checkbox');
+				radio.one('change',function(){
+					radioBox.removeClass('checkbox--error');
+				});
+				radioBox.addClass('checkbox--error');
+				valid = false;
+			}
+		});
+		if(valid){
+			var parent = $(this).closest('.alert-jobs__step');
+			parent.addClass('hide').next().removeClass('hide');
+			$('.alert-jobs__nav-disk').eq(parent.index()+1).addClass('alert-jobs__nav-disk--active');
+			setTimeout(function(){
+				$('.alert-jobs__nav-progress').width($('.alert-jobs__nav-disk--active').last().position().left);
+			});
+		}
+		else {
+			return false;
+		}
+	});
+
+	$('.alert-jobs__add-btn').on('click',function(){
+		var box = $(this).closest('.alert-jobs__add');
+		var clone = box.find('.alert-jobs__add-item').clone().removeClass('alert-jobs__add-item');
+		clone.find('.input').val('').removeClass('input--error');
+		clone.appendTo(box);
+		maskSet(clone.find('.mask-date'));
+	});
 
 })(jQuery);
 
