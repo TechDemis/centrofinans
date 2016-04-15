@@ -26,19 +26,13 @@ http://htmlpluscss.ru
 		dateSuf = $('#date-suf'),
 		dateStartNullProcent = parseInt(date.attr('data-start-null-procent')),
 		dateFinishNullProcent = parseInt(date.attr('data-finish-null-procent')),
-		dateNullProcent = $('#null-procent'),
-		dateNullProcentText = $('#null-procent-text'),
+		dateNullProcent = $('.null-procent'),
+		calkulatorInfo = $('.calkulator__info-text').children(),
 
 		returnSumm = $('#return-summ'),
 		returnDiff = $('#return-diff'),
-		returnDiffVal  = 980,
 
-		circleBg = $('#circle-bg'),
-		circleSumm = $('#circle-summ'),
-		circleDiff = $('#circle-diff'),
-
-		circleBox = $('.calkulator__circle'),
-		circleTooltip = $('.calkulator__tooltip');
+		diffValue  = 980;
 
 	summ.slider({
 		range: 'min',
@@ -47,12 +41,11 @@ http://htmlpluscss.ru
 		step: summStep,
 		value: summValue,
 		create: function(){
-			result(summValue,returnDiffVal);
+			result();
 		},
 		slide: function(event,ui) {
 			summValue = ui.value;
-			returnDiffVal = ui.value / 10;
-			result(summValue,returnDiffVal);
+			result();
 		}
 	});
 
@@ -65,15 +58,41 @@ http://htmlpluscss.ru
 		create: function(){
 			dateNullProcent.css({
 				'left' : widthStep() * (dateStartNullProcent - dateMin),
-				'width' : widthStep() * (dateFinishNullProcent - dateStartNullProcent)
+				'width' : widthStep() * (dateFinishNullProcent - dateStartNullProcent + 1)
 			});
-			date.children('.ui-slider-handle').html(dateNullProcentText);
-			dateNullProcentTextToggle(dateValue);
+			result();
 		},
 		slide: function(event,ui) {
-			dateSet.text(ui.value);
-			dateSuf.text(declension(ui.value,['день','дня','дней']));
-			dateNullProcentTextToggle(ui.value);
+			dateValue = ui.value;
+			result();
+		}
+	});
+
+	summSet.add(dateSet).on('change keydown blur', function(event) {
+		if (event.keyCode == 13) {
+			$(this).trigger('blur');
+		}
+		if (event.type == 'blur') {
+			var v = this.value;
+			if (v.match(/[^0-9]/g))
+				v = v.replace(/[^0-9]/g, '');
+			if($(this).is('#summ-set')){
+				if(v>summMax)
+					v = summMax;
+				if(v<summMin)
+					v = summMin;
+				summValue = v;
+				summ.slider('value',v);
+			}
+			else {
+				if(v>dateMax)
+					v = dateMax;
+				if(v<dateMin)
+					v = dateMin;
+				dateValue = v;
+				date.slider('value',v);
+			}
+			result();
 		}
 	});
 
@@ -83,67 +102,53 @@ http://htmlpluscss.ru
 
 	function dateNullProcentTextToggle(v){
 		v > dateFinishNullProcent || v < dateStartNullProcent ?
-			dateNullProcentText.hide():
-			dateNullProcentText.show().css('margin-left',-dateNullProcentText.outerWidth()/2);
+			dateNullProcent.add(calkulatorInfo).hide():
+			dateNullProcent.add(calkulatorInfo).show();
 	}
 
-	function result(s,d){
-		drawCircle(s,d);
-		summSet.text(sepNumber(s));
-		returnDiff.text(sepNumber(d));
-		returnSumm.text(sepNumber(s+d));
-	};
+	function result(){
 
-	function drawCircle(s,d) {
-		var pi2r = parseInt(circleBg.attr('r')) * 2 * Math.PI;
-		var diff = pi2r * d / summMax;
-		var summ = pi2r * (s - d) / summMax;
+		summValue = parseInt(summValue);
+		dateValue = parseInt(dateValue);
 
-		if(circleBox.hasClass('calcul-2')) {
+		diffValue = summValue * dateValue / 100;
 
-			circleDiff.attr('stroke-dasharray', diff + ' ' + pi2r);
-			circleDiff.attr('stroke-dashoffset', diff * 2);
-			circleSumm.attr('stroke-dasharray', summ + ' ' + pi2r);
-			circleSumm.attr('stroke-dashoffset', 0);
-			circleBg.attr('stroke-dasharray', (pi2r-diff-summ) + ' ' + pi2r);
-			circleBg.attr('stroke-dashoffset', -summ);
+		summSet.val(sepNumber(summValue));
+		returnDiff.val(sepNumber(diffValue));
+		returnSumm.text(sepNumber(summValue+diffValue));
 
-		} else {
-
-			circleDiff.attr('stroke-dasharray', diff + ' ' + pi2r);
-			circleDiff.attr('stroke-dashoffset', 0);
-			circleSumm.attr('stroke-dasharray', summ + ' ' + pi2r);
-			circleSumm.attr('stroke-dashoffset', -diff);
-			circleBg.attr('stroke-dasharray', (pi2r-diff-summ) + ' ' + pi2r);
-			circleBg.attr('stroke-dashoffset', -(diff+summ));
-
-		}
+		dateSet.val(dateValue);
+		dateSuf.text(declension(dateValue,['день','дня','дней']));
+		dateNullProcentTextToggle(dateValue);
 
 	}
 
 	function declension(num, expressions) {
-		var result;
+		var r;
 		var count = num % 100;
 		if (count > 4 && count < 21)
-			result = expressions['2'];
+			r = expressions['2'];
 		else {
 			count = count % 10;
 			if (count == 1)
-				result = expressions['0'];
+				r = expressions['0'];
 			else if (count > 1 && count < 5)
-				result = expressions['1'];
+				r = expressions['1'];
 			else
-				result = expressions['2'];
+				r = expressions['2'];
 		}
-		return result;
+		return r;
 	}
 	function sepNumber(str){
-		str = str.toString();
+		str = parseInt(str).toString();
 		return str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+	}
+	function strToNumber(n){
+		return parseInt(n.replace(/\s+/g,''));
 	}
 
 	$('.calkulator__toggle-step').on('click',function(){
-		$('.calkulator__step-next').toggleClass('hide');
+		$('.calkulator__step-next').toggleClass('calkulator__step-next--active');
 	});
 
 	$('.calkulator__input-box').children('.input').on('keyup blur',function(e){
@@ -153,36 +158,23 @@ http://htmlpluscss.ru
 		});
 	}).trigger('blur');
 
-	circleSumm.add(circleDiff).on({
-		mouseenter: function(){
-			var tooltip = $('.calkulator__label').clone().removeAttr('class');
-			var index = $(this).is('#circle-summ') ? 0 : 1;
-			tooltip.find('[id]').removeAttr('id');
-			circleTooltip.html(tooltip.eq(index))
-			circleTooltip.removeClass('hide');
-		},
-		mousemove: function(event){
-			var offset = circleBox.offset();
-			circleTooltip.css({
-				'left' : event.pageX - offset.left,
-				'top'  : event.pageY - offset.top
-			});
-		},
-		mouseleave: function(){
-			circleTooltip.addClass('hide');
-		}
-	});
-
 	$('.calkulator__radio-btn').find('input').on('change',function(){
-		var val = $(this).val();
-		if(val=='calcul-1'){
-			circleBox.removeClass('calcul-2');
-		}
-		else {
-			circleBox.addClass('calcul-2');
-		}
-		result(summValue,returnDiffVal);
+		result();
+		var btn = $(this).closest('.btn');
+		var ul = $('.calkulator__foot-ul').eq(btn.index());
+		ul.addClass('calkulator__foot-ul--active');
+		ul.siblings().removeClass('calkulator__foot-ul--active');
 	});
 
+	$('.calkulator__box').on('submit',function(){
+		$(this).find('.input').each(function(){
+			if($(this).val()=='')
+				$(this).addClass('input--error').one('focus',function(){
+					$(this).removeClass('input--error');
+				});
+		});
+		if($(this).find('.input--error').length>0)
+			return false;
+	});
 
 })(jQuery);

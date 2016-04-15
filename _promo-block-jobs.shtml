@@ -1,0 +1,5 @@
+		<aside class="promo-block-jobs img-cover img-cover--parallax" data-img="/img/promo-block-jobs.jpg">
+
+			<p class="center">Если вы хотите стать частью нашей Компании, расти и развиваться вместе с нами, отправляйте резюме или заполните анкету! <br><a class="btn btn--red btn--radius btn-alert_up" data-alert-up="jobs">Заполнить анкету</a><a class="btn btn--white btn--radius">Отправить резюме</a></p>
+
+		</aside>

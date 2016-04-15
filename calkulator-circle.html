@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Калькулятор</title>
+	<meta charset="utf-8">
+	<link href="css/default.css" rel="stylesheet">
+	<meta name="viewport" content="width=980">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon-precomposed" href="/favicon.png">
+
+</head>
+
+<body>
+
+	<main class="main main--bb clr">
+
+		<div id="calkulator" class="calkulator">
+			<form class="calkulator__box">
+				<div class="calkulator__step-next calkulator__step-next--active">
+					<div class="calkulator__head clr">
+						<select>
+							<option value="none">Выбрать область</option>
+							<option value="1" selected="selected">Архангельская область</option>
+							<option value="2">Астраханская область</option>
+							<option value="3">Белгородская область</option>
+							<option value="4">Брянская область</option>
+							<option value="5">Владимирская область</option>
+							<option value="6">Великий Новгород</option>
+							<option value="7">Волгоградская область</option>
+							<option value="8">Вологодская область</option>
+							<option value="9">Воронежская область</option>
+						</select>
+						<select>
+							<option value="none">Выбрать город</option>
+							<option value="1">Архангельск</option>
+						</select>
+						<select>
+							<option value="none">Выбрать офис</option>
+							<option value="1">ул.Красноармейская</option>
+						</select>
+					</div>
+					<div class="calkulator__left pull-left clr">
+						<div class="calkulator__slider-box">
+							<p class="pull-left calkulator__label">Сумма займа: <b><input class="calkulator__input" id="summ-set" value="9800" maxlength="6"> руб.</b></p>
+							<p class="pull-right calkulator__label">Плата за займ: <b><input class="calkulator__input" id="return-diff" value="980" readonly="readonly"> руб.</b></p>
+							<div class="clear-both">
+								<div class="calkulator__slider" id="slider-summ"
+									data-step="100"
+									data-min="1000"
+									data-max="30000"
+									data-value="9800"
+								></div>
+							</div>
+							<p class="calkulator__range">
+								<span class="pull-left">1 000</span>
+								<span class="pull-right">30 000</span>
+							</p>
+							<p class="calkulator__info-text"><span>c 21 по 31 день процент не берем</span></p>
+							<p class="pull-left calkulator__label">Срок займа: <b><input class="calkulator__input" id="date-set" value="18"> <i id="date-suf">дней</i></b></p>
+							<div class="clear-both">
+								<div class="calkulator__slider" id="slider-date"
+									data-step="1"
+									data-min="1"
+									data-max="31"
+									data-value="18"
+									data-start-null-procent="21"
+									data-finish-null-procent="31"
+								>
+									<p class="null-procent"></p>
+								</div>
+							</div>
+							<p class="calkulator__range">
+								<span class="pull-left">1</span>
+								<span class="pull-right">31</span>
+							</p>
+							<div class="calkulator__radio-btn clr">
+								<label class="btn btn--radio pull-left">Первый <input checked="checked" type="radio" name="calkulator-type" class="hide" value="calcul-1"></label>
+								<label class="btn btn--radio pull-left">Долгосрочный <input type="radio" name="calkulator-type" class="hide" value="calcul-2"></label>
+								<label class="btn btn--radio pull-left">Пенсионный <input type="radio" name="calkulator-type" class="hide" value="calcul-3"></label>
+							</div>
+						</div>
+					</div>
+					<div class="calkulator__right pull-right clr">
+						<div class="calkulator__circle">
+							<div class="circle">
+								<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" height="180" width="180"  viewBox="0 0 180 180">
+									<g transform="rotate(-90 90 90)">
+										<circle id="circle-bg" cx="90" cy="90" r="80" fill="none" stroke-width="12" stroke-dasharray="0 0" stroke="#eaecee" stroke-dashoffset="0" />
+										<circle id="circle-summ" cx="90" cy="90" r="80" fill="none" stroke-width="12" stroke-dasharray="0 0" stroke="#f50546" stroke-dashoffset="0" />
+										<circle id="circle-diff" cx="90" cy="90" r="80" fill="none" stroke-width="12" stroke-dasharray="0 0" stroke="#f3a8c0" stroke-dashoffset="0" />
+									</g>
+								</svg>
+							</div>
+							<p class="calkulator__total-return">Сумма к возврату: <b><span id="return-summ">10 800</span> руб.</b></p>
+							<div class="calkulator__tooltip hide"></div>
+						</div>
+						<a class="btn btn--red btn--block calkulator__toggle-step">Оформить заявку</a>
+					</div>
+				</div>
+				<div class="calkulator__step-next">
+					<h3 class="calkulator__h3">Пожалуйста, заполните анкету для подачи заявки!</h3>
+					<p class="calkulator__address">Архангельская область, г. Северодвинск, ул. Тверская 97-А, офис 18</p>
+					<div class="calkulator__left pull-left clr">
+						<label class="calkulator__input-box w220 mb20 pull-left">
+							<input class="input" tabindex="1">
+							<span class="calkulator__placeholder">Фамилия<sup>*</sup></span>
+						</label>
+						<label class="calkulator__input-box w220 mb20 pull-right">
+							<input class="input" tabindex="2">
+							<span class="calkulator__placeholder">Имя<sup>*</sup></span>
+						</label>
+						<label class="calkulator__input-box w220 mb20 pull-left">
+							<input class="input mask-date" tabindex="4" data-placeholder="дд.мм.гггг">
+							<span class="calkulator__placeholder">Дата рождения<sup>*</sup></span>
+						</label>
+						<label class="calkulator__input-box w220 mb20 pull-right">
+							<input class="input mask-tel" tabindex="5">
+							<span class="calkulator__placeholder">Телефон<sup>*</sup></span>
+							<i class="ico ico--rus"></i>
+						</label>
+						<label class="calkulator__rules checkbox clear-both" tabindex="6">Согласен с <a href="/">условиями</a> представления займа <input type="checkbox" class="hide"></label>
+					</div>
+					<div class="calkulator__right pull-right clr">
+						<div class="calkulator__right-box">
+							<label class="calkulator__input-box mb17">
+								<input class="input" tabindex="3">
+								<span class="calkulator__placeholder">Отчество<sup>*</sup></span>
+							</label>
+							<p class="calkulator__required"><sup>*</sup> поля обязательные <br>для заполнения</p>
+						</div>
+						<label class="btn btn--red btn--block" tabindex="7">Оформить заявку <input type="submit" class="hide"></label>
+					</div>
+					<a class="ico ico--prev calkulator__toggle-step"></a>
+				</div>
+				<div class="calkulator__foot">
+					<ul class="calkulator__foot-ul calkulator__foot-ul--active">
+						<li>Иметь постоянный <br>доход</li>
+						<li>Предоставить всего <br>2 документа</li>
+						<li>Требуемый возраст <br>21-75 лет</li>
+					</ul>
+					<ul class="calkulator__foot-ul">
+						<li>Требуемый возраст <br>21-75 лет</li>
+						<li>Иметь постоянный <br>доход</li>
+						<li>Предоставить всего <br>2 документа</li>
+					</ul>
+					<ul class="calkulator__foot-ul">
+						<li>Предоставить всего <br>2 документа</li>
+						<li>Иметь постоянный <br>доход</li>
+						<li>Требуемый возраст <br>21-75 лет</li>
+					</ul>
+				</div>
+			</form>
+		</div>
+
+		<style>
+
+/* calkulator
+-----------------------------------------------------------------------------*/
+.calkulator {
+	width: 760px;
+	margin: auto;
+	padding-top: 50px;
+	position: relative;
+}
+.calkulator__box {
+	height: 458px;
+	position: relative;
+}
+.calkulator__head .select {
+	width: 220px;
+	float: left;
+	margin-left: 20px;
+	background: #fff
+}
+.calkulator__head .select .select__value {
+	padding: 13px 60px 12px 20px
+}
+.calkulator__head .select .select__value:before {
+	right: 15px;
+	top: 20px;
+}
+.calkulator__head .select:first-child {
+	margin-left: 0;
+}
+.calkulator__head .select:last-child {
+	margin-left: 0;
+	float: right;
+}
+
+.calkulator__left {
+	width: 460px;
+}
+.calkulator__right {
+	width: 220px;
+}
+.calkulator__radio-btn .btn--checked:after {
+	position: absolute;
+	top: 72px;
+	left: 50%;
+	content: '';
+	margin-left: -6px;
+	border-width: 0 7px 6px;
+	border-style: solid;
+	border-color: #d8dce7 transparent;
+}
+.calkulator__foot {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 88px;
+	overflow: hidden;
+	border-top: 1px solid #d8dce7;
+	border-radius: 0 0 6px 6px;
+	background: #fff;
+	border: 1px solid #d8dce7;
+	border-top: 0;
+}
+.calkulator__foot-ul {
+	position: absolute;
+	left: 0;
+	opacity: 0;
+	background: #fff;
+	-webkit-animation: foot-ul-active 1s linear;
+	animation: foot-ul 1s linear;
+}
+.calkulator__foot-ul--active {
+	opacity: 1;
+	z-index: 1;
+	-webkit-animation: foot-ul-active 1s linear;
+	animation: foot-ul-active 1s linear;
+}
+@-webkit-keyframes foot-ul {
+	0% {
+		top: 0;
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		top: 30px;
+		opacity: 0;
+	}
+}
+@-webkit-keyframes foot-ul-active {
+	0% {
+		top: -30px;
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		top: 0;
+		opacity: 1;
+	}
+}
+@keyframes foot-ul {
+	0% {
+		top: 0;
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		top: 30px;
+		opacity: 0;
+	}
+}
+@keyframes foot-ul-active {
+	0% {
+		top: -30px;
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		top: 0;
+		opacity: 1;
+	}
+}
+.calkulator__foot li{
+	float: left;
+	line-height: 17px;
+	padding: 27px 0 0 72px;
+	width: 260px;
+}
+.calkulator__foot li:before,
+.calkulator__foot li:nth-child(n+2):after{
+	position: absolute;
+	width: 42px;
+	height: 42px;
+	top: 22px;
+	left: 22px;
+	content: '';
+	background: url(../images/sprite.svg) -35px -436px;
+}
+.calkulator__foot li:nth-child(2):before{
+	background-position: -177px -436px
+}
+.calkulator__foot li:nth-child(3):before{
+	background-position: -316px -436px
+}
+.calkulator__foot li:nth-child(3){
+	width: 220px;
+	margin-left: 8px;
+}
+.calkulator__foot li:nth-child(n+2):after{
+	background-position: -639px -197px;
+	left: -28px;
+	top: 34px;
+	width: 20px;
+	height: 20px;
+}
+
+.calkulator__right-box {
+	height: 144px;
+}
+.calkulator__circle {
+	width: 180px;
+	height: 180px;
+	margin: 16px auto;
+	position: relative;
+}
+#circle-summ:hover {
+	stroke:#cd0034;
+	stroke-width:14;
+}
+#circle-diff:hover {
+	stroke:#c78a9a;
+	stroke-width:14;
+}
+.calkulator__right .btn {
+	height: 52px;
+	line-height: 52px;
+}
+.calkulator__tooltip {
+	position: absolute;
+	padding: 8px 14px;
+	color: #fff;
+	font-size: 12px;
+	line-height: 18px;
+	border-radius: 4px;
+	background: rgba(42,50,70,.9);
+	margin: 20px 0 0 10px;
+	z-index: 2;
+	white-space: nowrap;
+}
+.calkulator__tooltip b{
+	display: block;
+}
+.calkulator__tooltip u{
+	font-size: 14px;
+	text-decoration: none;
+}
+.calkulator__total-return {
+	text-align: center;
+	color: #96a0aa;
+	position: absolute;
+	top: 66px;
+	left: 20px;
+	right: 20px;
+}
+.calkulator__total-return b{
+	display: block;
+	color: #2b3246;
+	line-height: 26px;
+}
+.calkulator__total-return span{
+	font-size: 24px;
+	padding-right: 3px;
+	font-family: 'ProximaNova-Semibold';
+}
+
+.calkulator__slider-box {
+	padding-top: 15px;
+	position: relative;
+}
+.calkulator__slider {
+	height: 4px;
+	position: relative;
+	margin: 12px 16px 6px;
+}
+.calkulator__slider:before {
+	position: absolute;
+	top: 0;
+	left: -16px;
+	right: -16px;
+	bottom: 0;
+	content: '';
+	border-radius: 2px;
+	background: #eaecee
+}
+.ui-slider-range {
+	position: absolute;
+	top: 0;
+	left: -16px;
+	bottom: 0;
+	border-radius: 2px;
+	background: #96a0aa;
+}
+.ui-slider-handle {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	top: -24px;
+	margin-left: -25px;
+	z-index: 2;
+	background: url(../images/sprite.svg) -89px -192px;
+}
+.null-procent {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 1;
+	background: #ffee2f
+}
+.null-procent:before {
+	position: absolute;
+	top: -3px;
+	left: 0;
+	right: 0;
+	bottom: -3px;
+	content: '';
+	background: rgba(255,238,47,.1);
+	border-left: 1px solid #ffee2f;
+	border-right: 1px solid #ffee2f;
+}
+.calkulator__info-text {
+	height: 26px;
+}
+.calkulator__info-text span{
+	display: block;
+	background: #f5f6f7;
+	font-size: 12px;
+	line-height: 26px;
+	text-align: center;
+	border-radius: 4px;
+}
+
+.calkulator__range {
+	color: #96a0aa;
+	font-size: 12px;
+	line-height: 24px;
+	height: 30px;
+}
+.calkulator__label {
+	color: #96a0aa;
+	font-size: 16px;
+	line-height: 28px;
+	padding-bottom: 4px;
+	height: 40px;
+}
+.calkulator__label b{
+	color: #2b3246;
+	font-size: 14px;
+}
+.calkulator__label i{
+	font-style: normal;
+}
+.calkulator__input{
+	font-size: 24px;
+	border: 0;
+	width: 86px;
+	display: inline-block;
+	text-align: center;
+}
+#return-diff {
+	width: 76px;
+}
+#date-set {
+	width: 50px;
+	text-align: center;
+}
+
+.calkulator__radio-btn {
+	padding-top: 14px;
+}
+.calkulator__radio-btn .btn {
+	width: 142px;
+}
+.calkulator__radio-btn .btn:first-child{
+	margin-right: 16px;
+}
+.calkulator__radio-btn .btn:last-child{
+	float: right;
+}
+
+.calkulator__box {
+	-webkit-perspective: 1520px;
+	perspective: 1520px;
+}
+.calkulator__step-next {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 88px;
+	padding: 29px;
+	border-radius: 6px 6px 0 0;
+	background: #fff;
+	border: 1px solid #d8dce7;
+
+	-webkit-transform: rotateY(180deg);
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	transform: rotateY(180deg);
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	transition: all .4s ease-in-out 0s;
+}
+.calkulator__step-next--active {
+	z-index: 2;
+	-webkit-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+
+
+.calkulator__h3 {
+	line-height: 24px;
+	text-align: center;
+	font-size: 20px;
+}
+.calkulator__address {
+	color: rgba(42,50,70,.8);
+	height: 46px;
+	border-radius: 4px;
+	background: #ffee2f;
+	padding: 16px;
+	text-align: center;
+	margin: 24px 0 20px;
+}
+.calkulator__rules {
+	height: 46px;
+	border-radius: 4px;
+	background: rgba(150,160,170,.1);
+	padding: 8px 42px;
+	display: block;
+	top: 16px;
+}
+.calkulator__rules i{
+	top: 12px;
+	left: 10px;
+}
+.calkulator__rules a{
+	text-decoration: underline;
+}
+.calkulator__required {
+	margin: 22px 6px;
+	position: relative;
+	line-height: 17px;
+}
+.calkulator__required sup{
+	color: #ff0142;
+	font-size: 16px;
+	left: -10px;
+	position: absolute;
+	top: -2px;
+}
+.calkulator .ico--prev{
+	right: 6px;
+	top: 5px;
+	left: auto;
+}
+.calkulator__input-box {
+	position: relative;
+	display: block;
+}
+.calkulator__input-box .input{
+	z-index: 2;
+	padding-top: 10px;
+}
+.calkulator__input-box sup{
+	color: #ff0142;
+	font-size: 16px;
+	position: absolute;
+	top: -4px;
+	right: -6px;
+}
+.calkulator__placeholder {
+	position: absolute;
+	top: 14px;
+	left: 20px;
+	color: rgba(42,50,70,.6);
+	transition:.5s;
+	z-index: 1;
+}
+.calkulator__input-box--placeholder .calkulator__placeholder,
+.calkulator__input-box .input:focus ~ .calkulator__placeholder {
+	top: 2px;
+	font-size: 12px;
+}
+.calkulator__input-box--placeholder .calkulator__placeholder {
+	opacity: .5
+}
+.calkulator__input-box--placeholder .calkulator__placeholder sup {
+	opacity: 0
+}
+		</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.ui.touch-punch.min.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="js/jquery.jscrollpane.min.js"></script>
+	<script src="js/jquery.mousewheel.min.js"></script>
+	<script src="js/js.js"></script>
+
+	<script>
+
+(function($){
+
+	var summ = $('#slider-summ'),
+		summMin = parseInt(summ.attr('data-min')),
+		summMax = parseInt(summ.attr('data-max')),
+		summStep = parseInt(summ.attr('data-step')),
+		summValue = parseInt(summ.attr('data-value')),
+		summSet = $("#summ-set"),
+
+		date = $('#slider-date'),
+		dateMin = parseInt(date.attr('data-min')),
+		dateMax = parseInt(date.attr('data-max')),
+		dateStep = parseInt(date.attr('data-step')),
+		dateValue = parseInt(date.attr('data-value')),
+		dateSet = $("#date-set"),
+		dateSuf = $('#date-suf'),
+		dateStartNullProcent = parseInt(date.attr('data-start-null-procent')),
+		dateFinishNullProcent = parseInt(date.attr('data-finish-null-procent')),
+		dateNullProcent = $('.null-procent'),
+		calkulatorInfo = $('.calkulator__info-text').children(),
+
+		returnSumm = $('#return-summ'),
+		returnDiff = $('#return-diff'),
+
+		diffValue  = 980,
+
+		circleBg = $('#circle-bg'),
+		circleSumm = $('#circle-summ'),
+		circleDiff = $('#circle-diff'),
+
+		circleBox = $('.calkulator__circle'),
+		circleTooltip = $('.calkulator__tooltip');
+
+	summ.slider({
+		range: 'min',
+		min: summMin,
+		max: summMax,
+		step: summStep,
+		value: summValue,
+		create: function(){
+			result();
+		},
+		slide: function(event,ui) {
+			summValue = ui.value;
+			result();
+		}
+	});
+
+	date.slider({
+		range: 'min',
+		min: dateMin,
+		max: dateMax,
+		step: dateStep,
+		value: dateValue,
+		create: function(){
+			dateNullProcent.css({
+				'left' : widthStep() * (dateStartNullProcent - dateMin),
+				'width' : widthStep() * (dateFinishNullProcent - dateStartNullProcent + 1)
+			});
+			result();
+		},
+		slide: function(event,ui) {
+			dateValue = ui.value;
+			result();
+		}
+	});
+
+	summSet.add(dateSet).on('change keydown blur', function(event) {
+		var v = this.value;
+		if (event.type == 'blur' || event.keyCode == 13) {
+			if (v.match(/[^0-9]/g))
+				v = v.replace(/[^0-9]/g, '');
+			if($(this).is('#summ-set')){
+				if(v>summMax)
+					v = summMax;
+				if(v<summMin)
+					v = summMin;
+				summValue = v;
+				summ.slider('value',v);
+			}
+			else {
+				if(v>dateMax)
+					v = dateMax;
+				if(v<dateMin)
+					v = dateMin;
+				dateValue = v;
+				date.slider('value',v);
+			}
+			this.value = v;
+			result();
+		}
+	});
+
+	function widthStep(){
+		return date.width() / dateStep / (dateMax - dateMin);
+	}
+
+	function dateNullProcentTextToggle(v){
+		v > dateFinishNullProcent || v < dateStartNullProcent ?
+			dateNullProcent.add(calkulatorInfo).hide():
+			dateNullProcent.add(calkulatorInfo).show();
+	}
+
+	function result(){
+
+		diffValue = summValue * dateValue / 100;
+
+		summSet.val(sepNumber(summValue));
+		returnDiff.val(sepNumber(diffValue));
+		returnSumm.text(sepNumber(summValue+diffValue));
+
+		dateSet.val(dateValue);
+		dateSuf.text(declension(dateValue,['день','дня','дней']));
+		dateNullProcentTextToggle(dateValue);
+
+		var pi2r = parseInt(circleBg.attr('r')) * 2 * Math.PI;
+		var diff = pi2r * diffValue / summMax;
+		var summ = pi2r * (summValue - diffValue) / summMax;
+
+		switch ($('.calkulator__radio-btn').find('input').filter(':checked').val()) {
+			case 'calcul-1' :
+
+				circleDiff.attr('stroke-dasharray', diff + ' ' + pi2r);
+				circleDiff.attr('stroke-dashoffset', 0);
+				circleSumm.attr('stroke-dasharray', summ + ' ' + pi2r);
+				circleSumm.attr('stroke-dashoffset', -diff);
+				circleBg.attr('stroke-dasharray', (pi2r-diff-summ) + ' ' + pi2r);
+				circleBg.attr('stroke-dashoffset', -(diff+summ));
+
+			break;
+			case 'calcul-2' :
+
+				circleDiff.attr('stroke-dasharray', diff + ' ' + pi2r);
+				circleDiff.attr('stroke-dashoffset', diff * 2);
+				circleSumm.attr('stroke-dasharray', summ + ' ' + pi2r);
+				circleSumm.attr('stroke-dashoffset', 0);
+				circleBg.attr('stroke-dasharray', (pi2r-diff-summ) + ' ' + pi2r);
+				circleBg.attr('stroke-dashoffset', -summ);
+
+			break;
+			case 'calcul-3' :
+
+				circleDiff.attr('stroke-dasharray', diff + ' ' + pi2r);
+				circleDiff.attr('stroke-dashoffset', -summ);
+				circleSumm.attr('stroke-dasharray', summ + ' ' + pi2r);
+				circleSumm.attr('stroke-dashoffset', 0);
+				circleBg.attr('stroke-dasharray', (pi2r-diff-summ) + ' ' + pi2r);
+				circleBg.attr('stroke-dashoffset', -(diff+summ));
+
+			break;
+		}
+
+	}
+
+	function declension(num, expressions) {
+		var r;
+		var count = num % 100;
+		if (count > 4 && count < 21)
+			r = expressions['2'];
+		else {
+			count = count % 10;
+			if (count == 1)
+				r = expressions['0'];
+			else if (count > 1 && count < 5)
+				r = expressions['1'];
+			else
+				r = expressions['2'];
+		}
+		return r;
+	}
+	function sepNumber(str){
+		str = parseInt(str).toString();
+		return str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+	}
+	function strToNumber(n){
+		return parseInt(n.replace(/\s+/g,''));
+	}
+
+	$('.calkulator__toggle-step').on('click',function(){
+		$('.calkulator__step-next').toggleClass('calkulator__step-next--active');
+	});
+
+	$('.calkulator__input-box').children('.input').on('keyup blur',function(e){
+		var t = $(this);
+		setTimeout(function(){
+			t.parent().toggleClass('calkulator__input-box--placeholder',Boolean(t.val()));
+		});
+	}).trigger('blur');
+
+	circleSumm.add(circleDiff).on({
+		mouseenter: function(){
+			var index = $(this).is('#circle-summ') ? 0 : 1;
+			var tooltip = $('.calkulator__label').eq(index).clone().removeAttr('class');
+			var u = $('<u>');
+			u.text(tooltip.find('input').val());
+			tooltip.find('input').remove();
+			tooltip.find('b').prepend(u);
+			circleTooltip.html(tooltip)
+			circleTooltip.removeClass('hide');
+		},
+		mousemove: function(event){
+			var offset = circleBox.offset();
+			circleTooltip.css({
+				'left' : event.pageX - offset.left,
+				'top'  : event.pageY - offset.top
+			});
+		},
+		mouseleave: function(){
+			circleTooltip.addClass('hide');
+		}
+	});
+
+	$('.calkulator__radio-btn').find('input').on('change',function(){
+		result();
+		var btn = $(this).closest('.btn');
+		var ul = $('.calkulator__foot-ul').eq(btn.index());
+		ul.addClass('calkulator__foot-ul--active');
+		ul.siblings().removeClass('calkulator__foot-ul--active');
+	});
+
+	$('.calkulator__box').on('submit',function(){
+		$(this).find('.input').each(function(){
+			if($(this).val()=='')
+				$(this).addClass('input--error').one('focus',function(){
+					$(this).removeClass('input--error');
+				});
+		});
+		if($(this).find('.input--error').length>0)
+			return false;
+	});
+
+})(jQuery);
+
+	</script>
+
+	</main>
+
+</body>
+</html>

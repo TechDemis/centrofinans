@@ -110,6 +110,9 @@
 <!--#endif-->
 					</li>
 				</ul>
+
+				<a href="/" class="header__logo header__logo--menu"></a>
+
 			</nav>
 
 		</div>

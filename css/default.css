@@ -107,8 +107,7 @@ header, main, nav, section, article, aside, footer {
 	background: rgba(255,255,255,.2);
 }
 .input--error {
-	background: #ff0142;
-	border-color: #cd0034;
+	border-color: #ff0142;
 }
 .input:focus {
 	background: rgba(150,160,170,.1);
@@ -148,40 +147,50 @@ textarea.input {
 }
 .btn--radius {
 	border-radius: 100px;
+	font-size: 15px;
+	font-family: 'ProximaNova-Regular';
+}
+.btn--white {
+	color: #2a3246;
+	background: #fff;
+}
+.btn--white:hover {
+	background: #f8f8fb;
 }
 .btn--red {
-	background-color: #ff0142;
+	background: #ff0142;
 }
 .btn--red:hover {
-	background-color: #cd0034;
+	background: #cd0034;
 }
 .btn--yellow {
 	color: #2a3246;
-	background-color: #ffee2f;
+	background: #ffee2f;
 }
 .btn--yellow:hover {
-	background-color: #efe219;
+	background: #efe219;
 }
 .btn--gray {
-	background-color: #96a0aa;
+	background: #96a0aa;
 }
 .btn--gray:hover {
-	background-color: #788088;
+	background: #788088;
 }
 
 .btn--radio {
 	font-size: 14px;
 	color: rgba(42,50,70,.6);
-	padding: 0 20px 0 40px;
+	padding: 0 20px 0 34px;
 	font-family: 'ProximaNova-Regular';
 	border: solid 1px #d9dce3;
+	text-align: left;
 }
 .btn--radio:before {
 	position: absolute;
 	width: 15px;
 	height: 15px;
 	top: 14px;
-	left: 14px;
+	left: 10px;
 	content: '';
 	border-radius: 50%;
 	background: #eaecee;
@@ -251,7 +260,7 @@ select {
 	position: absolute;
 	top: 100%;
 	left: 0;
-	margin-top: 10px;
+	margin-top: 2px;
 
 	padding: 8px 0 8px 10px;
 	display: none;
@@ -377,7 +386,44 @@ a:hover .ico--arrow-right-red {
 	border: 1px solid rgba(41,49,70,.8);
 	background-position: -640px -199px
 }
-
+.ico--print {
+	background-position: -453px -456px;
+}
+.ico--mail-white {
+	background-position: -503px -456px;
+}
+.ico--tel {
+	background-position: -562px -198px;
+}
+.ico--mail {
+	background-position: -511px -197px;
+}
+.ico--time {
+	background-position: -460px -197px;
+}
+.ico--map-mark {
+	background-position: -412px -196px;
+}
+.ico--red-play {
+	width: 48px;
+	height: 48px;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	border-radius: 50%;
+	background: rgba(255,1,66,.9);
+}
+.ico--red-play:before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	content: '';
+	margin: auto;
+	border-style: solid;
+	border-width: 5px 6px;
+	margin: -5px 0 0 -2px;
+	border-color: transparent transparent transparent #fff;
+}
 
 /* table
 -----------------------------------------------------------------------------*/
@@ -484,6 +530,12 @@ td {
 h1, h2, h3, h4, b {
 	font-weight: 400
 }
+h1, .h1 {
+	color: #fff;
+	position: relative;
+	text-align: center;
+	font: 36px/46px 'ProximaNova-Light';
+}
 hr {
 	border: 0;
 	height: 1px;
@@ -507,6 +559,14 @@ hr {
 }
 .opacity-1 {
 	opacity: 1;
+}
+@keyframes opacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .pull-left {
@@ -544,6 +604,12 @@ hr {
 }
 .w350 {
 	width: 350px;
+}
+.w400 {
+	width: 400px;
+}
+.w450 {
+	width: 450px;
 }
 .w550 {
 	width: 550px;
@@ -681,7 +747,7 @@ ol > li:before {
 .tabs__dt--active span{
 	padding: 0 36px;
 }
-.tabs__dd{
+.tabs__body .tabs__dd{
 	clear: left;
 	top: 0;
 	left: 0;
@@ -692,7 +758,7 @@ ol > li:before {
 	position: absolute;
 	z-index: -1;
 }
-.tabs__dd--active{
+.tabs__body .tabs__dd--active{
 	opacity: 1;
 	width: auto;
 	height: auto;

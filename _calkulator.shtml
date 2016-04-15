@@ -1,7 +1,7 @@
 			<div id="calkulator" class="calkulator">
 				<h1>Оформи заявку, получи наличные</h1>
 				<form class="calkulator__box">
-					<div class="calkulator__step-next">
+					<div class="calkulator__step-next calkulator__step-next--active">
 						<div class="calkulator__head clr">
 							<select>
 								<option value="none">Выбрать область</option>
@@ -26,8 +26,8 @@
 						</div>
 						<div class="calkulator__left pull-left clr">
 							<div class="calkulator__slider-box">
-								<p class="pull-left calkulator__label">Сумма займа: <b><u id="summ-set">9 800</u> руб.</b></p>
-								<p class="pull-right calkulator__label">Плата за займ: <b><u id="return-diff">980</u> руб.</b></p>
+								<p class="pull-left calkulator__label">Сумма займа: <b><input class="calkulator__input" id="summ-set" value="9800" maxlength="6"> руб.</b></p>
+								<p class="pull-right calkulator__label">Плата за займ: <b><input class="calkulator__input" id="return-diff" value="980" readonly="readonly"> руб.</b></p>
 								<div class="clear-both">
 									<div class="calkulator__slider" id="slider-summ"
 										data-step="100"
@@ -40,85 +40,85 @@
 									<span class="pull-left">1 000</span>
 									<span class="pull-right">30 000</span>
 								</p>
-								<p class="pull-left calkulator__label">Срок займа: <b><u id="date-set">18</u> <i id="date-suf">дней</i></b></p>
+								<p class="calkulator__info-text"><span>c 21 по 31 день процент не берем</span></p>
+								<p class="pull-left calkulator__label">Срок займа: <b><input class="calkulator__input" id="date-set" value="18"> <i id="date-suf">дней</i></b></p>
 								<div class="clear-both">
 									<div class="calkulator__slider" id="slider-date"
 										data-step="1"
 										data-min="1"
 										data-max="31"
 										data-value="18"
-										data-start-null-procent="15"
-										data-finish-null-procent="21"
+										data-start-null-procent="21"
+										data-finish-null-procent="31"
 									>
-										<span id="null-procent"></span>
-										<p id="null-procent-text">c 15 по 21 день процент не берем</p>
+										<p class="null-procent"></p>
 									</div>
 								</div>
 								<p class="calkulator__range">
 									<span class="pull-left">1</span>
 									<span class="pull-right">31</span>
 								</p>
-								<div class="calkulator__radio-btn clr">
-									<label class="btn btn--radio pull-left">Первый <input checked="checked" type="radio" name="calkulator-type" class="hide" value="calcul-1"></label>
-									<label class="btn btn--radio pull-left">Долгосрочный <input type="radio" name="calkulator-type" class="hide" value="calcul-2"></label>
-									<label class="btn btn--radio pull-left">Пенсионный <input type="radio" name="calkulator-type" class="hide"></label>
-								</div>
 							</div>
 						</div>
 						<div class="calkulator__right pull-right clr">
-							<div class="calkulator__circle">
-								<div class="circle">
-									<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" height="180" width="180"  viewBox="0 0 180 180">
-										<g transform="rotate(-90 90 90)">
-											<circle id="circle-bg" cx="90" cy="90" r="80" fill="none" stroke-width="12" stroke-dasharray="0 0" stroke="#eaecee" stroke-dashoffset="0" />
-											<circle id="circle-summ" cx="90" cy="90" r="80" fill="none" stroke-width="12" stroke-dasharray="0 0" stroke="#f50546" stroke-dashoffset="0" />
-											<circle id="circle-diff" cx="90" cy="90" r="80" fill="none" stroke-width="12" stroke-dasharray="0 0" stroke="#f3a8c0" stroke-dashoffset="0" />
-										</g>
-									</svg>
-								</div>
-								<p class="calkulator__total-return">Сумма к возврату: <b><span id="return-summ">10 800</span> руб.</b></p>
-								<div class="calkulator__tooltip hide"></div>
-							</div>
+							<p class="calkulator__total-return">Сумма к возврату: <b><span id="return-summ">10 800</span> руб.</b></p>
 							<a class="btn btn--red btn--block calkulator__toggle-step">Оформить заявку</a>
 						</div>
+						<div class="calkulator__radio-btn clr clear-both">
+							<label class="btn btn--radio pull-left">Первый <input checked="checked" type="radio" name="calkulator-type" class="hide" value="calcul-1"></label>
+							<label class="btn btn--radio pull-left">Долгосрочный <input type="radio" name="calkulator-type" class="hide" value="calcul-2"></label>
+							<label class="btn btn--radio pull-left">Пенсионный <input type="radio" name="calkulator-type" class="hide" value="calcul-3"></label>
+						</div>
 					</div>
-					<div class="calkulator__step-next hide">
+					<div class="calkulator__step-next">
 						<h3 class="calkulator__h3">Пожалуйста, заполните анкету для подачи заявки!</h3>
 						<p class="calkulator__address">Архангельская область, г. Северодвинск, ул. Тверская 97-А, офис 18</p>
 						<div class="calkulator__left pull-left clr">
 							<label class="calkulator__input-box w220 mb20 pull-left">
-								<input class="input">
+								<input class="input" tabindex="1">
 								<span class="calkulator__placeholder">Фамилия<sup>*</sup></span>
 							</label>
 							<label class="calkulator__input-box w220 mb20 pull-right">
-								<input class="input">
+								<input class="input" tabindex="2">
 								<span class="calkulator__placeholder">Имя<sup>*</sup></span>
 							</label>
 							<label class="calkulator__input-box w220 mb20 pull-left">
-								<input class="input mask-date" data-placeholder="дд.мм.гггг">
+								<input class="input mask-date" tabindex="4" data-placeholder="дд.мм.гггг">
 								<span class="calkulator__placeholder">Дата рождения<sup>*</sup></span>
 							</label>
 							<label class="calkulator__input-box w220 mb20 pull-right">
-								<input class="input mask-tel">
+								<input class="input mask-tel" tabindex="5">
 								<span class="calkulator__placeholder">Телефон<sup>*</sup></span>
 								<i class="ico ico--rus"></i>
 							</label>
-							<label class="calkulator__rules checkbox clear-both">Согласен с <a href="/">условиями</a> представления займа <input type="checkbox" class="hide"></label>
+							<label class="calkulator__rules checkbox clear-both" tabindex="6">Согласен с <a href="/">условиями</a> представления займа <input type="checkbox" class="hide"></label>
 						</div>
 						<div class="calkulator__right pull-right clr">
-							<label class="calkulator__input-box mb17">
-								<input class="input">
-								<span class="calkulator__placeholder">Отчество<sup>*</sup></span>
-							</label>
-							<label class="btn btn--red btn--block">Оформить заявку <input type="submit" class="hide"></label>
-							<p class="calkulator__required"><sup>*</sup> поля обязательные <br>для заполнения</p>
+							<div class="calkulator__right-box">
+								<label class="calkulator__input-box mb17">
+									<input class="input" tabindex="3">
+									<span class="calkulator__placeholder">Отчество<sup>*</sup></span>
+								</label>
+								<p class="calkulator__required"><sup>*</sup> поля обязательные <br>для заполнения</p>
+							</div>
+							<label class="btn btn--red btn--block" tabindex="7">Оформить заявку <input type="submit" class="hide"></label>
 						</div>
 						<a class="ico ico--prev calkulator__toggle-step"></a>
 					</div>
 					<div class="calkulator__foot">
-						<ul>
+						<ul class="calkulator__foot-ul calkulator__foot-ul--active">
 							<li>Иметь постоянный <br>доход</li>
 							<li>Предоставить всего <br>2 документа</li>
+							<li>Требуемый возраст <br>21-75 лет</li>
+						</ul>
+						<ul class="calkulator__foot-ul">
+							<li>Требуемый возраст <br>21-75 лет</li>
+							<li>Иметь постоянный <br>доход</li>
+							<li>Предоставить всего <br>2 документа</li>
+						</ul>
+						<ul class="calkulator__foot-ul">
+							<li>Предоставить всего <br>2 документа</li>
+							<li>Иметь постоянный <br>доход</li>
 							<li>Требуемый возраст <br>21-75 лет</li>
 						</ul>
 					</div>

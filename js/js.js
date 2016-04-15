@@ -17,6 +17,7 @@ var showAlertUp;
 		windowScrollTop,
 		resizeTimeoutId,
 		$window = $(window),
+		body = $('body'),
 		menuHeader = $('.header__menu');
 
 	$window.on({
@@ -183,6 +184,9 @@ var showAlertUp;
 // select
 	$('select').mySelect();
 
+// tabs
+	$('.tabs').tabs();
+
 // alert
 	$('.btn-alert_up').alertUp();
 
@@ -239,53 +243,53 @@ var showAlertUp;
 		$(this).closest('.ahtung').removeClass('ahtung--show');
 	});
 
-// feedback
+// feedback slider
 	(function(feedback){
-		var navLeft = $('<a class="feedback__nav-left">');
-		var navRight = $('<a class="feedback__nav-right">');
-		var item = feedback.children('.feedback__item');
+		var navLeft = $('<a class="feedback-slider__nav-left">');
+		var navRight = $('<a class="feedback-slider__nav-right">');
+		var item = feedback.children('.feedback-slider__item');
 		feedback.append(navLeft,navRight);
 		navLeft.on('click',function(){
 			if(navLeft.hasClass('disabled')) return;
 			navLeft.addClass('disabled');
-			var f = item.filter('.feedback__first');
-			var l = item.filter('.feedback__left');
-			var r = item.filter('.feedback__right');
-			var e = item.filter('.feedback__right').next('.feedback__item');
+			var f = item.filter('.feedback-slider__first');
+			var l = item.filter('.feedback-slider__left');
+			var r = item.filter('.feedback-slider__right');
+			var e = item.filter('.feedback-slider__right').next('.feedback-slider__item');
 			if(e.length==0)
 				e = item.first();
 
-			f.addClass('feedback__left').removeClass('feedback__first');
-			l.addClass('feedback__start').removeClass('feedback__left');
-			r.addClass('feedback__first').removeClass('feedback__right');
-			e.addClass('feedback__right');
+			f.addClass('feedback-slider__left').removeClass('feedback-slider__first');
+			l.addClass('feedback-slider__start').removeClass('feedback-slider__left');
+			r.addClass('feedback-slider__first').removeClass('feedback-slider__right');
+			e.addClass('feedback-slider__right');
 			f.afterTransition(function() {
-				item.filter('.feedback__start').removeClass('feedback__start');
-				item.filter('.feedback__end').removeClass('feedback__end');
+				item.filter('.feedback-slider__start').removeClass('feedback-slider__start');
+				item.filter('.feedback-slider__end').removeClass('feedback-slider__end');
 				navLeft.removeClass('disabled');
 			});
 		});
 		navRight.on('click',function(){
 			if(navRight.hasClass('disabled')) return;
 			navRight.addClass('disabled');
-			var f = item.filter('.feedback__first');
-			var l = item.filter('.feedback__left');
-			var r = item.filter('.feedback__right');
-			var s = item.filter('.feedback__left').prev('.feedback__item');
+			var f = item.filter('.feedback-slider__first');
+			var l = item.filter('.feedback-slider__left');
+			var r = item.filter('.feedback-slider__right');
+			var s = item.filter('.feedback-slider__left').prev('.feedback-slider__item');
 			if(s.length==0)
 				s = item.last();
-			f.addClass('feedback__right').removeClass('feedback__first');
-			l.addClass('feedback__first').removeClass('feedback__left');
-			r.addClass('feedback__end').removeClass('feedback__right');
-			s.addClass('feedback__left');
+			f.addClass('feedback-slider__right').removeClass('feedback-slider__first');
+			l.addClass('feedback-slider__first').removeClass('feedback-slider__left');
+			r.addClass('feedback-slider__end').removeClass('feedback-slider__right');
+			s.addClass('feedback-slider__left');
 			f.afterTransition(function() {
-				item.filter('.feedback__start').removeClass('feedback__start');
-				item.filter('.feedback__end').removeClass('feedback__end');
+				item.filter('.feedback-slider__start').removeClass('feedback-slider__start');
+				item.filter('.feedback-slider__end').removeClass('feedback-slider__end');
 				navRight.removeClass('disabled');
 			});
 		});
 
-	}($('.feedback')));
+	}($('.feedback-slider')));
 
 // menu
 	(function(){

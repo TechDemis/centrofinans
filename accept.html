@@ -4,27 +4,91 @@
 
 	<main class="main main--bb clr">
 
-		<div class="center">
+		<article class="center accept">
 
 			<h1>Уважаемый, Иванов Сергей Иванович, Ваша заявка принята к рассмотрению</h1>
 
-			<div class="jobs-page pull-left w550">
+			<ul class="accept__total clr">
+				<li>
+					Сумма займа:
+					<b><u>50 000</u> руб.</b>
+				</li>
+				<li>
+					Вернуть до:
+					<b><u>18.03.2016</u></b>
+				</li>
+				<li>
+					Плата за займ:
+					<b><u>1 750</u> руб.</b>
+				</li>
+			</ul>
 
-				<article>
+			<div class="clr">
+
+				<div class="pull-left w450">
+
+					<div class="accept__map">
+
+						<div id="map"></div>
+
+						<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+						<script>
+
+							function initMap() {
+								var myMap = new ymaps.Map('map', {
+									center: [55.74, 37.58],
+									zoom: 6,
+									controls: []
+								});
 
 
+								var zoomControl = new ymaps.control.ZoomControl({
+									options: {
+										visible: true
+									}
+								});
+								myMap.controls.add(zoomControl);
 
-				</article>
+								myMap.behaviors.disable('scrollZoom');
+							}
+
+							ymaps.ready(initMap);
+
+						</script>
+
+					</div>
+
+				</div>
+
+				<div class="pull-right w450">
+
+					<ul class="accept__address">
+						<li>Ленинградская область</li>
+						<li>Санкт-Петербург</li>
+						<li>ул. Тверская, ТЦ «Карл-Маркс»</li>
+					</ul>
+
+					<ul class="accept__contact">
+						<li><a href="tel:88005003333"><i class="ico ico--tel"></i>8 800 500 33 33</a></li>
+						<li><a href="mailto:info@cenrofinans.ru"><i class="ico ico--mail"></i>info@cenrofinans.ru</a></li>
+						<li><i class="ico ico--time"></i>Пн-Пт / с 9:00 до 18:00</a></li>
+						<li><i class="ico ico--map-mark"></i>от станции м. Отрадная 5 минут пешком до торгового центра «Карл-Маркс»</li>
+					</ul>
+
+				</div>
 
 			</div>
 
-			<div class="jobs-city w350 pull-right">
-
-
-
+			<div class="accept__text clear-both">
+				<p>A purpose is the eternal condition for success.</p>
+				<p>Every former smoker can tell you just how hard it is to stop smoking cigarettes. However, there are a range of stop smoking commodities that can assist you on your transition to a smoke-free lifestyle. Though there is no cure for smoking, there are a variety of smoking free videos, quit smoking aid groups and prescription and natural stop smoking aids that will make your endeavour to quit smoking cigarettes much easier for you. Quit Smoking Tips. A journey of a thousand miles must begin with a single step. Lao-tzu, Tao-te Ching</p>
+				<p>
+					<a class="btn btn--red btn--radius" onclick="window.print()"><i class="ico ico--print"></i>Распечатать</a>
+					<a class="btn btn--red btn--radius"><i class="ico ico--mail-white"></i>Отправить на почту</a>
+				</p>
 			</div>
 
-		</div>
+		</article>
 
 	</main>
 
