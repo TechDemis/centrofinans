@@ -407,6 +407,12 @@ a:hover .ico--arrow-right-red {
 .ico--time {
 	background-position: -460px -197px;
 }
+.ico--time-white {
+	background-position: -411px -236px;
+}
+.ico--like {
+	background-position: -218px -282px;
+}
 .ico--map-mark {
 	background-position: -412px -196px;
 }
@@ -430,6 +436,23 @@ a:hover .ico--arrow-right-red {
 	margin: -5px 0 0 -2px;
 	border-color: transparent transparent transparent #fff;
 }
+.ico--prev,
+.ico--next {
+	width: 46px;
+	height: 46px;
+	border-radius: 50%;
+	background-position: -41px -597px;
+}
+.ico--next {
+	background-position: -101px -597px;
+}
+.ico--prev:hover {
+	background-position: -41px -641px
+}
+.ico--next:hover {
+	background-position: -101px -641px
+}
+
 
 /* table
 -----------------------------------------------------------------------------*/
@@ -851,4 +874,48 @@ ol > li:before {
 	left: 4px;
 	border-radius: 3px;
 	cursor: pointer;
+}
+
+/* img-cover
+-----------------------------------------------------------------------------*/
+.img-cover{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	height: 460px;
+}
+.img-cover--auto77 {
+	height: auto;
+	padding: 77px 0;
+}
+.img-cover--absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.img-cover:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	content: '';
+	opacity: .3;
+	background: #000;
+}
+.img-cover--blur {
+	-webkit-filter: blur(8px);
+	filter: blur(8px);
+	transform: scale(1.1);
+}
+.img-cover .ico--prev {
+	top: 210px;
+	left: 60px;
+}
+.img-cover .ico--next {
+	top: 210px;
+	left: auto;
+	right: 60px;
 }

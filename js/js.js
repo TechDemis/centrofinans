@@ -41,7 +41,16 @@ var showAlertUp;
 			// parallax
 			$('.img-cover--parallax').each(function(){
 				var p = $(this);
-				var top = 100 - 100 * (p.offset().top + p.outerHeight() - windowScrollTop) / ( windowHeight + p.outerHeight() );
+				var top = p.offset().top + p.outerHeight() - windowScrollTop;
+				var delta = windowHeight + p.outerHeight();
+//				if (menuHeader.hasClass('header__menu--fixed'))
+//					delta -= menuHeader.children().height();
+				top /= delta;
+				top = 100 * (1 - top);
+				if(top<0)
+					top = 0;
+				if(top>100)
+					top = 100;
 				p.css('background-position','center '+ top + '%');
 			});
 
@@ -245,8 +254,8 @@ var showAlertUp;
 
 // feedback slider
 	(function(feedback){
-		var navLeft = $('<a class="feedback-slider__nav-left">');
-		var navRight = $('<a class="feedback-slider__nav-right">');
+		var navLeft = $('<a class="feedback-slider__nav-left ico ico--prev">');
+		var navRight = $('<a class="feedback-slider__nav-right ico ico--next">');
 		var item = feedback.children('.feedback-slider__item');
 		feedback.append(navLeft,navRight);
 		navLeft.on('click',function(){
@@ -397,6 +406,38 @@ var showAlertUp;
 		clone.appendTo(box);
 		maskSet(clone.find('.mask-date'));
 	});
+
+// faq 
+	(function(faq){
+
+		var cat = faq.children('.faq__cat');
+
+		cat.each(function(){
+			var item = $(this).children('.faq__item');
+			var box = $('<div class="faq__box-item clear-both clr">');
+			var nav = $('<div class="faq__box-nav notsel">');
+			var navLi = item.children('.faq__item-name').clone();
+			var list = $('<div class="faq__box-list">');
+			list.append(item);
+			nav.append(navLi);
+			navLi.on('click',function(){
+				navLi.eq($(this).index()).addClass('faq__item-name--active').siblings().removeClass('faq__item-name--active');
+				item.eq($(this).index()).show().siblings().hide();
+			});
+			navLi.first().trigger('click');
+			box.append(nav);
+			box.append(list);
+			faq.append(box);
+		});
+
+		cat.on('click',function(){
+			cat.eq($(this).index()).addClass('faq__cat--active').siblings().removeClass('faq__cat--active');
+			faq.children('.faq__box-item').eq($(this).index()).show().siblings('.faq__box-item').hide();
+		});
+
+		cat.first().trigger('click');
+
+	})($('.faq'));
 
 })(jQuery);
 
