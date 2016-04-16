@@ -113,8 +113,8 @@ http://htmlpluscss.ru
 
 		diffValue = summValue * dateValue / 100;
 
-		summSet.val(sepNumber(summValue));
-		returnDiff.val(sepNumber(diffValue));
+		summSet.val(summValue);
+		returnDiff.text(sepNumber(diffValue));
 		returnSumm.text(sepNumber(summValue+diffValue));
 
 		dateSet.val(dateValue);

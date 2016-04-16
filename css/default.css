@@ -361,6 +361,9 @@ a:hover .ico--arrow-right-red {
 .ico--arrow-right-gray {
 	background-position: -454px -566px;
 }
+.ico--arrow-right-blue {
+	background-position: -454px -589px;
+}
 .ico--prev {
 	width: 30px;
 	height: 30px;
@@ -397,6 +400,9 @@ a:hover .ico--arrow-right-red {
 }
 .ico--mail {
 	background-position: -511px -197px;
+}
+.ico--envelope {
+	background-position: -391px -312px
 }
 .ico--time {
 	background-position: -460px -197px;

@@ -5,9 +5,9 @@
 			<ul class="footer__menu">
 				<li><a href="about.html">О компании</a></li>
 				<li><a href=".html">Акции</a></li>
-				<li><a href=".html">Новости</a></li>
-				<li><a href=".html">Вопросы-ответы</a></li>
-				<li><a href=".html">Контакты</a></li>
+				<li><a href="news.html">Новости</a></li>
+				<li><a href="faq.html">Вопросы-ответы</a></li>
+				<li><a href="contact.html">Контакты</a></li>
 			</ul>
 
 		</nav>

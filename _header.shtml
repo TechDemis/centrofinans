@@ -65,9 +65,17 @@
 					<li class="menu-top__plus"><a href="calkulator.html#calkulator"><i class="ico ico--plus"></i>Заявка на заём</a></li>
 					<li class="menu-top__submenu"><a href="about.html">О компании</a></li>
 					<li><a href=".html">Акции</a></li>
-					<li><a href=".html">Новости</a></li>
-					<li><a href=".html">Вопросы-ответы</a></li>
-					<li><a href=".html">Контакты</a></li>
+<!--#if expr='$page=news' -->
+					<li><span class="menu-top__current">Новости</span></li>
+<!--#else-->
+					<li><a href="news.html">Новости</a></li>
+<!--#endif-->
+<!--#if expr='$page=faq' -->
+					<li><span class="menu-top__current">Вопросы-ответы</span></li>
+<!--#else-->
+					<li><a href="faq.html">Вопросы-ответы</a></li>
+<!--#endif-->
+					<li><a href="contact.html">Контакты</a></li>
 					<li class="menu-top__btn-lk"><a class="btn <!--#if expr='$page=home' -->btn--gray<!--#else-->btn--lk<!--#endif-->" href=".html"><i class="ico <!--#if expr='$page=home' -->ico--lock<!--#else-->ico--lock-black<!--#endif-->"></i>Личный кабинет</a></li>
 				</ul>
 				<ul class="menu-top-submenu">
