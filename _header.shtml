@@ -32,7 +32,9 @@
 <!--#endif-->
 
 <!--#if expr='$page=home' -->
-	<header class="header header--home img-cover" data-img="<!--#echo var='headerImg' -->">
+	<header class="header header--white img-cover" data-img="img/header-main.jpg">
+<!--#elif expr='$page=404' -->
+	<header class="header header--white header--404">
 <!--#else-->
 	<header class="header">
 <!--#endif-->
@@ -45,8 +47,8 @@
 
 			<div class="pull-right">
 
-				<a class="header__help pull-right underline"><i class="ico <!--#if expr='$page=home' -->ico--help<!--#else-->ico--help-black<!--#endif-->"></i>Помощь</a>
-				<a class="header__address-office pull-right underline"><i class="ico <!--#if expr='$page=home' -->ico--geo<!--#else-->ico--geo-black<!--#endif-->"></i>Адреса офисов</a>
+				<a class="header__help pull-right underline"><i class="ico <!--#if expr='$header=white' -->ico--help<!--#else-->ico--help-black<!--#endif-->"></i>Помощь</a>
+				<a class="header__address-office pull-right underline"><i class="ico <!--#if expr='$header=white' -->ico--geo<!--#else-->ico--geo-black<!--#endif-->"></i>Адреса офисов</a>
 				<div class="header__city pull-left">
 					<select>
 						<option value="1">Москва</option>
@@ -64,7 +66,11 @@
 				<ul class="menu-top center">
 					<li class="menu-top__plus"><a href="calkulator.html#calkulator"><i class="ico ico--plus"></i>Заявка на заём</a></li>
 					<li class="menu-top__submenu"><a href="about.html">О компании</a></li>
-					<li><a href=".html">Акции</a></li>
+<!--#if expr='$page=specials' -->
+					<li><span class="menu-top__current">Акции</span></li>
+<!--#else-->
+					<li><a href="specials.html">Акции</a></li>
+<!--#endif-->
 <!--#if expr='$page=news' -->
 					<li><span class="menu-top__current">Новости</span></li>
 <!--#else-->
@@ -75,8 +81,12 @@
 <!--#else-->
 					<li><a href="faq.html">Вопросы-ответы</a></li>
 <!--#endif-->
+<!--#if expr='$page=contact' -->
+					<li><span class="menu-top__current">Контакты</span></li>
+<!--#else-->
 					<li><a href="contact.html">Контакты</a></li>
-					<li class="menu-top__btn-lk"><a class="btn <!--#if expr='$page=home' -->btn--gray<!--#else-->btn--lk<!--#endif-->" href=".html"><i class="ico <!--#if expr='$page=home' -->ico--lock<!--#else-->ico--lock-black<!--#endif-->"></i>Личный кабинет</a></li>
+<!--#endif-->
+					<li class="menu-top__btn-lk"><a class="btn <!--#if expr='$header=white' -->btn--gray<!--#else-->btn--lk<!--#endif-->" href=".html"><i class="ico <!--#if expr='$header=white' -->ico--lock<!--#else-->ico--lock-black<!--#endif-->"></i>Личный кабинет</a></li>
 				</ul>
 				<ul class="menu-top-submenu">
 <!--#if expr='$submenu=show' -->
@@ -125,7 +135,7 @@
 
 		</div>
 
-<!--#if expr='$page=home' -->
+<!--#if expr='$calkulator=1' -->
 <!--#include file="_calkulator.shtml"-->
 <!--#endif-->
 

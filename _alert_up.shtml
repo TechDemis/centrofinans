@@ -1,5 +1,7 @@
 	<div class="alert_up alert_up--hide">
 
+<!--#if expr='$alert_jobs=show' -->
+
 		<div class="alert_up__window alert_up__window--jobs alert-jobs">
 			<form class="alert_up__form" action="accept.html">
 				<div class="alert-jobs__nav">
@@ -82,19 +84,19 @@
 								<span class="alert-jobs__label">Должность<sup>*</sup></span>
 								<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
 							</label>
-							<label class="alert-jobs__input-box alert-jobs__add-item clr">
+							<div class="alert-jobs__input-box alert-jobs__add-item clr">
 								<span class="alert-jobs__label">Период работы<sup>*</sup></span>
 								<span class="alert-jobs__input">
-									<span class="alert-jobs__input-month-year pull-left">
+									<label class="alert-jobs__input-month-year pull-left">
 										<span class="alert-jobs__input-pref">с</span>
 										<input class="input alert-jobs__requred pull-left mask-date" data-placeholder="мм.гггг">
-									</span>
-									<span class="alert-jobs__input-month-year pull-right">
+									</label>
+									<label class="alert-jobs__input-month-year pull-right">
 										<span class="alert-jobs__input-pref">по</span>
 										<input class="input alert-jobs__requred pull-left mask-date" data-placeholder="мм.гггг">
-									</span>
+									</label>
 								</span>
-							</label>
+							</div>
 							<a class="alert-jobs__add-btn"><i class="ico ico--plusik"></i>Добавить место работы</a>
 						</div>
 						<p class="alert-jobs__requred-text pull-left"><sup>*</sup> поля обязательные для заполнения</p>
@@ -131,11 +133,6 @@
 			<a class="alert_up__close ico ico--close hide"></a>
 		</div>
 
-		<div class="alert_up__window alert_up__window--support">
-			<div class="alert_up__form">
-				<p>Если у Вас возникли вопросы связынные с данным курсом - Вы можете <br>задать их на <a href="mailto:support@gubkin.ru">support@gubkin.ru</a></p>
-			</div>
-			<a class="alert_up__close ico ico--close"></a>
-		</div>
+<!--#endif-->
 
 	</div>

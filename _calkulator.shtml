@@ -117,7 +117,7 @@
 							</div>
 							<label class="btn btn--red btn--block" tabindex="7">Оформить заявку <input type="submit" class="hide"></label>
 						</div>
-						<a class="ico ico--prev calkulator__toggle-step"></a>
+						<a class="ico ico--arrow-left-gray calkulator__toggle-step"></a>
 					</div>
 					<div class="calkulator__foot">
 						<ul class="calkulator__foot-ul calkulator__foot-ul--active">

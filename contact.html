@@ -1,14 +1,17 @@
-<!--#set var="title" value="Ваша заявка принята" -->
+<!--#set var="page" value="contact" -->
+<!--#set var="title" value="Контакты" -->
 
 <!--#include file="_header.shtml"-->
 
-	<main class="main main--bb clr">
+	<main class="main clr">
 
-		<article class="center accept">
+		<article class="center contact">
 
-			<h1>Уважаемый, Иванов Сергей Иванович, Ваша заявка принята к рассмотрению</h1>
+			<h1>Контакты</h1>
 
-			<ul class="accept__total clr">
+			<p class="contact__tel-24"></p>
+
+			<ul class="contact__mails clr">
 				<li>
 					Сумма займа:
 					<b><u>50 000</u> руб.</b>
@@ -50,7 +53,7 @@
 							myMap.behaviors.disable('scrollZoom');
 						}
 
-						ymaps.ready(initMap);
+//							ymaps.ready(initMap);
 
 					</script>
 
@@ -75,16 +78,19 @@
 
 			</div>
 
-			<div class="accept__text clear-both">
-				<p>A purpose is the eternal condition for success.</p>
-				<p>Every former smoker can tell you just how hard it is to stop smoking cigarettes. However, there are a range of stop smoking commodities that can assist you on your transition to a smoke-free lifestyle. Though there is no cure for smoking, there are a variety of smoking free videos, quit smoking aid groups and prescription and natural stop smoking aids that will make your endeavour to quit smoking cigarettes much easier for you. Quit Smoking Tips. A journey of a thousand miles must begin with a single step. Lao-tzu, Tao-te Ching</p>
-				<p>
-					<a class="btn btn--red btn--radius" onclick="window.print()"><i class="ico ico--print"></i>Распечатать</a>
-					<a class="btn btn--red btn--radius"><i class="ico ico--mail-white"></i>Отправить на почту</a>
-				</p>
-			</div>
-
 		</article>
+
+		<aside class="callback-form clear-both">
+
+			<form class="center clr">
+
+				<h3 class="h1">Обратная связь</h3>
+
+			</form>
+
+		</aside>
+
+<!--#include file="_promo-block-v2.shtml"-->
 
 	</main>
 

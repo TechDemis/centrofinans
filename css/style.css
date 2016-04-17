@@ -288,56 +288,60 @@ body {
 .header__city .select__value {
 	color: #96a0aa;
 }
-.header--home .header__city .select__value:before {
-	border-top-color: #96a0aa
-}
 
-/* header--home
+/* header white
 -----------------------------*/
-.header--home {
+.header--white {
 	height: 688px;
 }
-.header--home .header__logo {
+.header--white .header__logo {
 	background-position: -40px -100px
 }
-.header--home .underline:after,
-.header--home .menu-top {
+.header--white .underline:after,
+.header--white .menu-top {
 	background: #fff;
 }
-.header--home .header__menu {
+.header--white .header__menu {
 	height: 80px;
 }
-.header--home .header__menu:before{
+.header--white .header__menu:before{
 	background: none
 }
-.header--home .menu-top-submenu {
+.header--white .menu-top-submenu {
 	background: #f7f23d;
 }
-.header--home .header__help,
-.header--home .header__address-office,
-.header--home .header__contact,
-.header--home .header__tel,
-.header--home .menu-top .btn--gray {
+.header--white .header__help,
+.header--white .header__address-office,
+.header--white .header__contact,
+.header--white .header__tel,
+.header--white .menu-top .btn--gray {
 	color: #fff
 }
 
-.header--home .header__help:before,
-.header--home .header__address-office:before {
+.header--white .header__help:before,
+.header--white .header__address-office:before {
 	opacity: .2;
 	background: #fff;
 }
 
-.header--home .header__city .select__value {
+.header--white .header__city .select__value {
 	color: #fff;
 	background: rgba(255,255,255,.21);
 	border-color: rgba(255, 255, 255, 1);
 }
-.header--home .header__city .select__value:before {
+.header--white .header__city .select__value:before {
 	border-top-color: #fff
 }
-.header--home .calkulator h1{
+.header--white .calkulator h1{
 	color: #fff;
 	padding: 0 0 48px;
+}
+
+.header--white .header__city .select__value:before {
+	border-top-color: #96a0aa
+}
+.header--white:before {
+	opacity: .2;
 }
 
 .main--bb {
@@ -737,7 +741,7 @@ body {
 	position: absolute;
 	top: -2px;
 }
-.calkulator .ico--prev{
+.calkulator .ico--arrow-left-gray{
 	right: 6px;
 	top: 5px;
 	left: auto;
@@ -1095,9 +1099,6 @@ body {
 
 /* after-header-img
 -----------------------------------------------------------------------------*/
-.header--home:before {
-	opacity: .2;
-}
 .promo-block .center{
 	font-size: 26px;
 	line-height: 32px;
@@ -1601,27 +1602,27 @@ body {
 	padding-right: 2px;
 	text-decoration: none;
 }
-.accept__map #map {
+.map-address #map {
 	height: 450px;
 	overflow: hidden;
 	border-radius: 6px;
 }
-.accept__address li {
+.map-address__address li {
 	border-radius: 4px;
 	background: #fafafb;
 	margin-bottom: 20px;
 	padding: 16px 20px 12px;
 }
-.accept__contact li{
+.map-address__contact li{
 	padding: 16px 0 4px 34px;
 	font-size: 16px;
 	line-height: 20px;
 }
-.accept__contact .ico{
+.map-address__contact .ico{
 	top: 14px;
 	left: -2px;
 }
-.accept__contact a {
+.map-address__contact a {
 	color: #2a3246;
 }
 .accept__text {
@@ -2155,6 +2156,116 @@ q:before {
 }
 .new .subscribe {
 	margin-bottom: 12px;
+}
+
+
+/* page 100% height
+-----------------------------------------------------------------------------*/
+.page-height100p {
+	background-position: center 0;
+}
+.page-height100p:before {
+	display: none;
+}
+.page-height100p .center {
+	width: 940px;
+}
+.page-height100p__h1 {
+	line-height: 37px;
+	color: #2a3246;
+	text-align: left;
+	padding: 0 !important;
+}
+.page-height100p__b {
+	display: block;
+	font: 80px/100px 'ProximaNova-Light';
+}
+.page-height100p__btn {
+	width: 200px;
+	height: 56px;
+	margin-top: 17px;
+	font: 15px/56px 'ProximaNova-Regular';
+}
+
+/* contact
+-----------------------------------------------------------------------------*/
+.contact h1{
+	color: #2a3246;
+	padding: 44px 0;
+}
+.contact__tel-24 {
+	border-top: 1px solid #e5e7e9;
+	border-bottom: 1px solid #e5e7e9;
+	padding: 16px 0;
+	margin-bottom: 38px;
+	text-align: center;
+}
+.contact__mails li{
+	float: left;
+	width: 33.333%;
+	color: #96a0aa;
+	padding: 11px 0 7px;
+	border-left: 1px solid #e5e7e9;
+}
+.contact__mails li:first-child{
+	border: 0;
+}
+.contact__mails b{
+	display: block;
+	font: 14px/30px 'ProximaNova-Semibold';
+	color: #2a3246;
+}
+.contact__mails u{
+	font-size: 24px;
+	padding-right: 2px;
+	text-decoration: none;
+}
+
+.callback-form {
+	height: 333px;
+	outline:1px solid red;
+}
+
+/* 404
+-----------------------------------------------------------------------------*/
+.header--404 {
+	height: 0;
+	z-index: 1;
+}
+.page-404 {
+	height: auto;
+	text-align: center;
+	color: #fff;
+	background-position: bottom;
+}
+.page-404__box {
+	height: 540px;
+}
+.page-404__box .center{
+	height: 280px;
+	position: absolute;
+	top: 180px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+.page-404 h1 {
+	color: transparent;
+	width: 240px;
+	height: 100px;
+	margin: 30px auto 0;
+	background: url(../images/sprite.svg) -630px -508px;
+}
+.page-404 p {
+	padding: 25px 0;
+	font: 20px/24px 'ProximaNova-Light';
+}
+.page-404 .btn {
+	width: 220px;
+	height: 56px;
+	margin: 10px auto;
+	font: 15px/56px 'ProximaNova-Regular';
 }
 
 /* footer

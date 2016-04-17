@@ -43,8 +43,11 @@ var showAlertUp;
 				var p = $(this);
 				var top = p.offset().top + p.outerHeight() - windowScrollTop;
 				var delta = windowHeight + p.outerHeight();
-//				if (menuHeader.hasClass('header__menu--fixed'))
-//					delta -= menuHeader.children().height();
+
+				var top = p.offset().top + p.outerHeight() - windowScrollTop - menuHeader.children().height();
+				var delta = p.outerHeight() - menuHeader.children().height();
+				delta += p.offset().top < windowHeight ? p.offset().top : windowHeight;
+
 				top /= delta;
 				top = 100 * (1 - top);
 				if(top<0)
@@ -60,7 +63,7 @@ var showAlertUp;
 	function pageResize(){
 		windowWidth = $window.width();
 		windowHeight = $window.height();
-		$('.main').css('min-height', windowHeight - $('.header').outerHeight() - $('.footer').outerHeight());
+		$('.main').css('min-height', windowHeight - $('.header').outerHeight() - $('.footer').outerHeight() - 24); // 24 padding body
 	}
 	pageResize();
 
