@@ -120,20 +120,20 @@
 						<a class="ico ico--arrow-left-gray calkulator__toggle-step"></a>
 					</div>
 					<div class="calkulator__foot">
-						<ul class="calkulator__foot-ul calkulator__foot-ul--active">
-							<li>Иметь постоянный <br>доход</li>
-							<li>Предоставить всего <br>2 документа</li>
-							<li>Требуемый возраст <br>21-75 лет</li>
+						<ul class="calkulator__foot-ul">
+							<li><i class="calkulator__foot-ico calkulator__foot-ico--1"></i>Неделя займа <br>бесплатно</li>
+							<li><i class="calkulator__foot-ico calkulator__foot-ico--2"></i>Наличные в день <br>обращения</li>
+							<li><i class="calkulator__foot-ico calkulator__foot-ico--3"></i>Возможность продления <br>срока займа</li>
 						</ul>
 						<ul class="calkulator__foot-ul">
-							<li>Требуемый возраст <br>21-75 лет</li>
-							<li>Иметь постоянный <br>доход</li>
-							<li>Предоставить всего <br>2 документа</li>
+							<li><i class="calkulator__foot-ico calkulator__foot-ico--4"></i>Большая сумма на <br>длительный срок</li>
+							<li><i class="calkulator__foot-ico calkulator__foot-ico--5"></i>Удобный график <br>платежей</li>
+							<li><i class="calkulator__foot-ico calkulator__foot-ico--6"></i>Досрочное погашение,<br> пересчет %</li>
 						</ul>
 						<ul class="calkulator__foot-ul">
-							<li>Предоставить всего <br>2 документа</li>
-							<li>Иметь постоянный <br>доход</li>
-							<li>Требуемый возраст <br>21-75 лет</li>
+							<li><i class="calkulator__foot-ico calkulator__foot-ico--7"></i>Заем на льготных<br> условиях</li>
+							<li><i class="calkulator__foot-ico calkulator__foot-ico--8"></i>Всем категориям <br>пенсионеров</li>
+							<li><i class="calkulator__foot-ico calkulator__foot-ico--9"></i>Высокий % <br>одобрения</li>
 						</ul>
 					</div>
 				</form>

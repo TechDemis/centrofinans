@@ -410,7 +410,7 @@ var showAlertUp;
 		maskSet(clone.find('.mask-date'));
 	});
 
-// faq 
+// faq
 	(function(faq){
 
 		var cat = faq.children('.faq__cat');
@@ -441,6 +441,41 @@ var showAlertUp;
 		cat.first().trigger('click');
 
 	})($('.faq'));
+
+// specials
+	(function(specials){
+
+		var list = specials.children('.specials__item');
+		var nav = $('<span class="specials__nav">');
+		for(var i = 0; i < list.size(); i++)
+			nav.append('<i></i>');
+		nav.children().on('click',function(){
+			var t = $(this);
+			if(list.filter('.specials__item--up').length>0 || list.filter('.specials__item--down').length>0 || t.hasClass('active')) return;
+			var index = t.index();
+			var next = list.eq(index);
+			var active = list.filter('.specials__item--active');
+			if(next.index() > active.index()){
+				next.addClass('specials__item--up');
+				active.addClass('specials__item--active-down');
+			}
+			else{
+				next.addClass('specials__item--down');
+				active.addClass('specials__item--active-up');
+			}
+			setTimeout(function(){
+				next.addClass('specials__item--active');
+				next.removeClass('specials__item--down specials__item--up');
+				active.removeClass('specials__item--active specials__item--active-down specials__item--active-up');
+				t.addClass('active').siblings().removeClass('active');
+			},1000);
+		});
+
+		specials.append(nav);
+//		nav.css('margin-top' , -nav.height()/2);
+		nav.children().first().addClass('active');
+
+	})($('.specials'));
 
 })(jQuery);
 

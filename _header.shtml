@@ -135,7 +135,7 @@
 
 		</div>
 
-<!--#if expr='$calkulator=1' -->
+<!--#if expr='$page=home' -->
 <!--#include file="_calkulator.shtml"-->
 <!--#endif-->
 

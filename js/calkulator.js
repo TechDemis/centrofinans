@@ -162,9 +162,9 @@ http://htmlpluscss.ru
 		result();
 		var btn = $(this).closest('.btn');
 		var ul = $('.calkulator__foot-ul').eq(btn.index());
-		ul.addClass('calkulator__foot-ul--active');
+		ul.show().addClass('calkulator__foot-ul--active');
 		ul.siblings().removeClass('calkulator__foot-ul--active');
-	});
+	}).filter(':checked').trigger('change');
 
 	$('.calkulator__box').on('submit',function(){
 		$(this).find('.input').each(function(){

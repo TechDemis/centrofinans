@@ -118,8 +118,12 @@ textarea.input {
 	overflow: hidden;
 	display: block;
 	width: 100%;
+	height: 194px;
 	line-height: 18px;
-	padding: 8px 10px;
+	padding: 14px 20px;
+}
+textarea.input--h178 {
+	height: 178px;
 }
 
 .hidden {
@@ -453,6 +457,11 @@ a:hover .ico--arrow-right-red {
 	background-position: -101px -641px
 }
 
+.ico--answer {
+	width: 30px;
+	height: 30px;
+	background-position: -625px -370px
+}
 
 /* table
 -----------------------------------------------------------------------------*/
@@ -622,6 +631,9 @@ hr {
 .w110 {
 	width: 110px;
 }
+.w140 {
+	width: 140px;
+}
 .w190 {
 	width: 190px;
 }
@@ -634,11 +646,17 @@ hr {
 .w350 {
 	width: 350px;
 }
+.w300 {
+	width: 300px;
+}
 .w400 {
 	width: 400px;
 }
 .w450 {
 	width: 450px;
+}
+.w460 {
+	width: 460px;
 }
 .w550 {
 	width: 550px;
