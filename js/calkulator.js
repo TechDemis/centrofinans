@@ -161,7 +161,8 @@ http://htmlpluscss.ru
 	$('.calkulator__radio-btn').find('input').on('change',function(){
 		result();
 		var btn = $(this).closest('.btn');
-		var ul = $('.calkulator__foot-ul').eq(btn.index());
+		var index = btn.index();
+		var ul = $('.calkulator__foot-ul').eq(index).add($('.calkulator__foot-ul--step-next').eq(index));
 		ul.show().addClass('calkulator__foot-ul--active');
 		ul.siblings().removeClass('calkulator__foot-ul--active');
 	}).filter(':checked').trigger('change');
