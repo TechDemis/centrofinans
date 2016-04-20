@@ -1,8 +1,27 @@
 	<div class="alert_up alert_up--hide">
 
+		<div class="alert_up__window alert_up__window--help">
+			<h3>Нужна помощь?</h3>
+			<ul class="alert-help alert_up__bg clr">
+				<li>
+					Горячая линия:
+					<a class="alert-help__tel" href="tel:88007773737">8 800 777-37-37</a>
+				</li>
+				<li>
+					Задать вопрос:
+					<a class="alert-help__mail" href="mailto:info@centrofinans.ru">info@centrofinans.ru</a>
+				</li>
+				<li>
+					Ответы на вопросы:
+					<a class="alert-help__btn btn btn--yellow">Перейти</a>
+				</li>
+			</ul>
+			<a class="alert_up__close ico ico--close"></a>
+		</div>
+
 <!--#if expr='$alert_jobs=show' -->
 
-		<div class="alert_up__window alert_up__window--jobs alert-jobs">
+		<div class="alert_up__window alert_up__window--jobs alert_up__window--bg alert-jobs">
 			<form class="alert_up__form" action="accept.html">
 				<div class="alert-jobs__nav">
 					<span class="alert-jobs__nav-progress"></span>
@@ -130,7 +149,6 @@
 					</div>
 				</div>
 			</form>
-			<a class="alert_up__close ico ico--close hide"></a>
 		</div>
 
 <!--#endif-->

@@ -37,16 +37,11 @@
 									<span class="suf pull-left">руб.</span>
 								</p>
 								<div class="clear-both">
-									<div class="calkulator__slider" id="slider-summ"
-										data-step="100"
-										data-min="1000"
-										data-max="30000"
-										data-value="9800"
-									></div>
+									<div class="calkulator__slider" id="slider-summ"></div>
 								</div>
 								<p class="calkulator__range">
-									<span class="pull-left">1 000</span>
-									<span class="pull-right">30 000</span>
+									<span class="calkulator__summ-min pull-left">1 000</span>
+									<span class="calkulator__summ-max pull-right">30 000</span>
 								</p>
 								<p class="calkulator__info-text"><span>c 21 по 31 день процент не берем</span></p>
 								<p class="calkulator__label pull-left">
@@ -55,26 +50,61 @@
 									<span class="suf pull-left" id="date-suf">дней</span>
 								</p>
 								<div class="clear-both">
-									<div class="calkulator__slider" id="slider-date"
-										data-step="1"
-										data-min="1"
-										data-max="31"
-										data-value="18"
-										data-start-null-procent="21"
-										data-finish-null-procent="31"
-									>
+									<div class="calkulator__slider" id="slider-date">
 										<p class="null-procent"></p>
 									</div>
 								</div>
 								<p class="calkulator__range">
-									<span class="pull-left">1</span>
-									<span class="pull-right">31</span>
+									<span class="calkulator__date-min pull-left">1</span>
+									<span class="calkulator__date-max pull-right">31</span>
 								</p>
 							</div>
 							<div class="calkulator__radio-btn clr clear-both">
-								<label class="btn btn--radio pull-left">Первый <input checked="checked" type="radio" name="calkulator-type" class="hide" value="calcul-1"></label>
-								<label class="btn btn--radio pull-left">Долгосрочный <input type="radio" name="calkulator-type" class="hide" value="calcul-2"></label>
-								<label class="btn btn--radio pull-left">Пенсионный <input type="radio" name="calkulator-type" class="hide" value="calcul-3"></label>
+								<label class="btn btn--radio pull-left">
+									Первый
+									<input checked="checked" type="radio" name="calkulator-type" class="hide" value="calcul-1"
+										data-summ-step="100"
+										data-summ-min="1000"
+										data-summ-max="30000"
+										data-summ-value="9800"
+										data-date-step="1"
+										data-date-min="1"
+										data-date-max="31"
+										data-date-value="18"
+										data-start-null-procent="21"
+										data-finish-null-procent="31"
+									>
+								</label>
+								<label class="btn btn--radio pull-left">
+									Долгосрочный
+									<input type="radio" name="calkulator-type" class="hide" value="calcul-2"
+										data-summ-step="1000"
+										data-summ-min="10000"
+										data-summ-max="20000"
+										data-summ-value="1500"
+										data-date-step="15"
+										data-date-min="60"
+										data-date-max="180"
+										data-date-value="60"
+										data-start-null-procent="0"
+										data-finish-null-procent="0"
+									>
+								</label>
+								<label class="btn btn--radio pull-left">
+									Пенсионный
+									<input type="radio" name="calkulator-type" class="hide" value="calcul-3"
+										data-summ-step="100"
+										data-summ-min="5000"
+										data-summ-max="30000"
+										data-summ-value="9800"
+										data-date-step="1"
+										data-date-min="14"
+										data-date-max="31"
+										data-date-value="18"
+										data-start-null-procent="0"
+										data-finish-null-procent="0"
+									>
+								</label>
 							</div>
 						</div>
 						<div class="calkulator__right pull-right clr">
@@ -147,8 +177,8 @@
 							</ul>
 							<ul class="calkulator__foot-ul calkulator__foot-ul--step-next">
 								<li><i class="calkulator__foot-ico calkulator__foot-ico--10"></i>Возраст <br>21 -75 лет</li>
-								<li><i class="calkulator__foot-ico calkulator__foot-ico--13"></i>Регистрация в регионе <br>выдачи займа</li>
-								<li><i class="calkulator__foot-ico calkulator__foot-ico--12"></i>Паспорт и <br>второй документ</li>
+								<li class="left-20"><i class="calkulator__foot-ico calkulator__foot-ico--13"></i>Регистрация в регионе <br>выдачи займа</li>
+								<li><i class="calkulator__foot-ico calkulator__foot-ico--12"></i>Паспорт и <br>пенсионное удостоверение</li>
 							</ul>
 						</div>
 						<a class="ico ico--arrow-left-gray calkulator__toggle-step"></a>

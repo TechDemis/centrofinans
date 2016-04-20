@@ -10,23 +10,30 @@ http://htmlpluscss.ru
 
 (function($){
 
-	var summ = $('#slider-summ'),
-		summMin = parseInt(summ.attr('data-min')),
-		summMax = parseInt(summ.attr('data-max')),
-		summStep = parseInt(summ.attr('data-step')),
-		summValue = parseInt(summ.attr('data-value')),
+	var btn = $('.calkulator__radio-btn').find('input'),
+		btnActive,
+
+		summ = $('#slider-summ'),
+		summMin,
+		summMax,
+		summStep,
+		summValue,
+
 		summSet = $("#summ-set"),
 
 		date = $('#slider-date'),
-		dateMin = parseInt(date.attr('data-min')),
-		dateMax = parseInt(date.attr('data-max')),
-		dateStep = parseInt(date.attr('data-step')),
-		dateValue = parseInt(date.attr('data-value')),
+		dateMin,
+		dateMax,
+		dateStep,
+		dateValue,
+
 		dateSet = $("#date-set"),
 		dateSuf = $('#date-suf'),
-		dateStartNullProcent = parseInt(date.attr('data-start-null-procent')),
-		dateFinishNullProcent = parseInt(date.attr('data-finish-null-procent')),
+
+		dateStartNullProcent,
+		dateFinishNullProcent,
 		dateNullProcent = $('.null-procent'),
+
 		calkulatorInfo = $('.calkulator__info-text').children(),
 
 		returnSumm = $('#return-summ'),
@@ -34,76 +41,19 @@ http://htmlpluscss.ru
 
 		diffValue  = 980;
 
-	summ.slider({
-		range: 'min',
-		min: summMin,
-		max: summMax,
-		step: summStep,
-		value: summValue,
-		create: function(){
-			result();
-		},
-		slide: function(event,ui) {
-			summValue = ui.value;
-			result();
-		}
-	});
-
-	date.slider({
-		range: 'min',
-		min: dateMin,
-		max: dateMax,
-		step: dateStep,
-		value: dateValue,
-		create: function(){
-			dateNullProcent.css({
-				'left' : widthStep() * (dateStartNullProcent - dateMin),
-				'width' : widthStep() * (dateFinishNullProcent - dateStartNullProcent + 1)
-			});
-			result();
-		},
-		slide: function(event,ui) {
-			dateValue = ui.value;
-			result();
-		}
-	});
-
-	summSet.add(dateSet).on('change keydown blur', function(event) {
-		if (event.keyCode == 13) {
-			$(this).trigger('blur');
-		}
-		if (event.type == 'blur') {
-			var v = this.value;
-			if (v.match(/[^0-9]/g))
-				v = v.replace(/[^0-9]/g, '');
-			if($(this).is('#summ-set')){
-				if(v>summMax)
-					v = summMax;
-				if(v<summMin)
-					v = summMin;
-				summValue = v;
-				summ.slider('value',v);
-			}
-			else {
-				if(v>dateMax)
-					v = dateMax;
-				if(v<dateMin)
-					v = dateMin;
-				dateValue = v;
-				date.slider('value',v);
-			}
-			result();
-		}
-	});
-
 	function widthStep(){
 		return date.width() / dateStep / (dateMax - dateMin);
 	}
 
 	function dateNullProcentTextToggle(v){
-		v > dateFinishNullProcent || v < dateStartNullProcent ?
-			dateNullProcent.add(calkulatorInfo).hide():
-			dateNullProcent.add(calkulatorInfo).show();
+		if(dateStartNullProcent == dateFinishNullProcent){
+			dateNullProcent.add(calkulatorInfo).hide();
+		}
+		else {
+			v > dateFinishNullProcent || v < dateStartNullProcent ?
+				dateNullProcent.add(calkulatorInfo).hide():
+				dateNullProcent.add(calkulatorInfo).show();
+		}
 	}
 
 	function result(){
@@ -158,8 +108,9 @@ http://htmlpluscss.ru
 		});
 	}).trigger('blur');
 
-	$('.calkulator__radio-btn').find('input').on('change',function(){
-		result();
+	btn.on('change',function(){
+		btnActive = $(this),
+		setSlider();
 		var btn = $(this).closest('.btn');
 		var index = btn.index();
 		var ul = $('.calkulator__foot-ul').eq(index).add($('.calkulator__foot-ul--step-next').eq(index));
@@ -176,6 +127,87 @@ http://htmlpluscss.ru
 		});
 		if($(this).find('.input--error').length>0)
 			return false;
+	});
+
+	function setSlider(){
+
+		summMin = parseInt(btnActive.attr('data-summ-min')),
+		summMax = parseInt(btnActive.attr('data-summ-max')),
+		summStep = parseInt(btnActive.attr('data-summ-step')),
+		summValue = parseInt(btnActive.attr('data-summ-value')),
+
+		dateMin = parseInt(btnActive.attr('data-date-min')),
+		dateMax = parseInt(btnActive.attr('data-date-max')),
+		dateStep = parseInt(btnActive.attr('data-date-step')),
+		dateValue = parseInt(btnActive.attr('data-date-value')),
+
+		dateStartNullProcent = parseInt(btnActive.attr('data-start-null-procent')),
+		dateFinishNullProcent = parseInt(btnActive.attr('data-finish-null-procent'));
+
+		dateNullProcent.css({
+			'left' : widthStep() * (dateStartNullProcent - dateMin),
+			'width' : widthStep() * (dateFinishNullProcent - dateStartNullProcent + 1)
+		});
+
+		$('.calkulator__summ-min').text(summMin);
+		$('.calkulator__summ-max').text(summMax);
+		$('.calkulator__date-min').text(dateMin);
+		$('.calkulator__date-max').text(dateMax);
+
+		summ.slider({
+			range: 'min',
+			min: summMin,
+			max: summMax,
+			step: summStep,
+			value: summValue,
+			slide: function(event,ui) {
+				summValue = ui.value;
+				result();
+			}
+		});
+
+		date.slider({
+			range: 'min',
+			min: dateMin,
+			max: dateMax,
+			step: dateStep,
+			value: dateValue,
+			slide: function(event,ui) {
+				dateValue = ui.value;
+				result();
+			}
+		});
+
+		result();
+
+	}
+
+	summSet.add(dateSet).on('change keydown blur', function(event) {
+		if (event.keyCode == 13) {
+			$(this).trigger('blur');
+		}
+		if (event.type == 'blur') {
+			var v = this.value;
+			if (v.match(/[^0-9]/g))
+				v = v.replace(/[^0-9]/g, '');
+			if($(this).is('#summ-set')){
+				if(v>summMax)
+					v = summMax;
+				if(v<summMin)
+					v = summMin;
+				summValue = v;
+				summ.slider('value',v);
+			}
+			else {
+				if(v>dateMax)
+					v = dateMax;
+				if(v<dateMin)
+					v = dateMin;
+				dateValue = v;
+				date.slider('value',v);
+			}
+			result();
+		}
 	});
 
 })(jQuery);

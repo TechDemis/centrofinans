@@ -47,7 +47,7 @@
 
 			<div class="pull-right">
 
-				<a class="header__help pull-right underline"><i class="ico <!--#if expr='$header=white' -->ico--help<!--#else-->ico--help-black<!--#endif-->"></i>Помощь</a>
+				<a class="header__help pull-right underline btn-alert_up" data-alert-up="help"><i class="ico <!--#if expr='$header=white' -->ico--help<!--#else-->ico--help-black<!--#endif-->"></i>Помощь</a>
 				<a class="header__address-office pull-right underline"><i class="ico <!--#if expr='$header=white' -->ico--geo<!--#else-->ico--geo-black<!--#endif-->"></i>Адреса офисов</a>
 				<div class="header__city pull-left">
 					<select>
@@ -110,7 +110,7 @@
 <!--#if expr='$page=jobs' -->
 						<span class="menu-top-submenu__current">Вакансии</span>
 <!--#else-->
-						<a href="jobs.html">Вакансии</a>
+						<a href="job.html">Вакансии</a>
 <!--#endif-->
 					</li>
 					<li>

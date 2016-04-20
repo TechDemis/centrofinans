@@ -477,6 +477,13 @@ var showAlertUp;
 
 	})($('.specials'));
 
+// fancy
+	$('.fancybox-media').on('click',function(){
+		$.fancybox.open('<iframe src="'+$(this).attr('href')+'" width="560" height="320" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+		return false;
+	});
+
+
 })(jQuery);
 
 

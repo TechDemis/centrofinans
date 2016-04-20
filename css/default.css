@@ -354,6 +354,9 @@ select {
 .ico--close-black {
 	background-position: -159px -282px
 }
+.ico--close-white {
+	background-position: -159px -313px
+}
 .ico--arrow-right-red {
 	width: 30px;
 	height: 30px;
@@ -372,6 +375,15 @@ a:hover .ico--arrow-right-red {
 	width: 30px;
 	height: 30px;
 	background-position: -451px -372px;
+}
+.ico--arrow-up {
+	width: 26px;
+	height: 26px;
+	background-position: -505px -576px;
+}
+.ico--load {
+	width: 24px;
+	background-position: -287px -308px;
 }
 .ico--rus {
 	right: 13px;
@@ -461,6 +473,13 @@ a:hover .ico--arrow-right-red {
 	width: 30px;
 	height: 30px;
 	background-position: -625px -370px
+}
+.ico--close {
+	width: 32px;
+	height: 32px;
+	left: auto;
+	right: 0;
+	background-position: -379px -1367px
 }
 
 /* table
@@ -832,14 +851,18 @@ ol > li:before {
 }
 .alert_up__window {
 	width: 540px;
-	border-radius: 6px;
 	position:absolute;
 	top: -9999px;
+}
+.alert_up__bg,
+.alert_up__window--bg {
+	border-radius: 6px;
 	background: #fff;
 }
 .alert_up h3 {
 	text-align: center;
-	padding: 20px 0;
+	padding: 16px 0;
+	color: #fff;
 	font: 24px/30px 'ProximaNova-Semibold';
 }
 .alert_up p{
