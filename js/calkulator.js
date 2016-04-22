@@ -10,69 +10,119 @@ http://htmlpluscss.ru
 
 (function($){
 
-	var btn = $('.calkulator__radio-btn').find('input'),
-		btnActive,
+	var btn = $('.calkulator__radio-btn').find('input'), // кнопки переключения калькулятора
+		btnActive, // активная кнопка
+		typeCalcul, // тип калькулятора calcul-1, calcul-2, calcul-3
 
+		// слайдер суммы
 		summ = $('#slider-summ'),
 		summMin,
 		summMax,
 		summStep,
 		summValue,
 
+		// сумма займа
 		summSet = $("#summ-set"),
 
+		// слайдер срока
 		date = $('#slider-date'),
 		dateMin,
 		dateMax,
 		dateStep,
 		dateValue,
 
+		// срок займа
 		dateSet = $("#date-set"),
+		// суффикс срока день, дня, дней
 		dateSuf = $('#date-suf'),
 
-		dateStartNullProcent,
-		dateFinishNullProcent,
+		// % ставка 1%
+		stavka,
+		// % начислени, может быть меньше 0.65%
+		procent,
+
+		// сумма переплаты
+		diffValue,
+
+		// параметры calcul-1
+		dateSkidka,
+		dateNullProcentStart,
+		dateNullProcentFinish,
+		dateNullProcentMaxSumm,
+
+		// параметры calcul-3
+		skidkaStavka,
+		skidkaStartSumm,
+		skidkaStartDate,
+
+		// желтая шкала скидки
 		dateNullProcent = $('.null-procent'),
 
+		// сообщение о скидке
 		calkulatorInfo = $('.calkulator__info-text').children(),
 
+		// сумма возврата вывод
 		returnSumm = $('#return-summ'),
+		// сумма переплаты вывод
 		returnDiff = $('#return-diff'),
 
-		diffValue  = 980;
+		// отступ у слайдера
+		margin  = (summ.outerWidth(true) - summ.width()) / 2;
 
-	function widthStep(){
-		return date.width() / dateStep / (dateMax - dateMin);
-	}
-
-	function dateNullProcentTextToggle(v){
-		if(dateStartNullProcent == dateFinishNullProcent){
-			dateNullProcent.add(calkulatorInfo).hide();
-		}
-		else {
-			v > dateFinishNullProcent || v < dateStartNullProcent ?
-				dateNullProcent.add(calkulatorInfo).hide():
-				dateNullProcent.add(calkulatorInfo).show();
-		}
-	}
 
 	function result(){
 
+		// забиваем значения
 		summValue = parseInt(summValue);
 		dateValue = parseInt(dateValue);
 
-		diffValue = summValue * dateValue / 100;
-
 		summSet.val(summValue);
+		dateSet.val(dateValue);
+		dateSuf.text(declension(dateValue,['день','дня','дней']));
+
+		// обнеляем скидку
+		dateSkidka = 0;
+		procent = stavka;
+
+		// скрываем сообщение о скидке
+		dateNullProcent.add(calkulatorInfo).hide();
+
+		// скидки
+		switch(typeCalcul){
+			case 'calcul-1' :
+
+				// если в диапозоне дат и сумм (21-31 и до 10.000)
+				if (dateValue <= dateNullProcentFinish && dateValue >= dateNullProcentStart && dateNullProcentMaxSumm >= summValue) {
+					dateNullProcent.add(calkulatorInfo).show();
+					dateSkidka = dateValue - dateNullProcentStart + dateStep;
+				}
+
+			break;
+			case 'calcul-2' :
+
+			break;
+
+			case 'calcul-3' :
+
+				// если в диапозоне дат и сумм (от 14 и от 5.000)
+				if (summValue >= skidkaStartSumm && dateValue >= skidkaStartDate) {
+					dateNullProcent.add(calkulatorInfo).show();
+					procent = stavkaSkidka;
+				}
+
+			break;
+		}
+
+		// расчет переплаты
+		diffValue = procent * summValue * (dateValue - dateSkidka) / 100;
+
+		// вывели расчеты
 		returnDiff.text(sepNumber(diffValue));
 		returnSumm.text(sepNumber(summValue+diffValue));
 
-		dateSet.val(dateValue);
-		dateSuf.text(declension(dateValue,['день','дня','дней']));
-		dateNullProcentTextToggle(dateValue);
-
 	}
 
+	// склонение
 	function declension(num, expressions) {
 		var r;
 		var count = num % 100;
@@ -89,25 +139,30 @@ http://htmlpluscss.ru
 		}
 		return r;
 	}
+	// отделяем тысячи
 	function sepNumber(str){
 		str = parseInt(str).toString();
 		return str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 	}
+	// склеиваем тысячи
 	function strToNumber(n){
 		return parseInt(n.replace(/\s+/g,''));
 	}
 
+	// переворачевание
 	$('.calkulator__toggle-step').on('click',function(){
 		$('.calkulator__step-next').toggleClass('calkulator__step-next--active');
 	});
 
-	$('.calkulator__input-box').children('.input').on('keyup blur',function(e){
+	// ввод данных на втором шаге
+	$('.calkulator__input-box').children('.input').on('keyup blur',function(){
 		var t = $(this);
 		setTimeout(function(){
 			t.parent().toggleClass('calkulator__input-box--placeholder',Boolean(t.val()));
 		});
 	}).trigger('blur');
 
+	// выбор типа калькулятора
 	btn.on('change',function(){
 		btnActive = $(this),
 		setSlider();
@@ -118,42 +173,101 @@ http://htmlpluscss.ru
 		ul.siblings().removeClass('calkulator__foot-ul--active');
 	}).filter(':checked').trigger('change');
 
-	$('.calkulator__box').on('submit',function(){
-		$(this).find('.input').each(function(){
-			if($(this).val()=='')
-				$(this).addClass('input--error').one('focus',function(){
-					$(this).removeClass('input--error');
-				});
-		});
-		if($(this).find('.input--error').length>0)
-			return false;
-	});
-
 	function setSlider(){
 
-		summMin = parseInt(btnActive.attr('data-summ-min')),
-		summMax = parseInt(btnActive.attr('data-summ-max')),
-		summStep = parseInt(btnActive.attr('data-summ-step')),
-		summValue = parseInt(btnActive.attr('data-summ-value')),
+		// тип калькулятора
+		typeCalcul = btnActive.val();
 
-		dateMin = parseInt(btnActive.attr('data-date-min')),
-		dateMax = parseInt(btnActive.attr('data-date-max')),
-		dateStep = parseInt(btnActive.attr('data-date-step')),
-		dateValue = parseInt(btnActive.attr('data-date-value')),
+		// парсим данные
+		summMin = parseInt(btnActive.attr('data-summ-min'));
+		summMax = parseInt(btnActive.attr('data-summ-max'));
+		summStep = parseInt(btnActive.attr('data-summ-step'));
+		summValue = parseInt(btnActive.attr('data-summ-value'));
 
-		dateStartNullProcent = parseInt(btnActive.attr('data-start-null-procent')),
-		dateFinishNullProcent = parseInt(btnActive.attr('data-finish-null-procent'));
+		dateMin = parseInt(btnActive.attr('data-date-min'));
+		dateMax = parseInt(btnActive.attr('data-date-max'));
+		dateStep = parseInt(btnActive.attr('data-date-step'));
+		dateValue = parseInt(btnActive.attr('data-date-value'));
 
-		dateNullProcent.css({
-			'left' : widthStep() * (dateStartNullProcent - dateMin),
-			'width' : widthStep() * (dateFinishNullProcent - dateStartNullProcent + 1)
-		});
+		stavka = parseFloat(btnActive.attr('data-stavka'));
 
+		// скидки
+		switch(typeCalcul){
+			case 'calcul-1' :
+
+				dateNullProcentStart = parseInt(btnActive.attr('data-null-procent-start'));
+				dateNullProcentFinish = parseInt(btnActive.attr('data-null-procent-finish'));
+				dateNullProcentMaxSumm = parseInt(btnActive.attr('data-null-procent-maxsumm'));
+				specProcent(summMin,dateNullProcentMaxSumm,dateNullProcentStart,dateNullProcentFinish);
+
+				calkulatorInfo.text(btnActive.attr('data-null-procent-text'));
+
+/*			dateNullProcent.filter('.null-procent--summ').css({
+				'left'  : -margin,
+				'width' : widthStepSumm() * (dateNullProcentMaxSumm - summMin) / summStep + margin
+			});
+			dateNullProcent.filter('.null-procent--date').css({
+				'left'  : widthStepDate() * (dateNullProcentStart - dateMin) / dateStep,
+				'width' : widthStepDate() * (dateNullProcentFinish - dateNullProcentStart) / dateStep + margin
+			});
+*/
+
+			break;
+			case 'calcul-2' :
+
+			break;
+			case 'calcul-3' :
+
+				stavkaSkidka = parseFloat(btnActive.attr('data-skidka-stavka'));
+				skidkaStartSumm = parseInt(btnActive.attr('data-skidka-start-summ'));
+				skidkaStartDate = parseInt(btnActive.attr('data-skidka-start-date'));
+				specProcent(skidkaStartSumm,summMax,skidkaStartDate,dateMax);
+
+				calkulatorInfo.text(btnActive.attr('data-skidka-text'));
+
+/*
+			dateNullProcent.filter('.null-procent--summ').css({
+				'left'  : widthStepSumm() * (skidkaStartSumm - summMin) / summStep,
+				'width' : widthStepSumm() * (summMax - skidkaStartSumm) / summStep + margin
+			});
+			dateNullProcent.filter('.null-procent--date').css({
+				'left'  : widthStepDate() * (skidkaStartDate - dateMin) / dateStep,
+				'width' : widthStepDate() * (dateMax - skidkaStartDate) / dateStep + margin
+			});
+*/
+
+			break;
+		}
+
+		// желтая шкала скидки
+		function specProcent(startSummProcent,finishSummProcent,startDateProcent,finishDateProcent){
+
+			var left,
+				width,
+				widthStepSumm = summ.width() * summStep / (summMax - summMin),
+				widthStepDate = date.width() * dateStep / (dateMax - dateMin);
+
+			left = startSummProcent==summMin ? -margin :
+				widthStepSumm * (startSummProcent - summMin) / summStep;
+			width = widthStepSumm * (finishSummProcent - startSummProcent) / summStep + margin;
+
+			dateNullProcent.filter('.null-procent--summ').css({'left':left,'width':width});
+
+			left = startDateProcent==dateMin ? -margin :
+				widthStepDate * (startDateProcent - dateMin) / dateStep;
+			width = widthStepDate * (finishDateProcent - startDateProcent) / dateStep + margin;
+
+			dateNullProcent.filter('.null-procent--date').css({'left':left,'width':width});
+
+		}
+
+		// нижнии крайние значения
 		$('.calkulator__summ-min').text(summMin);
 		$('.calkulator__summ-max').text(summMax);
 		$('.calkulator__date-min').text(dateMin);
 		$('.calkulator__date-max').text(dateMax);
 
+		// инициализация слайдеров
 		summ.slider({
 			range: 'min',
 			min: summMin,
@@ -182,6 +296,7 @@ http://htmlpluscss.ru
 
 	}
 
+	// ввод суммы и даты в инпуте
 	summSet.add(dateSet).on('change keydown blur', function(event) {
 		if (event.keyCode == 13) {
 			$(this).trigger('blur');

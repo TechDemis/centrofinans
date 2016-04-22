@@ -4,16 +4,16 @@
 			<h3>Нужна помощь?</h3>
 			<ul class="alert-help alert_up__bg clr">
 				<li>
-					Горячая линия:
+					Горячая линия
 					<a class="alert-help__tel" href="tel:88007773737">8 800 777-37-37</a>
 				</li>
 				<li>
-					Задать вопрос:
+					Задать вопрос
 					<a class="alert-help__mail" href="mailto:info@centrofinans.ru">info@centrofinans.ru</a>
 				</li>
 				<li>
-					Ответы на вопросы:
-					<a class="alert-help__btn btn btn--yellow">Перейти</a>
+					Ответы на вопросы
+					<a class="alert-help__btn btn btn--yellow" href="faq.html">Перейти</a>
 				</li>
 			</ul>
 			<a class="alert_up__close ico ico--close"></a>

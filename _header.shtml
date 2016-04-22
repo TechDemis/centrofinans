@@ -43,7 +43,7 @@
 
 			<a href="/" class="header__logo pull-left"></a>
 
-			<p class="pull-right header__contact"><a class="header__tel" href="tel:88007773737">8 800 777-37-37</a> Бесплатно во всей России</p>
+			<p class="pull-right header__contact"><a class="header__tel" href="tel:88007773737">8 800 777-37-37</a> Бесплатно по всей России</p>
 
 			<div class="pull-right">
 
@@ -66,67 +66,23 @@
 				<ul class="menu-top center">
 					<li class="menu-top__plus"><a href="calkulator.html#calkulator"><i class="ico ico--plus"></i>Заявка на заём</a></li>
 					<li class="menu-top__submenu"><a href="about.html">О компании</a></li>
-<!--#if expr='$page=specials' -->
-					<li><span class="menu-top__current">Акции</span></li>
-<!--#else-->
-					<li><a href="specials.html">Акции</a></li>
-<!--#endif-->
-<!--#if expr='$page=news' -->
-					<li><span class="menu-top__current">Новости</span></li>
-<!--#else-->
-					<li><a href="news.html">Новости</a></li>
-<!--#endif-->
-<!--#if expr='$page=faq' -->
-					<li><span class="menu-top__current">Вопросы-ответы</span></li>
-<!--#else-->
-					<li><a href="faq.html">Вопросы-ответы</a></li>
-<!--#endif-->
-<!--#if expr='$page=contact' -->
-					<li><span class="menu-top__current">Контакты</span></li>
-<!--#else-->
-					<li><a href="contact.html">Контакты</a></li>
-<!--#endif-->
-					<li class="menu-top__btn-lk"><a class="btn <!--#if expr='$header=white' -->btn--gray<!--#else-->btn--lk<!--#endif-->" href=".html"><i class="ico <!--#if expr='$header=white' -->ico--lock<!--#else-->ico--lock-black<!--#endif-->"></i>Личный кабинет</a></li>
+					<li><a href="specials.html"<!--#if expr='$page=specials' --> class="menu-top__current"<!--#endif-->>Акции</a></li>
+					<li><a href="news.html"<!--#if expr='$page=news' --> class="menu-top__current"<!--#endif-->>Новости</a></li>
+					<li><a href="faq.html"<!--#if expr='$page=faq' --> class="menu-top__current"<!--#endif-->>Вопросы-ответы</a></li>
+					<li><a href="contact.html"<!--#if expr='$page=contact' --> class="menu-top__current"<!--#endif-->>Контакты</a></li>
+					<li class="menu-top__btn-lk"><a class="btn <!--#if expr='$header=white' -->btn--gray<!--#else-->btn--lk<!--#endif-->" href="lk"><i class="ico <!--#if expr='$header=white' -->ico--lock<!--#else-->ico--lock-black<!--#endif-->"></i>Личный кабинет</a></li>
 				</ul>
 				<ul class="menu-top-submenu">
 <!--#if expr='$submenu=show' -->
 					<li>
-<!--#if expr='$page=about' -->
-						<span class="menu-top-submenu__current">О компании</span>
-<!--#else-->
-						<a href="about.html">О компании</a>
-<!--#endif-->
+						<a href="about.html"<!--#if expr='$page=about' --> class="menu-top__current"<!--#endif-->>О компании</a>
 						<i class="ico ico--arrow-right-gray"></i>
 					</li>
 <!--#endif-->
-					<li>
-<!--#if expr='$page=docs' -->
-						<span class="menu-top-submenu__current">Документы</span>
-<!--#else-->
-						<a href="docs.html">Документы</a>
-<!--#endif-->
-					</li>
-					<li>
-<!--#if expr='$page=jobs' -->
-						<span class="menu-top-submenu__current">Вакансии</span>
-<!--#else-->
-						<a href="job.html">Вакансии</a>
-<!--#endif-->
-					</li>
-					<li>
-<!--#if expr='$page=rent' -->
-						<span class="menu-top-submenu__current">Арендодателям</span>
-<!--#else-->
-						<a href="rent.html">Арендодателям</a>
-<!--#endif-->
-					</li>
-					<li>
-<!--#if expr='$page=feedback' -->
-						<span class="menu-top-submenu__current">Отзывы клиентов</span>
-<!--#else-->
-						<a href="feedback.html">Отзывы клиентов</a>
-<!--#endif-->
-					</li>
+					<li><a href="docs.html"<!--#if expr='$page=docs' --> class="menu-top__current"<!--#endif-->>Документы</a></li>
+					<li><a href="job.html"<!--#if expr='$page=jobs' --> class="menu-top__current"<!--#endif-->>Вакансии</a></li>
+					<li><a href="rent.html"<!--#if expr='$page=rent' --> class="menu-top__current"<!--#endif-->>Арендодателям</a></li>
+					<li><a href="feedback.html"<!--#if expr='$page=feedback' --> class="menu-top__current"<!--#endif-->>Отзывы клиентов</a></li>
 				</ul>
 
 				<a href="/" class="header__logo header__logo--menu"></a>

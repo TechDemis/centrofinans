@@ -55,7 +55,7 @@
 							myMap.behaviors.disable('scrollZoom');
 						}
 
-							ymaps.ready(initMap);
+						ymaps.ready(initMap);
 
 					</script>
 
@@ -85,9 +85,46 @@
 					</ul>
 
 					<ul class="map-address__contact">
-						<li><a href="tel:88005003333"><i class="ico ico--tel"></i>8 800 500 33 33</a></li>
-						<li><a href="mailto:info@cenrofinans.ru"><i class="ico ico--mail"></i>info@cenrofinans.ru</a></li>
-						<li><i class="ico ico--time"></i>Пн-Пт / с 9:00 до 18:00</a></li>
+						<li><a href="tel:88125003333"><i class="ico ico--tel"></i>8 812 500 33 33</a></li>
+						<li>
+							<i class="ico ico--time"></i>
+							<a class="map-address__contact-rasp">Сегодня</a> 10:00–19:00 / <span>обед 14:00–15:00</span>
+							<div class="map-address__rasp hide">
+								<table class="table table--fixed">
+									<tr>
+										<th class="map-address__rasp-today">пн</th>
+										<th>вт</th>
+										<th>ср</th>
+										<th>чт</th>
+										<th>пт</th>
+										<th>сб</th>
+										<th>вс</th>
+									</tr>
+									<tr>
+										<td class="map-address__rasp-today">10:00<br>19:00</td>
+										<td>10:00<br>19:00</td>
+										<td>10:00<br>19:00</td>
+										<td>10:00<br>19:00</td>
+										<td>10:00<br>19:00</td>
+										<td>10:00<br>19:00</td>
+										<td>10:00<br>19:00</td>
+									</tr>
+									<tr>
+										<td class="map-address__rasp-lunch map-address__rasp-today">обед</td>
+										<td class="map-address__rasp-sep align-middle" colspan="6"></td>
+									</tr>
+									<tr>
+										<td class="map-address__rasp-today">14:00<br>15:00</td>
+										<td>14:00<br>15:00</td>
+										<td>14:00<br>15:00</td>
+										<td>14:00<br>15:00</td>
+										<td>14:00<br>15:00</td>
+										<td>14:00<br>15:00</td>
+										<td>14:00<br>15:00</td>
+									</tr>
+								</table>
+							</div>
+						</li>
 						<li><i class="ico ico--map-mark"></i>от станции м. Отрадная 5 минут пешком до торгового центра «Карл-Маркс»</li>
 					</ul>
 
@@ -103,7 +140,13 @@
 
 				<h3 class="h1">Обратная связь</h3>
 
-				<input placeholder="Выбрать тему" class="input w460 pull-left">
+				<div class="w460 pull-left">
+					<select>
+						<option value="none">Выбрать тему</option>
+						<option value="1">Предложние</option>
+						<option value="2">Жалоба</option>
+					</select>
+				</div>
 				<input placeholder="ФИО" class="input w460 pull-right">
 				<div class="w460 pull-left">
 					<textarea placeholder="Сообщение" class="input"></textarea>
@@ -114,7 +157,7 @@
 				</div>
 				<input placeholder="E-mail" class="input w460 pull-right">
 				<div class="w460 pull-right">
-					<p class="callback-form__answer pull-left"><i class="ico ico--answer"></i>Ответ в течении 2-х часов</p>
+					<p class="callback-form__answer pull-left"><i class="ico ico--answer"></i>Наши специалисты свяжутся <br> с Вами в ближайшее время</p>
 					<label class="btn btn--red btn--radius pull-right">Отправить <input type="submit" class="hide"></label>
 				</div>
 
