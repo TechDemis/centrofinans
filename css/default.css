@@ -497,6 +497,12 @@ a:hover .ico--load {
 	right: 0;
 	background-position: -379px -1367px
 }
+.ico--triangle {
+	width: 46px;
+	height: 40px;
+	outline:1px solid red;
+	background-position: -379px -1367px
+}
 
 /* table
 -----------------------------------------------------------------------------*/
@@ -710,6 +716,9 @@ hr {
 }
 .mb20 {
 	margin-bottom: 20px;
+}
+.mt20 {
+	margin-top: 20px;
 }
 
 

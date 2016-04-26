@@ -8,7 +8,8 @@ http://htmlpluscss.ru
 
 */
 
-var showAlertUp;
+var showAlertUp,
+	timerSec;
 
 (function($){
 
@@ -60,12 +61,31 @@ var showAlertUp;
 		}
 	});
 
+	$window.load(function(){
+
+		document.getElementById('video').play();
+
+	});
+
 	function pageResize(){
 		windowWidth = $window.width();
 		windowHeight = $window.height();
 		$('.main').css('min-height', windowHeight - $('.header').outerHeight() - $('.footer').outerHeight() - 24); // 24 padding body
+
+		(function(videoBox){
+			videoBox.width() / videoBox.height() > 1920 / 1080 ?
+				$('#video').css({
+					'width' : videoBox.width(),
+					'height' : 'auto'
+				}) :
+				$('#video').css({
+					'width' : 'auto',
+					'height' : videoBox.height()
+				});
+		}($('.video-box')));
 	}
 	pageResize();
+
 
 	$window.trigger('resize').trigger('scroll');
 
@@ -183,6 +203,22 @@ var showAlertUp;
 		return this.each(tab);
 
 	};
+
+	timerSec = function (selector){
+		selector = $(selector);
+		var sec = selector.attr('data-start');
+		(function setSec(){
+			var suf = '0:';
+			suf += sec < 10 ? '0' : '';
+			selector.text(suf+sec);
+			setTimeout(function(){
+				if(sec-- > 0)
+					setSec();
+				else
+					selector.text('повторно отправить смс');
+			}, 1000);
+		}());
+	}
 
 // checkbox
 	$('.checkbox').addClass('notsel').append('<i></i>');
@@ -470,7 +506,7 @@ var showAlertUp;
 				active.removeClass('specials__item--active specials__item--active-down specials__item--active-up');
 				t.addClass('active').siblings().removeClass('active');
 				specials.removeClass('specials--next specials--prev');
-			},1100);
+			},300);
 		});
 
 		nav.append(nav_box);

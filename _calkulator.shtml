@@ -74,10 +74,11 @@
 										data-date-max="31"
 										data-date-value="1"
 										data-stavka="1"
-										data-null-procent-start="21"
-										data-null-procent-finish="31"
+										data-null-procent-start="15"
+										data-null-procent-finish="21"
 										data-null-procent-maxsumm="10000"
-										data-null-procent-text="С 15 по 21 день % не начисляем при сумме займа не более 10000 руб."
+										data-null-spec-start="21"
+										data-text-spec="с 15 по 21 день % не начисляем при сумме займа не более 10000 руб."
 									>
 								</label>
 								<label class="btn btn--radio pull-left">
@@ -92,6 +93,8 @@
 										data-date-max="180"
 										data-date-value="60"
 										data-stavka="0.85"
+										data-payment-period="15"
+										data-text-spec="расчёт верен при условии платежей равными долями каждые 15 дней"
 									>
 								</label>
 								<label class="btn btn--radio pull-left">
@@ -109,7 +112,10 @@
 										data-skidka-stavka="0.65"
 										data-skidka-start-summ="5000"
 										data-skidka-start-date="14"
-										data-skidka-text="0,65% в день при сумме займа от 5000 руб, на срок не менее 14 дней"
+										data-text-spec="0,65% в день при сумме займа от 5000 руб, на срок не менее 14 дней"
+										data-skidka-start-date2="14"
+										data-skidka-start-summ2="15000"
+										data-text-spec2="от 15000 рублей можно оформить на срок не менее 14 дней»"
 									>
 								</label>
 							</div>

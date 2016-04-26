@@ -38,22 +38,30 @@ http://htmlpluscss.ru
 
 		// % ставка 1%
 		stavka,
-		// % начислени, может быть меньше 0.65%
+		// % начислени, может быть меньше ставки
 		procent,
 
 		// сумма переплаты
 		diffValue,
 
 		// параметры calcul-1
-		dateSkidka,
+		weekForNothing,
+		weekForNothingStars,
 		dateNullProcentStart,
 		dateNullProcentFinish,
 		dateNullProcentMaxSumm,
+
+		// параметры calcul-2
+		paymentPeriod,
+		paymentPeriodQuantity,
+		AnnuityCoefficient,
 
 		// параметры calcul-3
 		skidkaStavka,
 		skidkaStartSumm,
 		skidkaStartDate,
+		skidkaStartSumm2,
+		skidkaStartDate2,
 
 		// желтая шкала скидки
 		dateNullProcent = $('.null-procent'),
@@ -80,8 +88,7 @@ http://htmlpluscss.ru
 		dateSet.val(dateValue);
 		dateSuf.text(declension(dateValue,['день','дня','дней']));
 
-		// обнеляем скидку
-		dateSkidka = 0;
+		// обнуляем ставку
 		procent = stavka;
 
 		// скрываем сообщение о скидке
@@ -91,30 +98,56 @@ http://htmlpluscss.ru
 		switch(typeCalcul){
 			case 'calcul-1' :
 
-				// если в диапозоне дат и сумм (21-31 и до 10.000)
-				if (dateValue <= dateNullProcentFinish && dateValue >= dateNullProcentStart && dateNullProcentMaxSumm >= summValue) {
+				// обнуляем скидку
+				weekForNothing = 0;
+				// если дата больше 21 и сумма меньше 10.000 то с 15-21 не начисляем
+				if (dateValue >= weekForNothingStars && dateNullProcentMaxSumm >= summValue) {
 					dateNullProcent.add(calkulatorInfo).show();
-					dateSkidka = dateValue - dateNullProcentStart + dateStep;
+					weekForNothing = dateNullProcentFinish - dateNullProcentStart + 1;
 				}
+
+				// расчет переплаты
+				diffValue = procent * summValue * (dateValue - weekForNothing) / 100;
 
 			break;
 			case 'calcul-2' :
+
+				calkulatorInfo.show();
+				// формула аннуитета = i / ( (1+i)^n - 1 ) + i
+				// Количество периодов
+				paymentPeriodQuantity = dateValue / paymentPeriod;
+				// Процентная ставка за период
+				procent = procent * paymentPeriod / 100;
+				// Коэффициент аннуитета
+				AnnuityCoefficient = procent/(Math.pow((1+procent),paymentPeriodQuantity)-1) + procent;
+				// Регулярный платеж = AnnuityCoefficient * summValue
+				// Общая сумма платежей = Регулярный платеж * paymentPeriodQuantity
+				// Сумма процентов = Общая сумма платежей - Сумма займа 
+				// расчет переплаты
+				diffValue = AnnuityCoefficient * summValue * paymentPeriodQuantity - summValue;
 
 			break;
 
 			case 'calcul-3' :
 
-				// если в диапозоне дат и сумм (от 14 и от 5.000)
-				if (summValue >= skidkaStartSumm && dateValue >= skidkaStartDate) {
+				// если в диапозоне дат и сумм (до 14 и от 15.000)
+				if (summValue >= skidkaStartSumm2 && dateValue <= skidkaStartDate2) {
 					dateNullProcent.add(calkulatorInfo).show();
 					procent = stavkaSkidka;
+					calkulatorInfo.text(calkulatorInfo.data('text2'));
 				}
+				// если в диапозоне дат и сумм (от 14 и от 5.000)
+				else if (summValue >= skidkaStartSumm && dateValue >= skidkaStartDate) {
+					dateNullProcent.add(calkulatorInfo).show();
+					procent = stavkaSkidka;
+					calkulatorInfo.text(calkulatorInfo.data('text'));
+				}
+
+				// расчет переплаты
+				diffValue = procent * summValue * dateValue / 100;
 
 			break;
 		}
-
-		// расчет переплаты
-		diffValue = procent * summValue * (dateValue - dateSkidka) / 100;
 
 		// вывели расчеты
 		returnDiff.text(sepNumber(diffValue));
@@ -195,25 +228,18 @@ http://htmlpluscss.ru
 		switch(typeCalcul){
 			case 'calcul-1' :
 
+				weekForNothingStars = parseInt(btnActive.attr('data-null-spec-start'))
 				dateNullProcentStart = parseInt(btnActive.attr('data-null-procent-start'));
 				dateNullProcentFinish = parseInt(btnActive.attr('data-null-procent-finish'));
 				dateNullProcentMaxSumm = parseInt(btnActive.attr('data-null-procent-maxsumm'));
 				specProcent(summMin,dateNullProcentMaxSumm,dateNullProcentStart,dateNullProcentFinish);
-
-				calkulatorInfo.text(btnActive.attr('data-null-procent-text'));
-
-/*			dateNullProcent.filter('.null-procent--summ').css({
-				'left'  : -margin,
-				'width' : widthStepSumm() * (dateNullProcentMaxSumm - summMin) / summStep + margin
-			});
-			dateNullProcent.filter('.null-procent--date').css({
-				'left'  : widthStepDate() * (dateNullProcentStart - dateMin) / dateStep,
-				'width' : widthStepDate() * (dateNullProcentFinish - dateNullProcentStart) / dateStep + margin
-			});
-*/
+				calkulatorInfo.text(btnActive.attr('data-text-spec'));
 
 			break;
 			case 'calcul-2' :
+
+				paymentPeriod = parseInt(btnActive.attr('data-payment-period'));
+				calkulatorInfo.text(btnActive.attr('data-text-spec'));
 
 			break;
 			case 'calcul-3' :
@@ -222,19 +248,11 @@ http://htmlpluscss.ru
 				skidkaStartSumm = parseInt(btnActive.attr('data-skidka-start-summ'));
 				skidkaStartDate = parseInt(btnActive.attr('data-skidka-start-date'));
 				specProcent(skidkaStartSumm,summMax,skidkaStartDate,dateMax);
-
-				calkulatorInfo.text(btnActive.attr('data-skidka-text'));
-
-/*
-			dateNullProcent.filter('.null-procent--summ').css({
-				'left'  : widthStepSumm() * (skidkaStartSumm - summMin) / summStep,
-				'width' : widthStepSumm() * (summMax - skidkaStartSumm) / summStep + margin
-			});
-			dateNullProcent.filter('.null-procent--date').css({
-				'left'  : widthStepDate() * (skidkaStartDate - dateMin) / dateStep,
-				'width' : widthStepDate() * (dateMax - skidkaStartDate) / dateStep + margin
-			});
-*/
+				calkulatorInfo.text(btnActive.attr('data-text-spec'));
+				skidkaStartSumm2 = parseInt(btnActive.attr('data-skidka-start-summ2'));
+				skidkaStartDate2 = parseInt(btnActive.attr('data-skidka-start-date2'));
+				calkulatorInfo.data('text',btnActive.attr('data-text-spec'));
+				calkulatorInfo.data('text2',btnActive.attr('data-text-spec2'));
 
 			break;
 		}
@@ -310,7 +328,14 @@ http://htmlpluscss.ru
 					v = summMax;
 				if(v<summMin)
 					v = summMin;
-				summValue = v;
+/*				var arithmetic = (v - summMin) % summStep;
+				if (arithmetic > 0){
+					v = parseInt((v - summMin) / summStep) * summStep + summMin;
+					if (arithmetic * 2 > summStep){
+						v += summStep;
+					}
+				}
+*/				summValue = v;
 				summ.slider('value',v);
 			}
 			else {
@@ -318,6 +343,13 @@ http://htmlpluscss.ru
 					v = dateMax;
 				if(v<dateMin)
 					v = dateMin;
+				var arithmetic = (v - dateMin) % dateStep;
+				if (arithmetic > 0){
+					v = parseInt((v - dateMin) / dateStep) * dateStep + dateMin;
+					if (arithmetic * 2 > dateStep){
+						v += dateStep;
+					}
+				}
 				dateValue = v;
 				date.slider('value',v);
 			}

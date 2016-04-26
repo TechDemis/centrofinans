@@ -3,8 +3,8 @@
 <head>
 	<title><!--#echo var="title" --></title>
 	<meta charset="utf-8">
-	<link href="css/default.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+	<link href="../css/default.css" rel="stylesheet">
+	<link href="css/lk.css" rel="stylesheet">
 	<meta name="viewport" content="width=980">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon-precomposed" href="/favicon.png">
@@ -12,39 +12,8 @@
 
 <body>
 
-<!--#if expr='$ahtung=1' -->
-	<aside class="ahtung">
-		<div class="ahtung__box align-right">
-			<p><span class="opacity-8">Ваш город Санкт-Петербург?</span> <a class="btn btn--red ahtung__close">Да</a> <a class="ahtung__link">Хочу изменить</a></p>
-			<a class="ahtung__close ico ico--close-black"></a>
-		</div>
-	</aside>
-<!--#endif-->
 
-<!--#if expr='$ahtung=2' -->
-	<aside class="ahtung">
-		<div class="ahtung__box">
-			<p>В период праздников с 8 февраля по 13 февраля 2016 года рабочее время изменено. Офисы работают с 11:00 до 17:30</p>
-			<i class="ico ico--ahtung"></i>
-			<a class="ahtung__close ico ico--close-black"></a>
-		</div>
-	</aside>
-<!--#endif-->
-
-<!--#if expr='$page=home' -->
-	<header class="header header--white img-cover" data-img="img/header-main.jpg">
-
-		<div class="video-box">
-			<video id="video">
-				<source src="img/movie.mp4" type="video/mp4">
-			</video>
-		</div>
-
-<!--#elif expr='$page=404' -->
-	<header class="header header--white header--404">
-<!--#else-->
 	<header class="header">
-<!--#endif-->
 
 		<div class="header__top center clr">
 
@@ -77,15 +46,9 @@
 					<li><a href="news.html"<!--#if expr='$page=news' --> class="menu-top__current"<!--#endif-->>Новости</a></li>
 					<li><a href="faq.html"<!--#if expr='$page=faq' --> class="menu-top__current"<!--#endif-->>Вопросы-ответы</a></li>
 					<li><a href="contact.html"<!--#if expr='$page=contact' --> class="menu-top__current"<!--#endif-->>Контакты</a></li>
-					<li class="menu-top__btn-lk"><a class="btn <!--#if expr='$header=white' -->btn--gray<!--#else-->btn--lk<!--#endif--> btn-alert_up" data-alert-up="lk"><i class="ico <!--#if expr='$header=white' -->ico--lock<!--#else-->ico--lock-black<!--#endif-->"></i>Личный кабинет</a></li>
+					<li class="menu-top__btn-lk"><a class="btn <!--#if expr='$header=white' -->btn--gray<!--#else-->btn--lk<!--#endif-->" href="lk"><i class="ico <!--#if expr='$header=white' -->ico--lock<!--#else-->ico--lock-black<!--#endif-->"></i>Личный кабинет</a></li>
 				</ul>
 				<ul class="menu-top-submenu">
-<!--#if expr='$submenu=show' -->
-					<li>
-						<a href="about.html"<!--#if expr='$page=about' --> class="menu-top__current"<!--#endif-->>О компании</a>
-						<i class="ico ico--arrow-right-gray"></i>
-					</li>
-<!--#endif-->
 					<li><a href="docs.html"<!--#if expr='$page=docs' --> class="menu-top__current"<!--#endif-->>Документы</a></li>
 					<li><a href="job.html"<!--#if expr='$page=jobs' --> class="menu-top__current"<!--#endif-->>Вакансии</a></li>
 					<li><a href="rent.html"<!--#if expr='$page=rent' --> class="menu-top__current"<!--#endif-->>Арендодателям</a></li>
@@ -97,9 +60,5 @@
 			</nav>
 
 		</div>
-
-<!--#if expr='$page=home' -->
-<!--#include file="_calkulator.shtml"-->
-<!--#endif-->
 
 	</header>
