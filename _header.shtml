@@ -32,11 +32,15 @@
 <!--#endif-->
 
 <!--#if expr='$page=home' -->
-	<header class="header header--white img-cover" data-img="img/header-main.jpg">
+	<header class="header header--white">
 
-		<div class="video-box">
-			<video id="video">
+		<div class="header__cover hide img-cover" data-img="img/header-main.jpg"></div>
+		<div class="header__video hide">
+			<video>
 				<source src="img/movie.mp4" type="video/mp4">
+			</video>
+			<video>
+				<source src="img/movie2.mp4" type="video/mp4">
 			</video>
 		</div>
 

@@ -61,12 +61,6 @@ var showAlertUp,
 		}
 	});
 
-	$window.load(function(){
-
-		document.getElementById('video').play();
-
-	});
-
 	function pageResize(){
 		windowWidth = $window.width();
 		windowHeight = $window.height();
@@ -82,10 +76,34 @@ var showAlertUp,
 					'width' : 'auto',
 					'height' : videoBox.height()
 				});
-		}($('.video-box')));
+		}($('.header__video')));
 	}
 	pageResize();
 
+	(function(videoBox){
+		var sw = Math.floor(Math.random() * (videoBox.children().size()+1));
+		switch(sw){
+			case 2:
+				videoBox.children().eq(1).remove();
+			break;
+			case 1:
+				videoBox.children().eq(0).remove();
+			break;
+		}
+		videoBox.children().attr('id','video');
+		$window.load(function(){
+			switch(sw){
+				case 2:
+				case 1:
+					videoBox.removeClass('hide');
+					document.getElementById('video').play();
+				break;
+				default:
+					$('.header__cover').removeClass('hide');
+				break;
+			}
+		});
+	}($('.header__video')));
 
 	$window.trigger('resize').trigger('scroll');
 
@@ -206,6 +224,7 @@ var showAlertUp,
 
 	timerSec = function (selector){
 		selector = $(selector);
+		selector.closest('.alert-lk__kod-tictak').removeClass('hide').siblings('.alert-lk__kod-repeat').addClass('hide');
 		var sec = selector.attr('data-start');
 		(function setSec(){
 			var suf = '0:';
@@ -215,7 +234,7 @@ var showAlertUp,
 				if(sec-- > 0)
 					setSec();
 				else
-					selector.text('повторно отправить смс');
+					selector.closest('.alert-lk__kod-tictak').addClass('hide').siblings('.alert-lk__kod-repeat').removeClass('hide');
 			}, 1000);
 		}());
 	}

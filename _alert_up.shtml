@@ -1,5 +1,7 @@
 	<div class="alert_up alert_up--hide">
 
+<!--#if expr='$lk!=1' -->
+
 		<div class="alert_up__window alert_up__window--lk alert-lk">
 			<form class="alert-lk__form">
 				<h3>Личный кабинет</h3>
@@ -40,7 +42,11 @@
 				<h3>Подтверждение</h3>
 				<input class="input" placeholder="Код из SMS">
 				<label class="btn btn--red btn--block">Подтвердить<input type="submit" class="hide"></label>
-				<p class="alert-lk__repeat-kod">Повторно запросить код можно будет <br>через <a><span id="alert-lk__repeat-kod-lk" data-start="30">0:30</span> сек</a></p>
+				<p class="alert-lk__repeat-kod">
+					Повторно запросить код можно будет <br>через
+					<a class="alert-lk__kod-tictak"><span id="alert-lk__repeat-kod-lk" data-start="30">0:30</span> сек</a>
+					<a class="alert-lk__kod-repeat hide" onClick="timerSec('#alert-lk__repeat-kod-lk')">повторно отправить смс</a>
+				</p>
 			</form>
 			<p class="alert-lk__foot">Нет аккаунта? <a class="btn-alert_up" data-alert-up="lk-reg">Зарегистрируйтесь</a></p>
 			<a class="alert_up__close ico ico--close"></a>
@@ -93,7 +99,11 @@
 				<h3>Регистрация</h3>
 				<input class="input" placeholder="Код из SMS">
 				<label class="btn btn--red btn--block">Подтвердить<input type="submit" class="hide"></label>
-				<p class="alert-lk__repeat-kod">Повторно запросить код можно будет <br>через <a><span id="alert-lk__repeat-kod-lk-reg" data-start="30">0:30</span> сек</a></p>
+				<p class="alert-lk__repeat-kod">
+					Повторно запросить код можно будет <br>через
+					<a class="alert-lk__kod-tictak"><span id="alert-lk__repeat-kod-lk-reg" data-start="59">0:59</span> сек</a>
+					<a class="alert-lk__kod-repeat hide" onClick="timerSec('#alert-lk__repeat-kod-lk-reg')">повторно отправить смс</a>
+				</p>
 			</form>
 			<p class="alert-lk__foot">Есть аккаунт? <a class="btn-alert_up" data-alert-up="lk">Авторизируйтесь</a></p>
 			<a class="alert_up__close ico ico--close"></a>
@@ -113,12 +123,14 @@
 		<div class="alert_up__window alert_up__window--lk-setpass alert-lk">
 			<form class="alert-lk__form">
 				<h3>Регистрация</h3>
-				<input placeholder="Придумайте пароль" type="password">
+				<input class="input" placeholder="Придумайте пароль" type="password">
 				<label class="btn btn--red btn--block">Проверить<input type="submit" class="hide"></label>
 			</form>
 			<p class="alert-lk__foot">Есть аккаунт? <a class="btn-alert_up" data-alert-up="lk">Авторизируйтесь</a></p>
 			<a class="alert_up__close ico ico--close"></a>
 		</div>
+
+<!--#endif-->
 
 		<div class="alert_up__window alert_up__window--help">
 			<h3>Нужна помощь?</h3>
