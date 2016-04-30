@@ -1,0 +1,80 @@
+<!--#set var="title" value="Адреса офисов" -->
+
+<!--#include file="_header.shtml"-->
+
+	<main class="main main--bb clr">
+
+		<article class="center contact">
+
+			<h1>Адреса офисов</h1>
+
+			<hr class="mb40">
+
+			<div class="map-address clr">
+
+				<div class="pull-left w450">
+
+					<div id="map"></div>
+
+					<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+					<script>
+
+						function initMap() {
+							var myMap = new ymaps.Map('map', {
+								center: [55.74, 37.58],
+								zoom: 6,
+								controls: []
+							});
+
+
+							var zoomControl = new ymaps.control.ZoomControl({
+								options: {
+									visible: true
+								}
+							});
+							myMap.controls.add(zoomControl);
+
+							myMap.behaviors.disable('scrollZoom');
+						}
+
+						ymaps.ready(initMap);
+
+					</script>
+
+				</div>
+
+				<div class="pull-right w450">
+
+					<ul class="map-address__address map-address__address--select">
+						<li>
+							<select>
+								<option value="none">Выбрать регион</option>
+								<option value="1" selected="selected">Ленинградская область</option>
+							</select>
+						</li>
+						<li>
+							<select>
+								<option value="none">Выбрать город</option>
+								<option value="1" selected="selected">Санкт-Петербург</option>
+							</select>
+						</li>
+					</ul>
+
+					<ul class="map-address__address-result">
+						<li><a href="/">пр. Обводный, д. 22, вход с торца «Дисмы»</a></li>
+						<li><a href="/">ул. Воскресенская, д. 11, ТЦ «Орбита», 2 этаж</a></li>
+						<li><a href="/">ул. Воскресенская, д. 93, корп. 3, 3 этаж</a></li>
+						<li><a href="/">ул. Галушина, д. 15, ТЦ «Ильма»</a></li>
+						<li><a href="/">ул. Маяковского, д. 27, магазин «Петровский»</a></li>
+						<li><a href="/">ул. Химиков, д. 5, корп. 1, бывшее здание «АТС»</a></li>
+					</ul>
+
+				</div>
+
+			</div>
+
+		</article>
+
+	</main>
+
+<!--#include file="_footer.shtml"-->

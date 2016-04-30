@@ -1,0 +1,41 @@
+<!--#set var="lk" value="1" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title><!--#echo var="title" --></title>
+	<meta charset="utf-8">
+	<link href="../css/default.css" rel="stylesheet">
+	<link href="css/lk.css" rel="stylesheet">
+	<meta name="viewport" content="width=980">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon-precomposed" href="/favicon.png">
+</head>
+
+<body>
+
+	<div class="header">
+
+		<div class="center clr">
+
+			<a href="/" class="header__logo pull-left"></a>
+
+			<a class="header__exit pull-right ico ico--exit btn-alert_up" data-alert-up="exit"></a>
+			<a class="header__profile pull-right ico ico--profile btn-alert_up" data-alert-up="profile"></a>
+
+			<ul class="menu-lk pull-right">
+				<li class="menu-lk__sep<!--#if expr='$page=lk' --> menu-lk__current<!--#endif-->"><a href="index.html">Текущий заём</a></li>
+				<li<!--#if expr='$page=history' --> class="menu-lk__current"<!--#endif-->><a href="history.html">История займов</a></li>
+				<li<!--#if expr='$page=card' --> class="menu-lk__current"<!--#endif-->><a href="card.html">Карты</a></li>
+				<li<!--#if expr='$page=spec' --> class="menu-lk__current"<!--#endif-->><a href="spec.html">Спецпредложения</a></li>
+				<li class="menu-lk__sep"><a href="lk" class="btn btn--yellow">Новая заявка</a></li>
+			</ul>
+
+		</div>
+
+		<form class="header__toogle-bg">
+			<i class="ico ico--day"></i>
+			<i class="ico ico--night"></i>
+			<label class="checkbox checkbox--iphone"><input type="checkbox" checked="checked" id="toggleskin"></label>
+		</form>
+
+	</div>

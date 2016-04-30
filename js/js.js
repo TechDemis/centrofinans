@@ -9,7 +9,8 @@ http://htmlpluscss.ru
 */
 
 var showAlertUp,
-	timerSec;
+	timerSec,
+	timerSecClear;
 
 (function($){
 
@@ -19,7 +20,10 @@ var showAlertUp,
 		resizeTimeoutId,
 		$window = $(window),
 		body = $('body'),
-		menuHeader = $('.header__menu');
+		paddingBody = body.outerHeight()-body.height(),
+		menuHeader = $('.header__menu'),
+		xStart,
+		xMove;
 
 	$window.on({
 		resize: function(){
@@ -32,11 +36,13 @@ var showAlertUp,
 			windowScrollTop = $window.scrollTop();
 
 			// menu fixed
-			if (menuHeader.offset().top + menuHeader.height() < windowScrollTop){
-				menuHeader.addClass('header__menu--fixed');
-			}
-			if (windowScrollTop < menuHeader.offset().top){
-				menuHeader.removeClass('header__menu--fixed');
+			if(menuHeader.length>0){
+				if (menuHeader.offset().top + menuHeader.height() < windowScrollTop){
+					menuHeader.addClass('header__menu--fixed');
+				}
+				if (windowScrollTop < menuHeader.offset().top){
+					menuHeader.removeClass('header__menu--fixed');
+				}
 			}
 
 			// parallax
@@ -64,7 +70,7 @@ var showAlertUp,
 	function pageResize(){
 		windowWidth = $window.width();
 		windowHeight = $window.height();
-		$('.main').css('min-height', windowHeight - $('.header').outerHeight() - $('.footer').outerHeight() - 24); // 24 padding body
+		$('.main').css('min-height', windowHeight - $('.header').outerHeight() - $('.footer').outerHeight() - paddingBody);
 
 		(function(videoBox){
 			videoBox.width() / videoBox.height() > 1920 / 1080 ?
@@ -82,24 +88,15 @@ var showAlertUp,
 
 	(function(videoBox){
 		var sw = Math.floor(Math.random() * (videoBox.children().size()+1));
-		switch(sw){
-			case 2:
-				videoBox.children().eq(1).remove();
-			break;
-			case 1:
-				videoBox.children().eq(0).remove();
-			break;
-		}
-		videoBox.children().attr('id','video');
+		videoBox.children().eq(sw-1).attr('id','video').siblings().remove();
 		$window.load(function(){
 			switch(sw){
-				case 2:
-				case 1:
-					videoBox.removeClass('hide');
-					document.getElementById('video').play();
+				case 0:
+					$('.header__cover').removeClass('hide');
 				break;
 				default:
-					$('.header__cover').removeClass('hide');
+					videoBox.removeClass('hide');
+					document.getElementById('video').play();
 				break;
 			}
 		});
@@ -226,11 +223,12 @@ var showAlertUp,
 		selector = $(selector);
 		selector.closest('.alert-lk__kod-tictak').removeClass('hide').siblings('.alert-lk__kod-repeat').addClass('hide');
 		var sec = selector.attr('data-start');
+		clearTimeout(timerSecClear);
 		(function setSec(){
 			var suf = '0:';
 			suf += sec < 10 ? '0' : '';
 			selector.text(suf+sec);
-			setTimeout(function(){
+			timerSecClear = setTimeout(function(){
 				if(sec-- > 0)
 					setSec();
 				else
@@ -325,16 +323,15 @@ var showAlertUp,
 			var e = item.filter('.feedback-slider__right').next('.feedback-slider__item');
 			if(e.length==0)
 				e = item.first();
-
 			f.addClass('feedback-slider__left').removeClass('feedback-slider__first');
 			l.addClass('feedback-slider__start').removeClass('feedback-slider__left');
 			r.addClass('feedback-slider__first').removeClass('feedback-slider__right');
 			e.addClass('feedback-slider__right');
-			f.afterTransition(function() {
+			setTimeout(function(){
 				item.filter('.feedback-slider__start').removeClass('feedback-slider__start');
 				item.filter('.feedback-slider__end').removeClass('feedback-slider__end');
 				navLeft.removeClass('disabled');
-			});
+			},300);
 		});
 		navRight.on('click',function(){
 			if(navRight.hasClass('disabled')) return;
@@ -349,12 +346,14 @@ var showAlertUp,
 			l.addClass('feedback-slider__first').removeClass('feedback-slider__left');
 			r.addClass('feedback-slider__end').removeClass('feedback-slider__right');
 			s.addClass('feedback-slider__left');
-			f.afterTransition(function() {
+			setTimeout(function(){
 				item.filter('.feedback-slider__start').removeClass('feedback-slider__start');
 				item.filter('.feedback-slider__end').removeClass('feedback-slider__end');
 				navRight.removeClass('disabled');
-			});
+			},300);
 		});
+
+		touchX(item,navLeft,navRight);
 
 	}($('.feedback-slider')));
 
@@ -512,10 +511,12 @@ var showAlertUp,
 			var next = list.eq(index);
 			var active = list.filter('.specials__item--active');
 			if(next.index() > active.index()){
+				specials.addClass('specials--next');
 				next.addClass('specials__item--up');
 				active.addClass('specials__item--active-down');
 			}
 			else{
+				specials.addClass('specials--prev');
 				next.addClass('specials__item--down');
 				active.addClass('specials__item--active-up');
 			}
@@ -535,13 +536,11 @@ var showAlertUp,
 		specials.find('.specials__prev, .specials__next').on('click',function(){
 			var a = nav_box.children('.active');
 			if($(this).hasClass('specials__next')) {
-				specials.addClass('specials--next');
 				var n = a.next().length>0 ?
 					a.next():
 					nav_box.children().first();
 			}
 			else {
-				specials.addClass('specials--prev');
 				var n = a.prev().length>0 ?
 					a.prev():
 					nav_box.children().last();
@@ -549,7 +548,26 @@ var showAlertUp,
 			n.trigger('click');
 		});
 
+		touchX(specials,specials.find('.specials__prev'),specials.find('.specials__next'));
+
 	})($('.specials'));
+
+// touch X
+	function touchX(b,l,n){
+		b.on('touchstart touchmove touchend',function(event){
+			if (event.type == 'touchstart') {
+				xStart = parseInt(event.originalEvent.touches[0].clientX);
+			}
+			if (event.type == 'touchmove') {
+				xMove = parseInt(event.originalEvent.touches[0].clientX);
+			}
+			if (event.type == 'touchend') {
+				xStart > xMove ?
+					l.trigger('click'):
+					n.trigger('click');
+			}
+		});
+	}
 
 // fancy
 	$('.fancybox-media').on('click',function(){
@@ -630,23 +648,3 @@ var showAlertUp,
 	});
 
 })(jQuery);
-
-
-/*
- * Copyright 2012 Andrey тA.I.т Sitnik <andrey@sitnik.ru>,
- * sponsored by Evil Martians.
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-(function(d){"use strict";d.Transitions={_names:{'transition':'transitionend','OTransition':'oTransitionEnd','WebkitTransition':'webkitTransitionEnd','MozTransition':'transitionend'},_parseTimes:function(b){var c,a=b.split(/,\s*/);for(var e=0;e<a.length;e++){c=a[e];a[e]=parseFloat(c);if(c.match(/\ds/)){a[e]=a[e]*1000}}return a},getEvent:function(){var b=false;for(var c in this._names){if(typeof(document.body.style[c])!='undefined'){b=this._names[c];break}}this.getEvent=function(){return b};return b},animFrame:function(c){var a=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.msRequestAnimationFrame;if(a){this.animFrame=function(b){return a.call(window,b)}}else{this.animFrame=function(b){return setTimeout(b,10)}}return this.animFrame(c)},isSupported:function(){return this.getEvent()!==false}};d.extend(d.fn,{afterTransition:function(h,i){if(typeof(i)=='undefined'){i=h;h=1}if(!d.Transitions.isSupported()){for(var f=0;f<this.length;f++){i.call(this[f],{type:'aftertransition',elapsedTime:0,propertyName:'',currentTarget:this[f]})}return this}for(var f=0;f<this.length;f++){var j=d(this[f]);var n=j.css('transition-property').split(/,\s*/);var k=j.css('transition-duration');var l=j.css('transition-delay');k=d.Transitions._parseTimes(k);l=d.Transitions._parseTimes(l);var o,m,p,q,r;for(var g=0;g<n.length;g++){o=n[g];m=k[k.length==1?0:g];p=l[l.length==1?0:g];q=p+(m*h);r=m*h/1000;(function(b,c,a,e){setTimeout(function(){d.Transitions.animFrame(function(){i.call(b[0],{type:'aftertransition',elapsedTime:e,propertyName:c,currentTarget:b[0]})})},a)})(j,o,q,r)}}return this},transitionEnd:function(c){for(var a=0;a<this.length;a++){this[a].addEventListener(d.Transitions.getEvent(),function(b){c.call(this,b)})}return this}})}).call(this,jQuery);

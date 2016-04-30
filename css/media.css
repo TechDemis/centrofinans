@@ -1,0 +1,34 @@
+/* print
+----------------------------------------*/
+
+@media print {
+.header,
+.footer,
+.accept__text .btn {
+	display: none;
+}
+}
+
+
+/* 1000
+----------------------------------------*/
+@media only screen and (max-width:1000px){
+	.header__video,
+	.header__logo--menu.header__logo,
+	.slider-abscissa .ico--next,
+	.slider-abscissa .ico--prev {
+		display: none;
+	}
+	.header__cover {
+		display: block;
+	}
+	.about .center {
+		max-width: 900px;
+	}
+	.about-map #map {
+		height: 300px;
+		max-width: 800px;
+		margin: auto;
+	}
+
+}

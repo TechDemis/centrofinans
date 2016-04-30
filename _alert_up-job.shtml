@@ -1,0 +1,129 @@
+		<div class="alert_up__window alert_up__window--jobs alert_up__window--bg alert-jobs">
+			<form class="alert_up__form" action="accept.html">
+				<div class="alert-jobs__nav">
+					<span class="alert-jobs__nav-progress"></span>
+					<ul>
+						<li class="alert-jobs__nav-disk alert-jobs__nav-disk--active"></li>
+						<li class="alert-jobs__nav-disk"></li>
+						<li class="alert-jobs__nav-disk"></li>
+						<li class="alert-jobs__nav-disk"></li>
+					</ul>
+				</div>
+				<div class="alert-jobs__box clr">
+					<div class="alert-jobs__step step-1">
+						<h3>Личные данные</h3>
+						<label class="alert-jobs__input-box clr">
+							<span class="alert-jobs__label">Фамилия<sup>*</sup></span>
+							<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
+						</label>
+						<label class="alert-jobs__input-box clr">
+							<span class="alert-jobs__label">Имя<sup>*</sup></span>
+							<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
+						</label>
+						<label class="alert-jobs__input-box clr">
+							<span class="alert-jobs__label">Отчество<sup>*</sup></span>
+							<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
+						</label>
+						<label class="alert-jobs__input-box clr">
+							<span class="alert-jobs__label">Дата рождения<sup>*</sup></span>
+							<span class="alert-jobs__input"><input class="input alert-jobs__requred mask-date" data-placeholder="дд.мм.гггг"></span>
+						</label>
+						<label class="alert-jobs__input-box clr">
+							<span class="alert-jobs__label">Телефон<sup>*</sup></span>
+							<span class="alert-jobs__input">
+								<i class="ico ico--rus"></i>
+								<input class="input alert-jobs__requred mask-tel">
+							</span>
+						</label>
+						<label class="alert-jobs__input-box clr">
+							<span class="alert-jobs__label">Место рождения<sup>*</sup></span>
+							<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
+						</label>
+						<div class="alert-jobs__input-box clr">
+							<span class="alert-jobs__label alert-jobs__label--pt2">Семейное <br>положение<sup>*</sup></span>
+							<div class="alert-jobs__input">
+								<label class="checkbox checkbox--radio">Холост / Незамужем <input type="radio" class="alert-jobs__requred input-type-radio" name="alert-jobs__sex"></label><br>
+								<label class="checkbox checkbox--radio">Женат / Замужем <input type="radio" class="alert-jobs__requred input-type-radio" name="alert-jobs__sex"></label>
+							</div>
+						</div>
+						<p class="alert-jobs__requred-text pull-left"><sup>*</sup> поля обязательные для заполнения</p>
+						<a class="alert-jobs__btn alert-jobs__btn--next btn btn--red btn--radius pull-right">Далее</a>
+					</div>
+					<div class="alert-jobs__step step-2 hide">
+						<h3>Образование</h3>
+						<div class="alert-jobs__add">
+							<label class="alert-jobs__input-box alert-jobs__add-item clr">
+								<span class="alert-jobs__label">Учебное заведение<sup>*</sup></span>
+								<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
+							</label>
+							<label class="alert-jobs__input-box alert-jobs__add-item clr">
+								<span class="alert-jobs__label">Специальность<sup>*</sup></span>
+								<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
+							</label>
+							<label class="alert-jobs__input-box alert-jobs__add-item clr">
+								<span class="alert-jobs__label">Год окончания<sup>*</sup></span>
+								<span class="alert-jobs__input"><input class="input alert-jobs__requred mask-date" data-placeholder="гггг"></span>
+							</label>
+							<a class="alert-jobs__add-btn"><i class="ico ico--plusik"></i>Добавить место учебы</a>
+						</div>
+						<p class="alert-jobs__requred-text pull-left"><sup>*</sup> поля обязательные для заполнения</p>
+						<a class="alert-jobs__btn alert-jobs__btn--next btn btn--red btn--radius pull-right">Далее</a>
+					</div>
+					<div class="alert-jobs__step step-3 hide">
+						<h3>Опыт работы</h3>
+						<div class="alert-jobs__add">
+							<label class="alert-jobs__input-box alert-jobs__add-item clr">
+								<span class="alert-jobs__label">Компания<sup>*</sup></span>
+								<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
+							</label>
+							<label class="alert-jobs__input-box alert-jobs__add-item clr">
+								<span class="alert-jobs__label">Должность<sup>*</sup></span>
+								<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
+							</label>
+							<div class="alert-jobs__input-box alert-jobs__add-item clr">
+								<span class="alert-jobs__label">Период работы<sup>*</sup></span>
+								<span class="alert-jobs__input">
+									<label class="alert-jobs__input-month-year pull-left">
+										<span class="alert-jobs__input-pref">с</span>
+										<input class="input alert-jobs__requred pull-left mask-date" data-placeholder="мм.гггг">
+									</label>
+									<label class="alert-jobs__input-month-year pull-right">
+										<span class="alert-jobs__input-pref">по</span>
+										<input class="input alert-jobs__requred pull-left mask-date" data-placeholder="мм.гггг">
+									</label>
+								</span>
+							</div>
+							<a class="alert-jobs__add-btn"><i class="ico ico--plusik"></i>Добавить место работы</a>
+						</div>
+						<p class="alert-jobs__requred-text pull-left"><sup>*</sup> поля обязательные для заполнения</p>
+						<a class="alert-jobs__btn alert-jobs__btn--next btn btn--red btn--radius pull-right">Далее</a>
+					</div>
+					<div class="alert-jobs__step step-4 hide">
+						<h3>Дополнительно</h3>
+						<label class="alert-jobs__input-box clr">
+							<span class="alert-jobs__label alert-jobs__label--double-line">Дополнительные <br>навыки</span>
+							<span class="alert-jobs__input"><input class="input"></span>
+						</label>
+						<label class="alert-jobs__input-box clr">
+							<span class="alert-jobs__label alert-jobs__label--double-line">Дополнительная <br>информация</span>
+							<span class="alert-jobs__input"><input class="input"></span>
+						</label>
+						<label class="alert-jobs__input-box clr">
+							<span class="alert-jobs__label">Ввести код<sup>*</sup></span>
+							<span class="alert-jobs__input">
+								<span class="alert-jobs__captcha-img pull-left">
+									<span class="alert-jobs__captcha-img-box table__td align-center align-middle">
+										<img src="img/captcha.png" alt="">
+									</span>
+								</span>
+								<span class="alert-jobs__captcha-input pull-right">
+									<input class="input alert-jobs__requred">
+								</span>
+							</span>
+						</label>
+						<p class="alert-jobs__requred-text pull-left"><sup>*</sup> поля обязательные для заполнения</p>
+						<label class="alert-jobs__btn alert-jobs__btn--next btn btn--red btn--radius pull-right">Отправить<input type="submit" class="hide"></label>
+					</div>
+				</div>
+			</form>
+		</div>

@@ -1,0 +1,38 @@
+	<div class="footer">
+
+		<div class="center clr">
+
+			<a href="/" class="footer__logo pull-left"></a>
+
+			<p class="copyright pull-left">© 2013–2016, ООО МФО «Центрофинанс Групп». <br>Регистрационный номер записи в государственном реестре № 651303111004012.</p>
+
+			<p class="pull-right">
+				<a class="footer__tel" href="tel:88007773737">8 800 777-37-37</a>
+				<a class="footer__mail" href="mailto:info@centrofinans.ru">info@centrofinans.ru</a>
+			</p>
+
+			<ul class="footer-social pull-right">
+				<li><a class="footer-social__btn footer-social__btn--vk" href="http://vk.com" target="_blank" rel="nofollow"></a></li>
+				<li><a class="footer-social__btn footer-social__btn--ok" href="http://ok.ru" target="_blank" rel="nofollow"></a></li>
+				<li><a class="footer-social__btn footer-social__btn--facebook" href="http://facebook.com" target="_blank" rel="nofollow"></a></li>
+				<li><a class="footer-social__btn footer-social__btn--twitter" href="http://twitter.com" target="_blank" rel="nofollow"></a></li>
+			</ul>
+
+		</div>
+
+	</div>
+
+<!--#include virtual="/_alert_up.shtml"-->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="../js/jquery.min.js"><\/script>')</script>
+	<script src="../js/jquery-ui.min.js"></script>
+	<script src="../js/jquery.ui.touch-punch.min.js"></script>
+	<script src="../js/jquery.maskedinput.min.js"></script>
+	<script src="../js/jquery.jscrollpane.min.js"></script>
+	<script src="../js/jquery.mousewheel.min.js"></script>
+	<script src="../js/js.js"></script>
+	<script src="js/lk.js"></script>
+
+</body>
+</html>

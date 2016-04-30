@@ -1,287 +1,68 @@
 	<div class="alert_up alert_up--hide">
 
-<!--#if expr='$lk!=1' -->
+<!--#if expr='$lk=1' -->
 
-		<div class="alert_up__window alert_up__window--lk alert-lk">
-			<form class="alert-lk__form">
-				<h3>Личный кабинет</h3>
-				<label class="alert-lk__inputbox">
-					<input class="input mask-tel" placeholder="+7 (___) ___ __ __">
-					<i class="ico ico--rus"></i>
-				</label>
-				<input class="input" type="password">
-				<label class="btn btn--red btn--block">Войти<input type="submit" class="hide"></label>
-			</form>
-			<p class="alert-lk__foot">
-				<a class="btn-alert_up" data-alert-up="lk-reset">Забыли пароль?</a>
-				<span class="alert-lk__foot-sep"></span>
-				Нет аккаунта? <a class="btn-alert_up" data-alert-up="lk-reg">Зарегистрируйтесь</a>
-			</p>
-			<a class="alert_up__close ico ico--close"></a>
-		</div>
+<!--#include file="_alert_up-lk.shtml"-->
 
-		<div class="alert_up__window alert_up__window--lk-reset alert-lk">
-			<form class="alert-lk__form" onSubmit="recoveryPassword();return false;">
-				<h3>Восстановить пароль</h3>
-				<input class="input" placeholder="Новый пароль" type="password">
-				<label class="btn btn--red btn--block">Подтвердить<input type="submit" class="hide"></label>
-			</form>
-			<p class="alert-lk__foot">Нет аккаунта? <a class="btn-alert_up" data-alert-up="lk-reg">Зарегистрируйтесь</a></p>
-			<a class="alert_up__close ico ico--close"></a>
-			<script>
-			// не знаю как ты будешь обрабатывать формы, поэтому пока написал тут
-			function recoveryPassword(){
-				showAlertUp('lk-kod');
-				timerSec('#alert-lk__repeat-kod-lk');
-			}
-			</script>
-		</div>
+<!--#else-->
 
-		<div class="alert_up__window alert_up__window--lk-kod alert-lk">
-			<form class="alert-lk__form">
-				<h3>Подтверждение</h3>
-				<input class="input" placeholder="Код из SMS">
-				<label class="btn btn--red btn--block">Подтвердить<input type="submit" class="hide"></label>
-				<p class="alert-lk__repeat-kod">
-					Повторно запросить код можно будет <br>через
-					<a class="alert-lk__kod-tictak"><span id="alert-lk__repeat-kod-lk" data-start="30">0:30</span> сек</a>
-					<a class="alert-lk__kod-repeat hide" onClick="timerSec('#alert-lk__repeat-kod-lk')">повторно отправить смс</a>
-				</p>
-			</form>
-			<p class="alert-lk__foot">Нет аккаунта? <a class="btn-alert_up" data-alert-up="lk-reg">Зарегистрируйтесь</a></p>
-			<a class="alert_up__close ico ico--close"></a>
-		</div>
-
-		<div class="alert_up__window alert_up__window--lk-reg alert-lk">
-			<form class="alert-lk__form" onSubmit="checkLogin();return false;">
-				<h3>Регистрация</h3>
-				<label class="alert-lk__inputbox">
-					<input class="input mask-tel" placeholder="+7 (___) ___ __ __">
-					<i class="ico ico--rus"></i>
-				</label>
-				<label class="btn btn--red btn--block mt20">Проверить<input type="submit" class="hide"></label>
-			</form>
-			<p class="alert-lk__foot">Есть аккаунт? <a class="btn-alert_up" data-alert-up="lk">Авторизируйтесь</a></p>
-			<a class="alert_up__close ico ico--close"></a>
-			<script>
-			// не знаю как ты будешь обрабатывать формы, поэтому пока написал тут
-			function checkLogin(){
-				showAlertUp('lk-login_request');
-			}
-			</script>
-		</div>
-
-		<div class="alert_up__window alert_up__window--lk-login_request alert-lk">
-			<div class="alert-lk__form">
-				<h3>Проверка</h3>
-				<span class="alert_up__loading">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="44">
-						<circle stroke="#ff0142" stroke-dasharray="88 80" stroke-linecap="round" stroke-width="4" fill="none" r="19" cy="22" cx="22"/>
-					</svg>
-				</span>
-				<p class="alert-lk__request">Это может занять минуту, мы проверяем Ваш телефон в базе <a onClick="repeatKod()">есть</a> <a class="btn-alert_up" data-alert-up="lk-not-numer">нет</a></p>
-			</div>
-			<p class="alert-lk__foot">Есть аккаунт? <a class="btn-alert_up" data-alert-up="lk">Авторизируйтесь</a></p>
-			<a class="alert_up__close ico ico--close"></a>
-		</div>
-
-		<div class="alert_up__window alert_up__window--lk-not-numer alert-lk">
-			<div class="alert-lk__form">
-				<h3>Проверка</h3>
-				<p class="alert-lk__request-result"><i class="ico ico--triangle"></i>Указанного номера нет в базе данных. За вопросами обратитесь в службу поддержки компании «Центроинанс»</p>
-			</div>
-			<p class="alert-lk__foot">Есть аккаунт? <a class="btn-alert_up" data-alert-up="lk">Авторизируйтесь</a></p>
-			<a class="alert_up__close ico ico--close"></a>
-		</div>
-
-		<div class="alert_up__window alert_up__window--lk-kod-reg alert-lk">
-			<form class="alert-lk__form" onSubmit="setPassword();return false;">
-				<h3>Регистрация</h3>
-				<input class="input" placeholder="Код из SMS">
-				<label class="btn btn--red btn--block">Подтвердить<input type="submit" class="hide"></label>
-				<p class="alert-lk__repeat-kod">
-					Повторно запросить код можно будет <br>через
-					<a class="alert-lk__kod-tictak"><span id="alert-lk__repeat-kod-lk-reg" data-start="59">0:59</span> сек</a>
-					<a class="alert-lk__kod-repeat hide" onClick="timerSec('#alert-lk__repeat-kod-lk-reg')">повторно отправить смс</a>
-				</p>
-			</form>
-			<p class="alert-lk__foot">Есть аккаунт? <a class="btn-alert_up" data-alert-up="lk">Авторизируйтесь</a></p>
-			<a class="alert_up__close ico ico--close"></a>
-			<script>
-			// не знаю как ты будешь обрабатывать формы, поэтому пока написал тут
-			function repeatKod(){
-				showAlertUp('lk-kod-reg');
-				timerSec('#alert-lk__repeat-kod-lk-reg');
-			}
-			function setPassword(){
-				showAlertUp('lk-setpass');
-			}
-			</script>
-			<a class="alert_up__close ico ico--close"></a>
-		</div>
-
-		<div class="alert_up__window alert_up__window--lk-setpass alert-lk">
-			<form class="alert-lk__form">
-				<h3>Регистрация</h3>
-				<input class="input" placeholder="Придумайте пароль" type="password">
-				<label class="btn btn--red btn--block">Проверить<input type="submit" class="hide"></label>
-			</form>
-			<p class="alert-lk__foot">Есть аккаунт? <a class="btn-alert_up" data-alert-up="lk">Авторизируйтесь</a></p>
-			<a class="alert_up__close ico ico--close"></a>
-		</div>
-
-<!--#endif-->
+<!--#include file="_alert_up-login.shtml"-->
 
 		<div class="alert_up__window alert_up__window--help">
 			<h3>Нужна помощь?</h3>
 			<ul class="alert-help alert_up__bg clr">
 				<li>
-					Горячая линия
-					<a class="alert-help__tel" href="tel:88007773737">8 800 777-37-37</a>
+					<a href="tel:88007773737">
+						Горячая линия
+						<span class="alert-help__tel">8 800 777-37-37</span>
+					</a>
 				</li>
 				<li>
-					Задать вопрос
-					<a class="alert-help__mail" href="mailto:info@centrofinans.ru">info@centrofinans.ru</a>
+					<a href="mailto:info@centrofinans.ru">
+						Задать вопрос
+						<span class="alert-help__mail">info@centrofinans.ru</span>
+					</a>
 				</li>
 				<li>
-					Ответы на вопросы
-					<a class="alert-help__btn btn btn--yellow" href="faq.html">Перейти</a>
+					<a href="faq.html">
+						Ответы на вопросы
+						<span class="alert-help__btn btn btn--yellow">Перейти</span>
+					</a>
 				</li>
 			</ul>
 			<a class="alert_up__close ico ico--close"></a>
 		</div>
 
+		<div class="alert_up__window alert_up__window--geo alert-lk">
+			<form class="alert-lk__form">
+				<h3>Выберите регион</h3>
+				<select>
+					<option value="none">Выбрать область</option>
+					<option value="1" selected="selected">Архангельская область</option>
+					<option value="2">Астраханская область</option>
+					<option value="3">Белгородская область</option>
+					<option value="4">Брянская область</option>
+					<option value="5">Владимирская область</option>
+					<option value="6">Великий Новгород</option>
+					<option value="7">Волгоградская область</option>
+					<option value="8">Вологодская область</option>
+					<option value="9">Воронежская область</option>
+				</select>
+				<select>
+					<option value="none">Выбрать город</option>
+					<option value="1">Архангельск</option>
+				</select>
+				<label class="btn btn--red btn--block">Выбрать<input type="submit" class="hide"></label>
+			</form>
+			<a class="alert_up__close ico ico--close"></a>
+		</div>
+
+<!--#endif-->
+
+
 <!--#if expr='$alert_jobs=show' -->
 
-		<div class="alert_up__window alert_up__window--jobs alert_up__window--bg alert-jobs">
-			<form class="alert_up__form" action="accept.html">
-				<div class="alert-jobs__nav">
-					<span class="alert-jobs__nav-progress"></span>
-					<ul>
-						<li class="alert-jobs__nav-disk alert-jobs__nav-disk--active"></li>
-						<li class="alert-jobs__nav-disk"></li>
-						<li class="alert-jobs__nav-disk"></li>
-						<li class="alert-jobs__nav-disk"></li>
-					</ul>
-				</div>
-				<div class="alert-jobs__box clr">
-					<div class="alert-jobs__step step-1">
-						<h3>Личные данные</h3>
-						<label class="alert-jobs__input-box clr">
-							<span class="alert-jobs__label">Фамилия<sup>*</sup></span>
-							<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
-						</label>
-						<label class="alert-jobs__input-box clr">
-							<span class="alert-jobs__label">Имя<sup>*</sup></span>
-							<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
-						</label>
-						<label class="alert-jobs__input-box clr">
-							<span class="alert-jobs__label">Отчество<sup>*</sup></span>
-							<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
-						</label>
-						<label class="alert-jobs__input-box clr">
-							<span class="alert-jobs__label">Дата рождения<sup>*</sup></span>
-							<span class="alert-jobs__input"><input class="input alert-jobs__requred mask-date" data-placeholder="дд.мм.гггг"></span>
-						</label>
-						<label class="alert-jobs__input-box clr">
-							<span class="alert-jobs__label">Телефон<sup>*</sup></span>
-							<span class="alert-jobs__input">
-								<i class="ico ico--rus"></i>
-								<input class="input alert-jobs__requred mask-tel">
-							</span>
-						</label>
-						<label class="alert-jobs__input-box clr">
-							<span class="alert-jobs__label">Место рождения<sup>*</sup></span>
-							<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
-						</label>
-						<div class="alert-jobs__input-box clr">
-							<span class="alert-jobs__label alert-jobs__label--pt2">Семейное <br>положение<sup>*</sup></span>
-							<div class="alert-jobs__input">
-								<label class="checkbox checkbox--radio">Холост / Незамужем <input type="radio" class="alert-jobs__requred input-type-radio" name="alert-jobs__sex"></label><br>
-								<label class="checkbox checkbox--radio">Женат / Замужем <input type="radio" class="alert-jobs__requred input-type-radio" name="alert-jobs__sex"></label>
-							</div>
-						</div>
-						<p class="alert-jobs__requred-text pull-left"><sup>*</sup> поля обязательные для заполнения</p>
-						<a class="alert-jobs__btn alert-jobs__btn--next btn btn--red btn--radius pull-right">Далее</a>
-					</div>
-					<div class="alert-jobs__step step-2 hide">
-						<h3>Образование</h3>
-						<div class="alert-jobs__add">
-							<label class="alert-jobs__input-box alert-jobs__add-item clr">
-								<span class="alert-jobs__label">Учебное заведение<sup>*</sup></span>
-								<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
-							</label>
-							<label class="alert-jobs__input-box alert-jobs__add-item clr">
-								<span class="alert-jobs__label">Специальность<sup>*</sup></span>
-								<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
-							</label>
-							<label class="alert-jobs__input-box alert-jobs__add-item clr">
-								<span class="alert-jobs__label">Год окончания<sup>*</sup></span>
-								<span class="alert-jobs__input"><input class="input alert-jobs__requred mask-date" data-placeholder="гггг"></span>
-							</label>
-							<a class="alert-jobs__add-btn"><i class="ico ico--plusik"></i>Добавить место учебы</a>
-						</div>
-						<p class="alert-jobs__requred-text pull-left"><sup>*</sup> поля обязательные для заполнения</p>
-						<a class="alert-jobs__btn alert-jobs__btn--next btn btn--red btn--radius pull-right">Далее</a>
-					</div>
-					<div class="alert-jobs__step step-3 hide">
-						<h3>Опыт работы</h3>
-						<div class="alert-jobs__add">
-							<label class="alert-jobs__input-box alert-jobs__add-item clr">
-								<span class="alert-jobs__label">Компания<sup>*</sup></span>
-								<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
-							</label>
-							<label class="alert-jobs__input-box alert-jobs__add-item clr">
-								<span class="alert-jobs__label">Должность<sup>*</sup></span>
-								<span class="alert-jobs__input"><input class="input alert-jobs__requred"></span>
-							</label>
-							<div class="alert-jobs__input-box alert-jobs__add-item clr">
-								<span class="alert-jobs__label">Период работы<sup>*</sup></span>
-								<span class="alert-jobs__input">
-									<label class="alert-jobs__input-month-year pull-left">
-										<span class="alert-jobs__input-pref">с</span>
-										<input class="input alert-jobs__requred pull-left mask-date" data-placeholder="мм.гггг">
-									</label>
-									<label class="alert-jobs__input-month-year pull-right">
-										<span class="alert-jobs__input-pref">по</span>
-										<input class="input alert-jobs__requred pull-left mask-date" data-placeholder="мм.гггг">
-									</label>
-								</span>
-							</div>
-							<a class="alert-jobs__add-btn"><i class="ico ico--plusik"></i>Добавить место работы</a>
-						</div>
-						<p class="alert-jobs__requred-text pull-left"><sup>*</sup> поля обязательные для заполнения</p>
-						<a class="alert-jobs__btn alert-jobs__btn--next btn btn--red btn--radius pull-right">Далее</a>
-					</div>
-					<div class="alert-jobs__step step-4 hide">
-						<h3>Дополнительно</h3>
-						<label class="alert-jobs__input-box clr">
-							<span class="alert-jobs__label alert-jobs__label--double-line">Дополнительные <br>навыки</span>
-							<span class="alert-jobs__input"><input class="input"></span>
-						</label>
-						<label class="alert-jobs__input-box clr">
-							<span class="alert-jobs__label alert-jobs__label--double-line">Дополнительная <br>информация</span>
-							<span class="alert-jobs__input"><input class="input"></span>
-						</label>
-						<label class="alert-jobs__input-box clr">
-							<span class="alert-jobs__label">Ввести код<sup>*</sup></span>
-							<span class="alert-jobs__input">
-								<span class="alert-jobs__captcha-img pull-left">
-									<span class="alert-jobs__captcha-img-box table__td align-center align-middle">
-										<img src="img/captcha.png" alt="">
-									</span>
-								</span>
-								<span class="alert-jobs__captcha-input pull-right">
-									<input class="input alert-jobs__requred">
-								</span>
-							</span>
-						</label>
-						<p class="alert-jobs__requred-text pull-left"><sup>*</sup> поля обязательные для заполнения</p>
-						<label class="alert-jobs__btn alert-jobs__btn--next btn btn--red btn--radius pull-right">Отправить<input type="submit" class="hide"></label>
-					</div>
-				</div>
-			</form>
-		</div>
+<!--#include file="_alert_up-job.shtml"-->
 
 <!--#endif-->
 

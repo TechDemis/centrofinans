@@ -1,0 +1,41 @@
+		<div class="pull-left w300">
+
+			<a href="index.html" class="lk-box loan-info">
+
+				<span class="lk-label lk-label--yellow">действует</span>
+				<div class="loan-info__number">92348457519</div>
+
+				<div class="loan-info__detals loan-info__detals--mini">
+					<i class="ico ico--arrow-left"></i>
+					<i class="ico ico--rub"></i>
+					<i class="ico ico--calendar"></i>
+					<ul class="loan-info__data">
+						<li><span class="loan-info__data-value">50 000</span> руб.</li>
+						<li><span class="loan-info__data-value">18</span> дней</li>
+					</ul>
+				</div>
+
+			</a>
+
+			<div class="lk-box lk-card notsel">
+
+				<span class="lk-card__type"><i class="ico ico-card-silver"></i></span>
+				<i class="ico ico--arrow-up hide"></i>
+				<i class="ico ico--arrow-down"></i>
+				<a class="lk-card__name">Серебрянная карта</a>
+
+			</div>
+
+			<div class="lk-box lk-card-detals hide">
+
+				<ul class="lk-card-detals__ul">
+					<li>Макс. сумма займа <span class="lk-card-detals__value">30 000 руб.</span></li>
+					<li>Макс. срок займа <span class="lk-card-detals__value">31 день</span></li>
+					<li>Плата за заём <span class="lk-card-detals__value">0,9% в день</span></li>
+				</ul>
+
+				<a href="card.html" class="btn btn--yellow btn--radius">Хочу золотую карту</a>
+
+			</div>
+
+		</div>

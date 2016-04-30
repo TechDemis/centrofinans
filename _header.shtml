@@ -5,9 +5,12 @@
 	<meta charset="utf-8">
 	<link href="css/default.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-	<meta name="viewport" content="width=980">
-	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link href="css/media.css" rel="stylesheet">
 	<link rel="apple-touch-icon-precomposed" href="/favicon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="description" content="<!--#echo var='description' -->">
+	<meta name="keywords" content="<!--#echo var='keywords' -->">
 </head>
 
 <body>
@@ -59,13 +62,8 @@
 			<div class="pull-right">
 
 				<a class="header__help pull-right underline btn-alert_up" data-alert-up="help"><i class="ico <!--#if expr='$header=white' -->ico--help<!--#else-->ico--help-black<!--#endif-->"></i>Помощь</a>
-				<a class="header__address-office pull-right underline"><i class="ico <!--#if expr='$header=white' -->ico--geo<!--#else-->ico--geo-black<!--#endif-->"></i>Адреса офисов</a>
-				<div class="header__city pull-left">
-					<select>
-						<option value="1">Москва</option>
-						<option value="2" selected="selected">Санкт-Петербург</option>
-					</select>
-				</div>
+				<a class="header__address-office pull-right underline" href="office.html"><i class="ico <!--#if expr='$header=white' -->ico--geo<!--#else-->ico--geo-black<!--#endif-->"></i>Адреса офисов</a>
+				<a class="header__btn-city pull-left btn-alert_up" data-alert-up="geo"><i class="ico ico--map-mark<!--#if expr='$header=white' -->-white<!--#endif-->"></i><span>Санкт-Петербург</span></a>
 
 			</div>
 
