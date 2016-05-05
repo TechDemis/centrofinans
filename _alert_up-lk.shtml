@@ -7,6 +7,32 @@
 			<a class="alert_up__close ico ico--close"></a>
 		</div>
 
-		<div class="alert_up__window alert_up__window--profile">
+		<div class="alert_up__window alert_up__window--profile alert-profile">
+			<img class="alert-profile__img" src="/img/profile.png" alt="">
+			<p class="alert-profile__name">Иванов Михаил Федорович</p>
+			<p class="alert-profile__tel"><a href="tel:+79166284343"><i class="ico ico--rus"></i>+7 (916) 628-43-43</a></p>
+			<div class="alert-profile__card">
+				<div class="lk-box lk-card">
+					<span class="lk-card__type"><i class="ico ico-card-silver"></i></span>
+					<span class="lk-card__name">Серебрянная карта</span>
+				</div>
+				<div class="lk-box lk-card-detals">
+					<ul class="lk-card-detals__ul">
+						<li>Макс. сумма займа <span class="lk-card-detals__value">30 000 руб.</span></li>
+						<li>Макс. срок займа <span class="lk-card-detals__value">31 день</span></li>
+						<li>Плата за заём <span class="lk-card-detals__value">0,9% в день</span></li>
+					</ul>
+					<a class="btn btn--yellow btn--radius" href="card.html">Хочу золотую карту</a>
+				</div>
+			</div>
 			<a class="alert_up__close ico ico--close"></a>
+		</div>
+
+		<div class="alert_up__window alert_up__window--refund alert-refund">
+			<h3>Способы погашения</h3>
+			<ul>
+				<li><a href="/"><i class="ico ico--yandex-big"></i>Яндекс.Деньги</a></li>
+				<li><a href="/"><i class="ico ico--qiwi-big"></i>Qiwi</a></li>
+				<li><a href="/"><i class="ico ico--webmoney-big"></i>WebMoney</a></li>
+			</ul>
 		</div>

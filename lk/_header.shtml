@@ -27,7 +27,7 @@
 				<li<!--#if expr='$page=history' --> class="menu-lk__current"<!--#endif-->><a href="history.html">История займов</a></li>
 				<li<!--#if expr='$page=card' --> class="menu-lk__current"<!--#endif-->><a href="card.html">Карты</a></li>
 				<li<!--#if expr='$page=spec' --> class="menu-lk__current"<!--#endif-->><a href="spec.html">Спецпредложения</a></li>
-				<li class="menu-lk__sep"><a href="lk" class="btn btn--yellow">Новая заявка</a></li>
+				<li class="menu-lk__sep"><a href="new.html" class="btn btn--yellow">Новая заявка</a></li>
 			</ul>
 
 		</div>

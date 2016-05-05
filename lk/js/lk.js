@@ -52,4 +52,11 @@ var circleSet;
 		$(this).toggleClass('lk-card--active').next('.lk-card-detals').toggleClass('hide');
 	});
 
+	$('.ahtung-block__title').on('click',function(){
+		$(this).hasClass('ahtung-block__title--active')?
+			$(this).next().slideUp():
+			$(this).next().slideDown();
+		$(this).toggleClass('ahtung-block__title--active');
+	});
+
 })(jQuery);

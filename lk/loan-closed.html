@@ -1,5 +1,6 @@
-<!--#set var="page" value="lk" -->
-<!--#set var="title" value="Личный кабинет" -->
+<!--#set var="page" value="history" -->
+<!--#set var="left" value="loan_closed" -->
+<!--#set var="title" value="Займ закрыт" -->
 
 <!--#include file="_header.shtml"-->
 
@@ -34,22 +35,11 @@
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
 								<g transform="rotate(-90 100 100)">
 									<circle stroke="#e7e9eb" stroke-width="12" fill="none" r="80" cy="100" cx="100" class="circle__bg"/>
-									<circle stroke="#2a3246" stroke-width="12" fill="none" r="80" cy="100" cx="100" class="circle__ok"/>
+									<circle stroke="#ff0142" stroke-width="12" fill="none" r="80" cy="100" cx="100" class="circle__ok"/>
 								</g>
 							</svg>
-							<span class="circle__title">Займ погашен на: <span class="circle__value">75</span></span>
+							<span class="circle__title">Займ погашен на: <span class="circle__value">100</span></span>
 						</div>
-					</div>
-					<div class="lk-box__body lk-box__bt lk-box__bb lk-box__f7f6fa">
-						<div class="table table--lk">
-							<ul class="table__tr">
-								<li class="table__td">Осталось: <span class="table--lk__b"><span class="table--lk__v">35 750</span> руб.</span></li>
-								<li class="table__td">Выплачено: <span class="table--lk__b"><span class="table--lk__v">12 250</span> руб.</span></li>
-							</ul>
-						</div>
-					</div>
-					<div class="lk-box__foot">
-						<a class="btn btn--red btn--radius btn-alert_up" data-alert-up="refund">Внести платеж</a>
 					</div>
 
 				</div>
@@ -60,12 +50,6 @@
 
 				<div class="lk-box loan-calendar">
 
-					<div class="lk-box__head lk-box__bb lk-box__fafafb">
-						<label class="lk-box__checkbox">
-							Погасить одним платежом
-							<span class="checkbox checkbox--iphone"><input type="checkbox" id="toggle-loan-history"></span>
-						</label>
-					</div>
 					<div class="lk-box__body lk-box__body--p0">
 						<ul class="loan-history">
 							<li class="loan-history__title">График оплат</li>
@@ -124,36 +108,9 @@
 									<a href="print.html" target="_blank" class="loan-history-list__download"><i class="ico ico--download"></i>Скачать</a>
 								</div>
 							</li>
-							<li class="loan-history__sep"></li>
-							<li>
-								<div class="loan-history__box">
-									<span class="loan-history__numer">3</span>
-									<i class="ico ico--arrow-right"></i>
-									<span class="loan-history__date">23 апреля 2016 (включительно)</span>
-									<div class="loan-history__summ">2 250,00</div>
-								</div>
-							</li>
-							<li class="lk-box__f7f6fa">
-								<div class="loan-history__box">
-									<span class="loan-history__numer">4</span>
-									<i class="ico ico--arrow-right"></i>
-									<span class="loan-history__date">23 мая 2016 (включительно)</span>
-									<div class="loan-history__summ">8 250,00</div>
-								</div>
-							</li>
-						</ul>
-						<ul class="loan-history loan-history--all hide">
-							<li class="loan-history__title">График оплат</li>
-							<li class="lk-box__f7f6fa">
-								<div class="loan-history__box">
-									<span class="loan-history__numer">1</span>
-									<i class="ico ico--arrow-right"></i>
-									<span class="loan-history__date">23 мая 2016 (включительно)</span>
-									<div class="loan-history__summ">10 500,00</div>
-								</div>
-							</li>
 						</ul>
 					</div>
+					<div class="lk-box__foot"></div>
 
 				</div>
 

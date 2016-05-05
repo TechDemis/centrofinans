@@ -2,7 +2,13 @@
 
 			<a href="index.html" class="lk-box loan-info">
 
+<!--#if expr='$left=loan_closed' -->
+				<span class="lk-label lk-label--gray">закрыт</span>
+<!--#elif expr='$left=loan_overdue' -->
+				<span class="lk-label lk-label--red">просрочен</span>
+<!--#else-->
 				<span class="lk-label lk-label--yellow">действует</span>
+<!--#endif-->
 				<div class="loan-info__number">92348457519</div>
 
 				<div class="loan-info__detals loan-info__detals--mini">
